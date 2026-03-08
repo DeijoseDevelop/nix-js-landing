@@ -550,6 +550,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      min-width: 0; /* Previene overflow en grids */
     }
 
     .code-text h3 {
@@ -599,6 +600,8 @@
       background: #0d0d14;
       border: 1px solid var(--border);
       overflow: hidden;
+      width: 100%;
+      max-width: 100%; /* Garantiza que no expanda el contenedor grid */
     }
 
     .code-header {
@@ -634,6 +637,7 @@
     .code-body {
       padding: 24px;
       overflow-x: auto;
+      max-width: 100%;
     }
 
     .code-body pre {
@@ -641,6 +645,7 @@
       font-size: 0.82rem;
       line-height: 1.8;
       color: var(--text-secondary);
+      margin: 0;
     }
 
     .code-body .kw { color: var(--accent-light); }
@@ -678,6 +683,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       position: relative;
+      min-width: 0;
     }
 
     .playground-card {
@@ -686,6 +692,7 @@
       border: 1px solid var(--border);
       overflow: hidden;
       transition: all 0.3s;
+      width: 100%;
     }
 
     .playground-card:hover {
@@ -741,6 +748,7 @@
       color: var(--text-secondary);
       border-bottom: 1px solid var(--border);
       min-height: 160px;
+      overflow-x: auto;
     }
 
     .playground-output {
@@ -789,6 +797,8 @@
     .demo-buttons {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .demo-btn {
@@ -854,6 +864,7 @@
       font-size: 0.85rem;
       outline: none;
       transition: border-color 0.2s;
+      min-width: 0; /* previene desbordamiento del flex */
     }
 
     .demo-todo-input:focus {
@@ -884,11 +895,18 @@
       border: 1px solid var(--border);
       font-size: 0.85rem;
       animation: slideIn 0.2s ease-out;
+      gap: 8px;
     }
 
     @keyframes slideIn {
       from { opacity: 0; transform: translateX(-10px); }
       to { opacity: 1; transform: translateX(0); }
+    }
+
+    .demo-todo-item span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .demo-todo-item.done span {
@@ -899,6 +917,7 @@
     .demo-todo-item-actions {
       display: flex;
       gap: 4px;
+      flex-shrink: 0;
     }
 
     .demo-todo-btn {
@@ -986,6 +1005,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       transition: all 0.3s;
+      min-width: 0;
     }
 
     .feature-card:hover {
@@ -1327,7 +1347,7 @@
       transform: translateY(0);
     }
 
-    /* ===== RESPONSIVE ===== */
+    /* ===== RESPONSIVE TWEAKS ===== */
     @media (max-width: 1024px) {
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .code-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -1336,6 +1356,7 @@
     }
 
     @media (max-width: 768px) {
+      /* Navbar adjustments */
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
       
@@ -1352,22 +1373,46 @@
         gap: 16px;
       }
 
+      /* Grid / Layout */
       .why-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .playground-grid { grid-template-columns: 1fr; }
       
-      .hero { padding: 100px 24px 60px; min-height: auto; }
-      .section { padding: 80px 24px; }
+      /* Spacing / Typography */
+      .container { padding: 0 16px; }
+      .hero { padding: 100px 16px 60px; min-height: auto; }
+      .section { padding: 80px 16px; }
+      .section-title { font-size: 2.2rem; }
 
-      .hero-actions { flex-direction: column; }
+      /* Buttons */
+      .hero-actions { flex-direction: column; width: 100%; }
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
 
+      /* Tables */
       .comparison-table-wrapper { overflow-x: auto; }
       .comparison-table { min-width: 700px; }
 
+      /* Footer */
       .footer .container { flex-direction: column; text-align: center; }
       .footer-left { flex-direction: column; }
+      
+      /* ========================================= */
+      /* FIX: Code Tabs para móviles               */
+      /* ========================================= */
+      .code-tabs {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Forzar estructura 2x2 */
+        gap: 4px;
+        padding: 4px;
+      }
 
-      .playground-grid { grid-template-columns: 1fr; }
+      .code-tab {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.8rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -1410,7 +1455,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.1.1 — Now with Query Invalidation
+        v1.1.3 — Now with Query Invalidation
       </div>
       <h1>
         Build reactive UIs<br>
@@ -2219,8 +2264,6 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
     
     // --- Demo 2: Todo App ---
     function TodoDemo() {
-      // FIX: Las propiedades internas que cambian dinámicamente ("done") ahora son Signals propios
-      // de esta manera demostramos la reactividad de grano fino sin re-evaluar todo el nodo <li>
       const todos = signal([
         { id: 1, text: 'Learn Nix.js signals', done: signal(true) },
         { id: 2, text: 'Build a reactive app', done: signal(false) },
@@ -2239,7 +2282,6 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
       };
 
       const toggleTodo = (id) => {
-        // Obtenemos el elemento original y solo mutamos su signal "done"
         const item = todos.peek().find(t => t.id === id);
         if (item) item.done.value = !item.done.value;
       };
@@ -2283,8 +2325,6 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
 
     // --- Demo 3: Live Clock App ---
     class ClockDemo extends NixComponent {
-      // FIX: Guardamos una instancia de Date y sumamos nosotros el tiempo manualmente.
-      // Así emula el comportamiento de pausarse correctamente y no salta a la "hora real".
       currentDate = new Date();
       time = signal(this.currentDate.toLocaleTimeString());
       running = signal(true);
@@ -2312,7 +2352,6 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
 
       onMount() {
         this.start();
-        // Efecto reactivo que se desencadena cuando `time` cambia
         const dispose = effect(() => {
           this.time.value; // suscribir
           this.ticks.update(n => n + 1);
