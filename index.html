@@ -3745,10 +3745,10 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
     const tooltip = document.getElementById('tooltip');
     installCmd.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText('npm install @deijose/nix-js');
+        await navigator.clipboard.writeText('npm create nix-app@latest');
       } catch {
         const ta = document.createElement('textarea');
-        ta.value = 'npm install @deijose/nix-js';
+        ta.value = 'npm create nix-app@latest';
         document.body.appendChild(ta);
         ta.select();
         document.execCommand('copy');
