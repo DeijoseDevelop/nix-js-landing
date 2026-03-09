@@ -74,6 +74,30 @@
       --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     }
 
+    /* ===== SCROLLBAR STYLING ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-light);
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-light) transparent;
+    }
+
     html {
       scroll-behavior: smooth;
       font-size: 16px;
@@ -1449,11 +1473,17 @@
 
     @media (max-width: 768px) {
       .pipeline {
-        gap: 0;
+        justify-content: flex-start;
+        /* SOLUCIÓN: Inicia desde la izquierda para que el scroll funcione bien */
+        padding-bottom: 16px;
+        /* Espacio visual para la barra de desplazamiento */
       }
 
       .pipeline-step {
-        min-width: 110px;
+        min-width: 120px;
+        /* Un poco más de espacio */
+        flex: 0 0 auto;
+        /* Obliga a mantener su tamaño y permite el scroll correcto */
       }
 
       .pipeline-icon {
