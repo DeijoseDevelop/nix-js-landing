@@ -1050,6 +1050,575 @@
       border: 1px solid rgba(255,255,255,0.04);
     }
 
+    /* ===== QUICK START ===== */
+    .quickstart-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      padding: 36px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+
+    .step-card:hover { background: var(--bg-card-hover); }
+
+    .step-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-number::before {
+      content: '';
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(124,92,252,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: var(--accent-light);
+    }
+
+    .step-card:nth-child(1) .step-number::before { content: '1'; }
+    .step-card:nth-child(2) .step-number::before { content: '2'; }
+    .step-card:nth-child(3) .step-number::before { content: '3'; }
+
+    .step-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin: 0;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .step-code {
+      background: #0d0d14;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      flex-grow: 1;
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    .quickstart-note {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(124,92,252,0.15);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .quickstart-note svg { flex-shrink: 0; color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-section {
+      background: var(--bg-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(124,92,252,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 48px;
+      overflow-x: auto;
+    }
+
+    .pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      min-width: 150px;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .pipeline-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pipeline-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+
+    .pipeline-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 8px;
+    }
+
+    .pipeline-arrow {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 24px;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    .how-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-feat {
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .how-feat:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+
+    .how-feat-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .how-feat p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .how-features { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .pipeline { gap: 0; }
+      .pipeline-step { min-width: 110px; }
+      .pipeline-icon { width: 50px; height: 50px; font-size: 1.2rem; }
+      .how-features { grid-template-columns: 1fr; }
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .faq-sidebar h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .faq-sidebar p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .faq-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      transition: gap 0.2s;
+    }
+
+    .faq-contact:hover { gap: 12px; }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .faq-item {
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item.open {
+      border-color: var(--border-light);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      gap: 16px;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--accent-light); }
+    .faq-item.open .faq-question { color: var(--accent-light); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background: var(--accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, background 0.2s;
+      color: var(--accent-light);
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      background: var(--accent);
+      color: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .faq-answer-inner code {
+      font-family: var(--font-mono);
+      font-size: 0.82em;
+      color: var(--accent-light);
+      background: var(--accent-subtle);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .faq-answer-inner a {
+      color: var(--accent-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1024px) {
+      .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ===== INSPIRED BY ===== */
+    .inspired-section {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inspired-section::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .inspired-section::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124, 92, 252, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .inspired-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .inspired-card {
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .inspired-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--card-color-a, transparent) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .inspired-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-light);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+
+    .inspired-card:hover::before { opacity: 1; }
+
+    .inspired-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .inspired-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .inspired-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+
+    .inspired-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .inspired-card-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .inspired-card-concept {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .inspired-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .inspired-card-code {
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.35);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.04);
+      flex-grow: 1;
+    }
+
+    .inspired-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: gap 0.2s;
+      text-decoration: none;
+      align-self: flex-start;
+    }
+
+    .inspired-card-link:hover { gap: 10px; }
+
+    .inspired-quote {
+      margin-top: 48px;
+      padding: 32px 40px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .inspired-quote p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .inspired-quote p strong {
+      color: var(--text-primary);
+      font-style: normal;
+    }
+
+    .inspired-quote-source {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .inspired-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .inspired-grid { grid-template-columns: 1fr; }
+      .inspired-quote { padding: 24px; }
+    }
+
     /* ===== COMPARISON ===== */
     .comparison {
       background: var(--bg-secondary);
@@ -1432,8 +2001,12 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#playground">Try It</a></li>
         <li><a href="#code">Code</a></li>
+        <li><a href="#quickstart">Quick Start</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#ecosystem">Ecosystem</a></li>
+        <li><a href="#inspired">Inspired By</a></li>
         <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li>
           <a href="https://github.com/DeijoseDevelop/nix-js" class="nav-cta" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -1514,6 +2087,70 @@
       </div>
     </div>
   </div>
+
+  <!-- Quick Start -->
+  <section class="section quickstart-section" id="quickstart">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">🚀 Quick Start</div>
+        <h2 class="section-title">From zero to reactive<br><span class="gradient-text">in three steps.</span></h2>
+        <p class="section-desc">No compiler, no config files, no boilerplate. Just install, write, and go.</p>
+      </div>
+
+      <div class="steps-grid animate-on-scroll">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">Install</div>
+          <h3>Add to your project</h3>
+          <p>One package, zero runtime dependencies. Works with Vite, Webpack, or directly via ESM CDN.</p>
+          <div class="step-code">
+            <span style="color:var(--text-muted)"># npm</span><br>
+            <span style="color:var(--green)">$</span> npm install <span style="color:var(--accent-light)">@deijose/nix-js</span><br><br>
+            <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
+            <span style="color:var(--accent-light)">import</span> { signal } <span style="color:var(--accent-light)">from</span><br>
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js"</span>;
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">Create</div>
+          <h3>Write your component</h3>
+          <p>A plain function returning <code style="color:var(--accent-light);background:var(--accent-subtle);padding:2px 6px;border-radius:4px;font-size:0.82em">html``</code> is all you need. No class, no decorator, no JSX transform.</p>
+          <div class="step-code">
+            <span style="color:var(--accent-light)">import</span> { signal, html } <span style="color:var(--accent-light)">from</span> <span style="color:var(--green)">"@deijose/nix-js"</span>;<br><br>
+            <span style="color:var(--accent-light)">function</span> <span style="color:var(--blue)">App</span>() {<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">const</span> count = <span style="color:var(--blue)">signal</span>(<span style="color:var(--orange)">0</span>);<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">return</span> <span style="color:var(--blue)">html</span><span style="color:var(--green)">`<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;${() => count.value}&lt;/p&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button @click=${() => count.value++}&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click me<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;<br>
+            &nbsp;&nbsp;`</span>;<br>
+            }
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">Mount</div>
+          <h3>Render to the DOM</h3>
+          <p>Call <code style="color:var(--accent-light);background:var(--accent-subtle);padding:2px 6px;border-radius:4px;font-size:0.82em">mount()</code> once. Every signal update after this happens automatically — no re-render calls, no manual DOM updates.</p>
+          <div class="step-code">
+            <span style="color:var(--accent-light)">import</span> { mount } <span style="color:var(--accent-light)">from</span> <span style="color:var(--green)">"@deijose/nix-js"</span>;<br><br>
+            <span style="color:var(--text-muted)">// index.html: &lt;div id="app"&gt;&lt;/div&gt;</span><br><br>
+            <span style="color:var(--blue)">mount</span>(<span style="color:var(--blue)">App</span>(), <span style="color:var(--green)">"#app"</span>);<br><br>
+            <span style="color:var(--text-muted)">// That's it. The app is live. ✓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quickstart-note animate-on-scroll">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>No <code style="color:var(--accent-light);background:rgba(124,92,252,0.12);padding:2px 8px;border-radius:4px">tsconfig.json</code>, no <code style="color:var(--accent-light);background:rgba(124,92,252,0.12);padding:2px 8px;border-radius:4px">vite.config.ts</code>, no <code style="color:var(--accent-light);background:rgba(124,92,252,0.12);padding:2px 8px;border-radius:4px">babel.config.js</code> required — run it straight from the browser with an import map.</span>
+      </div>
+    </div>
+  </section>
 
   <!-- Why Nix -->
   <section class="section" id="features">
@@ -1656,6 +2293,97 @@
           <div class="playground-output" id="demo-clock-root">
              <!-- Renderizado dinamicamente con Nix.js -->
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">⚙️ How It Works</div>
+        <h2 class="section-title">One change. One update.<br><span class="gradient-text">Zero overhead.</span></h2>
+        <p class="section-desc">Under the hood, Nix.js is a four-layer stack. Each layer does exactly one job — signal, compute, bind, render.</p>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="pipeline animate-on-scroll">
+        <!-- signal() -->
+        <div class="pipeline-step">
+          <div class="pipeline-icon" style="background:rgba(124,92,252,0.12);">
+            <span style="font-size:1.5rem">⚡</span>
+          </div>
+          <div class="pipeline-label" style="color:var(--accent-light)">signal()</div>
+          <div class="pipeline-desc">Holds a reactive value. Notifies subscribers on write.</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+
+        <!-- computed() -->
+        <div class="pipeline-step">
+          <div class="pipeline-icon" style="background:rgba(96,165,250,0.12);">
+            <span style="font-size:1.5rem">🔗</span>
+          </div>
+          <div class="pipeline-label" style="color:var(--blue)">computed()</div>
+          <div class="pipeline-desc">Derives a value. Re-runs only when its dependencies change.</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+
+        <!-- effect() -->
+        <div class="pipeline-step">
+          <div class="pipeline-icon" style="background:rgba(52,211,153,0.12);">
+            <span style="font-size:1.5rem">🔄</span>
+          </div>
+          <div class="pipeline-label" style="color:var(--green)">effect()</div>
+          <div class="pipeline-desc">Auto-tracks reads. Re-runs when any tracked signal changes.</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+
+        <!-- html`` -->
+        <div class="pipeline-step">
+          <div class="pipeline-icon" style="background:rgba(251,146,60,0.12);">
+            <span style="font-size:1.5rem">🧩</span>
+          </div>
+          <div class="pipeline-label" style="color:var(--orange)">html``</div>
+          <div class="pipeline-desc">Parses once. Each binding is one effect targeting one DOM node.</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+
+        <!-- DOM -->
+        <div class="pipeline-step">
+          <div class="pipeline-icon" style="background:rgba(244,114,182,0.12);">
+            <span style="font-size:1.5rem">🖥️</span>
+          </div>
+          <div class="pipeline-label" style="color:var(--pink)">DOM Node</div>
+          <div class="pipeline-desc">Only the exact node that changed gets updated. No diffing.</div>
+        </div>
+      </div>
+
+      <!-- Key properties -->
+      <div class="how-features">
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">⚡ <span style="color:var(--accent-light)">Subscription is automatic</span></div>
+          <p>Reading a signal inside <code>effect()</code> or <code>html``</code> automatically registers a subscription. No <code>.subscribe()</code> calls, no decorator, no annotation needed.</p>
+        </div>
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">🔁 <span style="color:var(--green)">Effect = DOM binding</span></div>
+          <p>Each reactive expression inside <code>html``</code> compiles to exactly one <code>effect()</code>. When the signal changes, that one effect updates that one text node or attribute — nothing else.</p>
+        </div>
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">🧹 <span style="color:var(--blue)">Self-cleaning effects</span></div>
+          <p>Before each re-run, an effect disposes its previous subscriptions and runs its cleanup function (if any). Unmounting a component tears down every effect it owns.</p>
+        </div>
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">🎯 <span style="color:var(--orange)">Object.is equality</span></div>
+          <p>Setting a signal to the same value it already holds is a no-op. No downstream effects are triggered, no DOM work happens — not even a microtask.</p>
+        </div>
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">📦 <span style="color:var(--pink)">batch() flushes once</span></div>
+          <p>Multiple signal writes inside <code>batch()</code> queue their effects until the batch ends. All subscribers see a consistent snapshot, and the DOM updates exactly once.</p>
+        </div>
+        <div class="how-feat animate-on-scroll">
+          <div class="how-feat-title">🔒 <span style="color:var(--cyan)">untrack() for reads</span></div>
+          <p>Read a signal with <code>untrack()</code> to get its value without creating a subscription. Useful for reading config or context inside an effect you don't want to re-trigger.</p>
         </div>
       </div>
     </div>
@@ -2126,6 +2854,312 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
     </div>
   </section>
 
+  <!-- Inspired By -->
+  <section class="section inspired-section" id="inspired">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">✦ Standing on the Shoulders of Giants</div>
+        <h2 class="section-title">Inspired by the best.<br><span class="gradient-text">Refined into one.</span></h2>
+        <p class="section-desc">
+          Nix.js didn't emerge in a vacuum. It distills battle-tested ideas from the frameworks that shaped modern UI development — taking what works, discarding the overhead.
+        </p>
+      </div>
+
+      <div class="inspired-grid">
+
+        <!-- Lit -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(32, 120, 244, 0.08)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(32, 120, 244, 0.12); color: #4d94ff;">L</div>
+              <div>
+                <div class="inspired-card-title">Lit</div>
+                <div class="inspired-card-subtitle">google.github.io/lit</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: #4d94ff; border-color: rgba(32,120,244,0.25); background: rgba(32,120,244,0.08);">Tagged Templates</span>
+          </div>
+          <p class="inspired-card-desc">
+            Lit pioneered the idea of using JavaScript's native <strong>tagged template literals</strong> to define HTML templates — no compiler, no JSX, no virtual DOM. Nix.js adopts this exact approach: the <code style="color:var(--accent-light);font-size:0.8em">html``</code> tag parses templates once and wires live bindings directly to real DOM nodes.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// Lit's html tag (the original idea)</span><br>
+            <span style="color:var(--accent-light)">import</span> { html } <span style="color:var(--accent-light)">from</span> <span style="color:var(--green)">'lit'</span>;<br>
+            html<span style="color:var(--green)">`&lt;p&gt;Hello ${name}&lt;/p&gt;`</span>;<br><br>
+            <span style="color:var(--text-muted)">// Nix.js takes the same approach</span><br>
+            <span style="color:var(--accent-light)">import</span> { html } <span style="color:var(--accent-light)">from</span> <span style="color:var(--green)">'@deijose/nix-js'</span>;<br>
+            html<span style="color:var(--green)">`&lt;p&gt;${() => name.value}&lt;/p&gt;`</span>;
+          </div>
+          <a href="https://lit.dev" target="_blank" rel="noopener" class="inspired-card-link" style="color: #4d94ff;">
+            lit.dev
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Solid.js -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(66, 183, 121, 0.08)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(66, 183, 121, 0.12); color: var(--green);">◆</div>
+              <div>
+                <div class="inspired-card-title">Solid.js</div>
+                <div class="inspired-card-subtitle">solidjs.com</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: var(--green); border-color: rgba(52,211,153,0.25); background: var(--green-glow);">Fine-Grained Signals</span>
+          </div>
+          <p class="inspired-card-desc">
+            Solid.js proved that <strong>signal-based fine-grained reactivity</strong> doesn't need a virtual DOM — just wire effects directly to DOM nodes. Nix.js adopts the same reactive core: <code style="color:var(--accent-light);font-size:0.8em">signal()</code>, <code style="color:var(--accent-light);font-size:0.8em">computed()</code>, and <code style="color:var(--accent-light);font-size:0.8em">effect()</code> are the three primitives that power everything.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// Solid.js reactive primitives</span><br>
+            <span style="color:var(--accent-light)">const</span> [count, setCount] = <span style="color:var(--blue)">createSignal</span>(<span style="color:var(--orange)">0</span>);<br>
+            <span style="color:var(--blue)">createEffect</span>(() => console.<span style="color:var(--blue)">log</span>(count()));<br><br>
+            <span style="color:var(--text-muted)">// Nix.js — same concept, unified API</span><br>
+            <span style="color:var(--accent-light)">const</span> count = <span style="color:var(--blue)">signal</span>(<span style="color:var(--orange)">0</span>);<br>
+            <span style="color:var(--blue)">effect</span>(() => console.<span style="color:var(--blue)">log</span>(count.value));
+          </div>
+          <a href="https://www.solidjs.com" target="_blank" rel="noopener" class="inspired-card-link" style="color: var(--green);">
+            solidjs.com
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Vue 3 -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(65, 184, 131, 0.06)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(65, 184, 131, 0.12); color: #42d392;">V</div>
+              <div>
+                <div class="inspired-card-title">Vue 3</div>
+                <div class="inspired-card-subtitle">vuejs.org</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: #42d392; border-color: rgba(65,184,131,0.25); background: rgba(65,184,131,0.08);">Composition API</span>
+          </div>
+          <p class="inspired-card-desc">
+            Vue 3's Composition API introduced <strong>provide/inject</strong>, <code style="color:var(--accent-light);font-size:0.8em">watch()</code>, and typed lifecycle hooks as first-class citizens. Nix.js mirrors this exactly: typed injection keys via <code style="color:var(--accent-light);font-size:0.8em">createInjectionKey()</code>, <code style="color:var(--accent-light);font-size:0.8em">watch()</code> with immediate/once options, and <code style="color:var(--accent-light);font-size:0.8em">onMount</code> / <code style="color:var(--accent-light);font-size:0.8em">onUnmount</code> hooks.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// Vue 3 — provide / inject</span><br>
+            <span style="color:var(--blue)">provide</span>(<span style="color:var(--green)">'theme'</span>, <span style="color:var(--blue)">ref</span>(<span style="color:var(--green)">'dark'</span>));<br>
+            <span style="color:var(--accent-light)">const</span> theme = <span style="color:var(--blue)">inject</span>(<span style="color:var(--green)">'theme'</span>);<br><br>
+            <span style="color:var(--text-muted)">// Nix.js — typed keys</span><br>
+            <span style="color:var(--accent-light)">const</span> THEME = <span style="color:var(--blue)">createInjectionKey</span>&lt;Signal&lt;<span style="color:var(--yellow)">string</span>&gt;&gt;(<span style="color:var(--green)">'theme'</span>);<br>
+            <span style="color:var(--blue)">provide</span>(THEME, <span style="color:var(--blue)">signal</span>(<span style="color:var(--green)">'dark'</span>));
+          </div>
+          <a href="https://vuejs.org" target="_blank" rel="noopener" class="inspired-card-link" style="color: #42d392;">
+            vuejs.org
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- React -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(97, 218, 251, 0.06)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(97,218,251,0.1); color: var(--cyan);">⚛</div>
+              <div>
+                <div class="inspired-card-title">React</div>
+                <div class="inspired-card-subtitle">react.dev</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: var(--cyan); border-color: rgba(34,211,238,0.25); background: rgba(34,211,238,0.08);">Hooks Model</span>
+          </div>
+          <p class="inspired-card-desc">
+            React proved that <strong>function components with colocated state</strong> are more composable than class-only patterns. Nix.js supports both: function components (plain functions + <code style="color:var(--accent-light);font-size:0.8em">html``</code>, zero boilerplate) and class components (<code style="color:var(--accent-light);font-size:0.8em">NixComponent</code>) only when lifecycle hooks are needed.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// React — function component + state</span><br>
+            <span style="color:var(--accent-light)">function</span> <span style="color:var(--blue)">Counter</span>() {<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">const</span> [n, setN] = <span style="color:var(--blue)">useState</span>(<span style="color:var(--orange)">0</span>);<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">return</span> &lt;button onClick={() => setN(n+1)}&gt;{n}&lt;/button&gt;;<br>
+            }<br><br>
+            <span style="color:var(--text-muted)">// Nix.js — no JSX, no compiler</span><br>
+            <span style="color:var(--accent-light)">function</span> <span style="color:var(--blue)">Counter</span>(): <span style="color:var(--yellow)">NixTemplate</span> {<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">const</span> n = <span style="color:var(--blue)">signal</span>(<span style="color:var(--orange)">0</span>);<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">return</span> html<span style="color:var(--green)">`&lt;button @click=${() => n.value++}&gt;${() => n.value}&lt;/button&gt;`</span>;<br>
+            }
+          </div>
+          <a href="https://react.dev" target="_blank" rel="noopener" class="inspired-card-link" style="color: var(--cyan);">
+            react.dev
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Svelte -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(255, 62, 0, 0.06)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(255,62,0,0.12); color: var(--orange);">S</div>
+              <div>
+                <div class="inspired-card-title">Svelte</div>
+                <div class="inspired-card-subtitle">svelte.dev</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: var(--orange); border-color: rgba(251,146,60,0.25); background: rgba(251,146,60,0.08);">CSS Transitions</span>
+          </div>
+          <p class="inspired-card-desc">
+            Svelte's built-in <code style="color:var(--accent-light);font-size:0.8em">transition:</code> directive made animations a first-class concern — without a separate animation library. Nix.js's <code style="color:var(--accent-light);font-size:0.8em">transition()</code> brings the same mental model: CSS class-based enter/leave lifecycle with optional JS hooks and <code style="color:var(--accent-light);font-size:0.8em">appear</code> on first render.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// Svelte — transition directive</span><br>
+            &lt;div <span style="color:var(--blue)">transition:fade</span>&gt;Hello!&lt;/div&gt;<br><br>
+            <span style="color:var(--text-muted)">// Nix.js — same idea, no compiler</span><br>
+            <span style="color:var(--blue)">transition</span>(<br>
+            &nbsp;&nbsp;() => show.value ? html<span style="color:var(--green)">`&lt;p&gt;Hello!&lt;/p&gt;`</span> : <span style="color:var(--accent-light)">null</span>,<br>
+            &nbsp;&nbsp;{ name: <span style="color:var(--green)">'fade'</span>, appear: <span style="color:var(--orange)">true</span> }<br>
+            );
+          </div>
+          <a href="https://svelte.dev" target="_blank" rel="noopener" class="inspired-card-link" style="color: var(--orange);">
+            svelte.dev
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- MobX / Reactivity Pattern -->
+        <div class="inspired-card animate-on-scroll" style="--card-color-a: rgba(244, 114, 182, 0.06)">
+          <div class="inspired-card-header">
+            <div class="inspired-card-meta">
+              <div class="inspired-logo" style="background: rgba(244,114,182,0.12); color: var(--pink);">M</div>
+              <div>
+                <div class="inspired-card-title">MobX &amp; S.js</div>
+                <div class="inspired-card-subtitle">Observer pattern</div>
+              </div>
+            </div>
+            <span class="inspired-card-concept" style="color: var(--pink); border-color: rgba(244,114,182,0.25); background: rgba(244,114,182,0.08);">Auto-tracking</span>
+          </div>
+          <p class="inspired-card-desc">
+            MobX introduced <strong>transparent reactive tracking</strong> — read a value inside a reaction, and you're automatically subscribed, no boilerplate. S.js formalized this into a dependency graph with <code style="color:var(--accent-light);font-size:0.8em">batch()</code> and <code style="color:var(--accent-light);font-size:0.8em">untrack()</code>. Nix.js inherits both: effects auto-track their dependencies and <code style="color:var(--accent-light);font-size:0.8em">untrack()</code> lets you opt out selectively.
+          </p>
+          <div class="inspired-card-code">
+            <span style="color:var(--text-muted)">// Nix.js batch + untrack — from MobX/S.js</span><br>
+            <span style="color:var(--blue)">batch</span>(() => {<br>
+            &nbsp;&nbsp;price.value = <span style="color:var(--orange)">20</span>;&nbsp;&nbsp;<span style="color:var(--text-muted)">// writes queued</span><br>
+            &nbsp;&nbsp;qty.value = <span style="color:var(--orange)">3</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)">// effect runs once</span><br>
+            });<br><br>
+            <span style="color:var(--blue)">effect</span>(() => {<br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">const</span> a = price.value;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)">// tracked</span><br>
+            &nbsp;&nbsp;<span style="color:var(--accent-light)">const</span> b = <span style="color:var(--blue)">untrack</span>(() => qty.value); <span style="color:var(--text-muted)">// not</span><br>
+            });
+          </div>
+          <a href="https://mobx.js.org" target="_blank" rel="noopener" class="inspired-card-link" style="color: var(--pink);">
+            mobx.js.org
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Closing quote -->
+      <div class="inspired-quote animate-on-scroll">
+        <p>
+          The best frameworks aren't built from scratch — they're built on the shoulders of great ideas.
+          Nix.js studies what works across the ecosystem and brings it together: <strong>tagged templates from Lit</strong>,
+          <strong>fine-grained signals from Solid</strong>, <strong>provide/inject from Vue</strong>,
+          <strong>function components from React</strong>, <strong>CSS transitions from Svelte</strong>,
+          and <strong>transparent auto-tracking from MobX</strong> — unified into a single, zero-dependency,
+          compiler-free package that respects your time and your bundle size.
+        </p>
+        <div class="inspired-quote-source">— Design philosophy of Nix.js</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">❓ FAQ</div>
+        <h2 class="section-title">Common questions,<br><span class="gradient-text">straight answers.</span></h2>
+      </div>
+      <div class="faq-layout">
+        <div class="faq-sidebar animate-on-scroll">
+          <h3>Still have questions?</h3>
+          <p>Browse the full documentation or open an issue on GitHub. The community is small but growing fast.</p>
+          <a href="https://github.com/DeijoseDevelop/nix-js" target="_blank" rel="noopener" class="faq-contact">
+            Open an issue on GitHub
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="faq-list animate-on-scroll">
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Can I use Nix.js without TypeScript?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes — Nix.js is plain JavaScript at runtime. TypeScript is optional. You get full type safety when using TS, but the library works identically in a plain <code>.js</code> or even directly in a browser <code>&lt;script type="module"&gt;</code> tag via an import map.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is Nix.js production-ready?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nix.js has 158 passing tests covering the full public API: reactivity, templates, router, stores, forms, DI, portals, error boundaries, and transitions. It ships as a strict TypeScript library with no runtime dependencies. It is a great fit for small-to-medium apps, embedded widgets, and internal tools. For large enterprise apps, evaluate it on your use case.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Does it work with Vite, Webpack, or Parcel?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Nix.js is a standard ES module and works with any bundler that supports ESM — Vite, Webpack 5, Rollup, Parcel, esbuild, Bun. It also runs without a bundler in modern browsers via <code>type="importmap"</code> and <code>https://esm.sh/@deijose/nix-js</code>.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Why not just use React, Vue, or Solid?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Those are great choices for most projects. Choose Nix.js when you want <strong>fine-grained reactivity without a compiler or a virtual DOM</strong>, when bundle size matters (React is ~45 KB gzipped, Vue ~33 KB), or when you want routing, forms, stores, DI, portals, and transitions from <em>one</em> import with no configuration. It's also ideal when you want to understand or extend a framework without fighting a complex compiler.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How do I handle SSR or server-side rendering?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nix.js is a client-side framework and does not currently support SSR. It targets browser environments where the DOM is available. If you need server-side rendering, consider pairing a static HTML shell with Nix.js for client-side hydration, or using a full-stack framework. SSR support is on the long-term roadmap.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <div class="cta-content animate-on-scroll">
@@ -2230,6 +3264,26 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+
+      // toggle clicked
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+    window.toggleFaq = toggleFaq;
   </script>
 
   <!-- LÓGICA DE DEMOS INTERACTIVOS (Nix.js) -->
