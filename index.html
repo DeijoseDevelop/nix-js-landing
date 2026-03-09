@@ -1350,6 +1350,13 @@
       z-index: 1;
       margin-bottom: 48px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .pipeline::-webkit-scrollbar {
+      display: none;
     }
 
     .pipeline-step {
@@ -1450,6 +1457,14 @@
     @media (max-width: 768px) {
       .pipeline {
         gap: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+
+      .pipeline::-webkit-scrollbar {
+        display: none;
       }
 
       .pipeline-step {
