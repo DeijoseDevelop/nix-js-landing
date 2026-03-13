@@ -176,12 +176,12 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 16px; /* Reduced gap from 32px */
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.9rem;
+      font-size: 0.85rem; /* Slightly smaller font */
       color: var(--text-secondary);
       font-weight: 500;
       transition: color 0.2s;
@@ -2279,8 +2279,7 @@
       }
     }
 
-    @media (max-width: 768px) {
-
+    @media (max-width: 1150px) {
       /* Navbar adjustments */
       .nav-links {
         display: none;
@@ -2302,7 +2301,9 @@
         padding: 16px 24px;
         gap: 16px;
       }
+    }
 
+    @media (max-width: 768px) {
       /* Grid / Layout */
       .why-grid {
         grid-template-columns: 1fr;
@@ -2415,6 +2416,7 @@
         <li><a href="#inspired">Inspired By</a></li>
         <li><a href="#comparison">Comparison</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Benchmarks</a></li>
         <li>
           <a href="https://github.com/DeijoseDevelop/nix-js" class="nav-cta" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
