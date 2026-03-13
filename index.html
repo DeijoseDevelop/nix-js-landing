@@ -31,7 +31,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.5.8/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.7.0/+esm"
       }
     }
   </script>
@@ -2444,7 +2444,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.5.8 — The Performance Update
+        v1.7.0 — Dynamic Forms & Enhanced State
       </div>
       <h1>
         Build reactive UIs<br>
@@ -2452,7 +2452,7 @@
       </h1>
       <p class="hero-subtitle">
         A signal-based micro-framework. No virtual DOM, no compiler, no build-time magic.
-        Just signals and tagged templates. <strong>Up to 70% faster rendering in v1.5.8.</strong>
+        Just signals and tagged templates. <strong>Performance-first reactivity.</strong>
       </p>
       <div class="hero-actions">
         <a href="https://www.npmjs.com/package/@deijose/nix-js" class="btn-primary" target="_blank" rel="noopener">
@@ -2486,7 +2486,7 @@
       <div class="ecosystem-bar">
         <span class="eco-badge"><span class="eco-dot ts"></span> TypeScript-first</span>
         <span class="eco-badge"><span class="eco-dot mit"></span> MIT License</span>
-        <span class="eco-badge"><span class="eco-dot test"></span> 158 tests passing</span>
+        <span class="eco-badge"><span class="eco-dot test"></span> 221 tests passing</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~8 KB gzipped</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
@@ -2503,10 +2503,10 @@
       <div class="stat-item">
         
         <div class="stat-value green">-70%</div>
-        <div class="stat-label">Faster Rendering (v1.5.8)</div>
+        <div class="stat-label">Faster Rendering (v1.7.0)</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value orange">158</div>
+        <div class="stat-value orange">221</div>
         <div class="stat-label">Tests passing</div>
       </div>
       <div class="stat-item">
@@ -2538,7 +2538,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.7.0"</span>;
           </div>
         </div>
 
@@ -2909,6 +2909,7 @@
         <button class="code-tab" data-tab="component">Component</button>
         <button class="code-tab" data-tab="router">Router</button>
         <button class="code-tab" data-tab="store">Store</button>
+        <button class="code-tab" data-tab="forms">Forms</button>
       </div>
 
       <!-- Reactivity Tab -->
@@ -3121,6 +3122,54 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
           </div>
         </div>
       </div>
+
+      <!-- Forms Tab -->
+      <div class="tab-panel" id="tab-forms">
+        <div class="code-layout">
+          <div class="code-text animate-on-scroll">
+            <h3>Typed Forms & Dynamic Arrays.</h3>
+            <p>
+              Manage complex forms with ease. Built-in validation, dynamic field arrays,
+              and enhanced state tracking for submission and dirty states.
+            </p>
+            <ul class="code-features">
+              <li><span class="check">✓</span> Typed field validation (Zod/Valibot)</li>
+              <li><span class="check">✓</span> useFieldArray for dynamic lists</li>
+              <li><span class="check">✓</span> validateOn: 'blur' | 'input' | 'submit'</li>
+              <li><span class="check">✓</span> isSubmitting & submitCount tracking</li>
+              <li><span class="check">✓</span> Deeply reactive form state</li>
+            </ul>
+          </div>
+          <div class="code-block animate-on-scroll">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="code-filename">forms.ts</span>
+            </div>
+            <div class="code-body">
+              <pre><span class="kw">import</span> { createForm, useFieldArray, required, email } 
+  <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
+
+<span class="kw">const</span> { form, handleSubmit } = <span class="fn">createForm</span>({
+  name: <span class="str">""</span>,
+  emails: [<span class="str">"test@example.com"</span>]
+}, {
+  validateOn: <span class="str">'blur'</span>,
+  validators: { name: [<span class="fn">required</span>()] }
+});
+
+<span class="cmt">// Dynamic field array for emails</span>
+<span class="kw">const</span> { fields, append, remove } = <span class="fn">useFieldArray</span>(
+  form.emails, 
+  { validators: [<span class="fn">required</span>(), <span class="fn">email</span>()] }
+);
+
+<span class="kw">const</span> onSubmit = <span class="fn">handleSubmit</span>(data => {
+  console.<span class="fn">log</span>(<span class="str">"Form Submitting..."</span>, data);
+});</pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -3139,7 +3188,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <span class="feature-card-icon">📋</span>
             <h3>Form Management</h3>
           </div>
-          <p>Built-in field validation, form handling, and Zod/Valibot interop. Server-side errors auto-clear on edit.
+          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>useFieldArray</code> for dynamic lists.
           </p>
           <code><span style="color:var(--accent-light)">const</span> form = <span style="color:var(--blue)">createForm</span>(
   { name: <span style="color:var(--green)">""</span>, email: <span style="color:var(--green)">""</span> },
@@ -3254,7 +3303,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 1.5.8 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 1.7.0 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -3281,7 +3330,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">220.2ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">603.9ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">66.8ms</span>
@@ -3311,7 +3360,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">286.5ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">567.5ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">89.9ms</span>
@@ -3341,7 +3390,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.8ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">40.1ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">1.4ms <span class="bench-badge b-top">TOP</span></span>
@@ -3371,7 +3420,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.3ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">21.6ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.0ms <span class="bench-badge b-top">TOP</span></span>
@@ -3401,7 +3450,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">53.3ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">380.5ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">25.5ms</span>
@@ -3431,7 +3480,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">43.2ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">307.5ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">28.2ms <span class="bench-badge b-win">WIN</span></span>
@@ -3461,7 +3510,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">1.9ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">44.8ms</span></div></td>
-              <!-- 1.5.8 -->
+              <!-- 1.7.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">1.5ms</span>
@@ -3963,7 +4012,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js has 158 passing tests covering the full public API: reactivity, templates, router, stores, forms,
+                Nix.js has 221 passing tests covering the full public API: reactivity, templates, router, stores, typed forms, dynamic arrays,
                 DI, portals, error boundaries, and transitions. It ships as a strict TypeScript library with no runtime
                 dependencies. It is a great fit for small-to-medium apps, embedded widgets, and internal tools. For
                 large enterprise apps, evaluate it on your use case.
