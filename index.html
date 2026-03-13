@@ -31,7 +31,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.5.6/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.5.8/+esm"
       }
     }
   </script>
@@ -2444,7 +2444,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.5.6 — The Performance Update
+        v1.5.8 — The Performance Update
       </div>
       <h1>
         Build reactive UIs<br>
@@ -2452,7 +2452,7 @@
       </h1>
       <p class="hero-subtitle">
         A signal-based micro-framework. No virtual DOM, no compiler, no build-time magic.
-        Just signals and tagged templates. <strong>Up to 70% faster rendering in v1.5.6.</strong>
+        Just signals and tagged templates. <strong>Up to 70% faster rendering in v1.5.8.</strong>
       </p>
       <div class="hero-actions">
         <a href="https://www.npmjs.com/package/@deijose/nix-js" class="btn-primary" target="_blank" rel="noopener">
@@ -2503,7 +2503,7 @@
       <div class="stat-item">
         
         <div class="stat-value green">-70%</div>
-        <div class="stat-label">Faster Rendering (v1.5.6)</div>
+        <div class="stat-label">Faster Rendering (v1.5.8)</div>
       </div>
       <div class="stat-item">
         <div class="stat-value orange">158</div>
@@ -3254,7 +3254,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 1.5.6 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 1.5.8 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -3281,16 +3281,16 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">220.2ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">603.9ms</span></div></td>
-              <!-- 1.5.6 -->
+              <!-- 1.5.8 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
-                  <span class="v-js">41.6ms <span class="bench-badge b-top">WIN</span></span>
-                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:20%;background:var(--green)"></div></div>
+                  <span class="v-js">66.8ms</span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:37%;background:var(--green)"></div></div>
                 </div>
               </td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">166.2ms</span></div></td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">154.9ms</span></div></td>
               
-              <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--van-col)"></div></div></div></td>
+              <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms <span class="bench-badge b-best">★</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~80ms</span></div></td>
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~65ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:36%;background:var(--so-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~130ms</span></div></td>
@@ -3311,9 +3311,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">286.5ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">567.5ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">64.2ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:35%;background:var(--green)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">169.7ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">89.9ms</span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:48%;background:var(--green)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">201.8ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms <span class="bench-badge b-best">★</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~85ms</span></div></td>
@@ -3336,9 +3341,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.8ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">40.1ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">0.4ms <span class="bench-badge b-top">TOP</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:2%;background:var(--green)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">30.0ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">1.4ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:5%;background:var(--green)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">28.3ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~4ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:24%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~15ms</span></div></td>
@@ -3361,9 +3371,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.3ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">21.6ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">0.1ms <span class="bench-badge b-top">TOP</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:1%;background:var(--green)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">19.2ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">0.0ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:1%;background:var(--green)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">27.9ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~2ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:16%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~8ms</span></div></td>
@@ -3386,9 +3401,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">53.3ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">380.5ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">17.8ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:45%;background:var(--green)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">115.2ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">25.5ms</span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:15%;background:var(--green)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">121.0ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~5ms <span class="bench-badge b-best">★</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:14%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~20ms</span></div></td>
@@ -3411,9 +3431,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">43.2ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">307.5ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">19.1ms <span class="bench-badge b-win">WIN</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:15%;background:var(--accent-light)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">31.0ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">28.2ms <span class="bench-badge b-win">WIN</span></span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:25%;background:var(--accent-light)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">57.8ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~30ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:27%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~50ms</span></div></td>
@@ -3436,9 +3461,14 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <!-- 1.3.0 -->
               <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">1.9ms</span></div></td>
               <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">44.8ms</span></div></td>
-              <!-- 1.5.6 -->
-              <td class="val-cell nix-cell fw-group"><div class="cell-inner"><span class="v-js">1.5ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:12%;background:var(--green)"></div></div></div></td>
-              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">29.6ms</span></div></td>
+              <!-- 1.5.8 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">1.5ms</span>
+                  <div class="mini-bar-wrap"><div class="mini-bar" style="width:12%;background:var(--green)"></div></div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">33.3ms</span></div></td>
               
               <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~1ms <span class="bench-badge b-best">★</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:8%;background:var(--van-col)"></div></div></div></td>
               <td class="val-cell"><div class="cell-inner"><span class="v-full">~5ms</span></div></td>
