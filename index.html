@@ -176,19 +176,93 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 16px; /* Reduced gap from 32px */
+      gap: 24px;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.85rem; /* Slightly smaller font */
+      font-size: 0.9rem;
       color: var(--text-secondary);
       font-weight: 500;
-      transition: color 0.2s;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .nav-links a:hover {
       color: var(--text-primary);
+    }
+
+    /* Dropdown Styles */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dropdown-trigger {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(8px);
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .dropdown-arrow {
+      transition: transform 0.2s;
+      opacity: 0.5;
+    }
+
+    .nav-dropdown:hover .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .badge-new {
+      font-size: 0.65rem;
+      background: var(--accent);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .nav-cta {
@@ -2298,8 +2372,47 @@
         right: 0;
         background: var(--bg-secondary);
         border-bottom: 1px solid var(--border);
-        padding: 16px 24px;
-        gap: 16px;
+        padding: 24px;
+        gap: 8px;
+        max-height: 80vh;
+        overflow-y: auto;
+        align-items: flex-start;
+      }
+
+      .nav-links.open .nav-dropdown {
+        width: 100%;
+      }
+
+      .nav-links.open .dropdown-trigger {
+        padding: 10px 0;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 8px 0 8px 16px;
+        display: block;
+        width: 100%;
+      }
+
+      .nav-links.open .dropdown-menu a {
+        font-size: 1rem;
+        padding: 8px 0;
+      }
+
+      .nav-links.open .nav-cta {
+        margin-top: 16px;
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -2408,15 +2521,30 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
-        <li><a href="#playground">Try It</a></li>
-        <li><a href="#code">Code</a></li>
-        <li><a href="#quickstart">Quick Start</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#ecosystem">Ecosystem</a></li>
-        <li><a href="#inspired">Inspired By</a></li>
-        <li><a href="#comparison">Comparison</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Benchmarks</a></li>
+        <li><a href="#playground">Playground</a></li>
+        <li class="nav-dropdown">
+          <a class="dropdown-trigger">
+            Docs
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#inspired">Inspired By</a></li>
+            <li><a href="#comparison">Comparison</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a class="dropdown-trigger">
+            Ecosystem
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Performance Benchmarks</a></li>
+            <li><a href="https://nix-ui.vercel.app/" target="_blank" rel="noopener">Nix-UI <span class="badge-new">New</span></a></li>
+          </ul>
+        </li>
         <li>
           <a href="https://github.com/DeijoseDevelop/nix-js" class="nav-cta" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
