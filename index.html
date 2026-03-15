@@ -2504,6 +2504,104 @@
         text-align: center;
       }
     }
+    /* ===== SHOWCASE ===== */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .showcase-card {
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: var(--accent-light);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+    }
+
+    .showcase-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .showcase-card:hover .showcase-image img {
+      transform: scale(1.1);
+    }
+
+    .showcase-info {
+      padding: 24px;
+    }
+
+    .showcase-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .showcase-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .showcase-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .showcase-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .showcase-link.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .showcase-link.secondary {
+      background: var(--bg-card-hover);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .showcase-link:hover {
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -2522,6 +2620,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
         <li><a href="#playground">Playground</a></li>
+        <li><a href="#showcase">Showcase</a></li>
         <li class="nav-dropdown">
           <a class="dropdown-trigger">
             Docs
@@ -4247,6 +4346,53 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </div>
           </div>
 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section class="section" id="showcase">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">✨ Showcase</div>
+        <h2 class="section-title">Built with <span class="gradient-text">Nix.js</span></h2>
+        <p class="section-desc">Explore real-world projects and applications built using the Nix.js ecosystem. High performance meets simple development.</p>
+      </div>
+
+      <div class="showcase-grid">
+        <!-- Project 1: Crypto Dashboard -->
+        <div class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <img src="./images/showcases/nix-crypto-dashboard.png" alt="Crypto Dashboard Nix.js">
+          </div>
+          <div class="showcase-info">
+            <h3 class="showcase-title">Nix.js Crypto Dashboard</h3>
+            <p class="showcase-desc">A professional real-time cryptocurrency portfolio dashboard. Demonstrates high-performance market updates and custom reactive charts.</p>
+            <div class="showcase-links">
+              <a href="https://nix-js-crypto-dashboard.vercel.app/" target="_blank" rel="noopener" class="showcase-link primary">
+                Live Demo
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Educational Platform -->
+        <div class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <img src="./images/showcases/nix-student-library.png" alt="Educational Management Nix.js">
+          </div>
+          <div class="showcase-info">
+            <h3 class="showcase-title">Nix.js Student Library</h3>
+            <p class="showcase-desc">A robust educational management system. Showcases complex state handling, dynamic filtering, and seamless navigation in a large-scale SPA.</p>
+            <div class="showcase-links">
+              <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener" class="showcase-link primary">
+                Live Demo
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
