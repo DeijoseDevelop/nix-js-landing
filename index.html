@@ -1731,6 +1731,117 @@
       }
     }
 
+    /* ===== SHOWCASES ===== */
+    .showcases-section {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcases-section::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124, 92, 252, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .showcases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .showcase-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .showcase-card:hover {
+      border-color: var(--accent-light);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .showcase-card:hover .showcase-image img {
+      transform: scale(1.03);
+    }
+
+    .showcase-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: #0d0d14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .showcase-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      background: var(--bg-card);
+    }
+
+    .showcase-content h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .showcase-content p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .showcase-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .showcase-card:hover .showcase-link {
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .showcases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===== INSPIRED BY ===== */
     .inspired-section {
       background: var(--bg-primary);
@@ -2620,7 +2731,6 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
         <li><a href="#playground">Playground</a></li>
-        <li><a href="#showcase">Showcase</a></li>
         <li class="nav-dropdown">
           <a class="dropdown-trigger">
             Docs
@@ -2642,6 +2752,7 @@
           <ul class="dropdown-menu">
             <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Performance Benchmarks</a></li>
             <li><a href="https://nix-ui.vercel.app/" target="_blank" rel="noopener">Nix-UI <span class="badge-new">New</span></a></li>
+            <li><a href="#showcases">Built with Nix</a></li>
           </ul>
         </li>
         <li>
@@ -4188,6 +4299,53 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
     </div>
   </section>
 
+  <!-- Showcases -->
+  <section class="section showcases-section" id="showcases">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">🌟 Showcases</div>
+        <h2 class="section-title">Built with <span class="gradient-text">Nix.js</span></h2>
+        <p class="section-desc">Discover how the community is leveraging the Nix.js ecosystem to build high-performance UIs without the complexity.</p>
+      </div>
+
+      <div class="showcases-grid">
+        <!-- Card 1 -->
+        <a href="https://nix-js-crypto-dashboard.vercel.app/" target="_blank" rel="noopener" class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <img src="./images/showcases/nix-crypto-dashboard.png" alt="Crypto Dashboard Built with Nix.js" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Nix.js Crypto Dashboard</text></svg>'">
+          </div>
+          <div class="showcase-content">
+            <h3>Crypto Dashboard</h3>
+            <p>A real-time cryptocurrency tracking dashboard demonstrating fine-grained reactivity, live data fetching, and dynamic UI updates.</p>
+            <span class="showcase-link">Visit project 
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener" class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <img src="./images/showcases/nix-student-library.png" alt="Unicolombo Project Built with Nix.js" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Academic System</text></svg>'">
+          </div>
+          <div class="showcase-content">
+            <h3>University Academic System</h3>
+            <p>An academic tracking platform showcasing client-side routing, global state management, and nested layouts powered by Nix.js.</p>
+            <span class="showcase-link">Visit project 
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="section faq-section" id="faq">
     <div class="container">
@@ -4346,53 +4504,6 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </div>
           </div>
 
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Showcase -->
-  <section class="section" id="showcase">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <div class="section-label">✨ Showcase</div>
-        <h2 class="section-title">Built with <span class="gradient-text">Nix.js</span></h2>
-        <p class="section-desc">Explore real-world projects and applications built using the Nix.js ecosystem. High performance meets simple development.</p>
-      </div>
-
-      <div class="showcase-grid">
-        <!-- Project 1: Crypto Dashboard -->
-        <div class="showcase-card animate-on-scroll">
-          <div class="showcase-image">
-            <img src="./images/showcases/nix-crypto-dashboard.png" alt="Crypto Dashboard Nix.js">
-          </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Nix.js Crypto Dashboard</h3>
-            <p class="showcase-desc">A professional real-time cryptocurrency portfolio dashboard. Demonstrates high-performance market updates and custom reactive charts.</p>
-            <div class="showcase-links">
-              <a href="https://nix-js-crypto-dashboard.vercel.app/" target="_blank" rel="noopener" class="showcase-link primary">
-                Live Demo
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Educational Platform -->
-        <div class="showcase-card animate-on-scroll">
-          <div class="showcase-image">
-            <img src="./images/showcases/nix-student-library.png" alt="Educational Management Nix.js">
-          </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Nix.js Student Library</h3>
-            <p class="showcase-desc">A robust educational management system. Showcases complex state handling, dynamic filtering, and seamless navigation in a large-scale SPA.</p>
-            <div class="showcase-links">
-              <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener" class="showcase-link primary">
-                Live Demo
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
