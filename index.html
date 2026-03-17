@@ -31,7 +31,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.7.6/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.7.7/+esm"
       }
     }
   </script>
@@ -68,7 +68,7 @@
       --cyan: #22d3ee;
       --red: #f87171;
       --yellow: #fbbf24;
-      
+
       /* Colores framework para benchmarks */
       --van-col: #e8d84a;
       --so-col: #76b3e1;
@@ -216,7 +216,7 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.2s ease;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
       z-index: 1000;
     }
 
@@ -586,7 +586,7 @@
       justify-content: center;
       gap: 2px;
     }
-    
+
     .stat-value span {
       font-size: 1rem;
       font-weight: 500;
@@ -1569,7 +1569,7 @@
         /* SOLUCIÓN: Inicia desde la izquierda para que el scroll funcione bien */
         padding-bottom: 16px;
         /* Espacio visual para la barra de desplazamiento */
-      } 
+      }
 
       .pipeline-step {
         min-width: 120px;
@@ -2055,69 +2055,320 @@
     }
 
     /* ===== ADVANCED BENCHMARK TABLE ===== */
-    .tbl-wrap { 
-      width:100%;
+    .tbl-wrap {
+      width: 100%;
       max-width: 100%;
-      overflow-x: auto; 
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
     }
-    .bench-table { width:100%; border-collapse:collapse; text-align: center; font-size: 0.85rem; min-width: 1100px;}
-    .bench-table thead tr:first-child { background: rgba(0,0,0,0.2); }
-    .bench-table thead th { padding:1rem 0.9rem 0.6rem; font-family:var(--font-mono); font-size:0.75rem; font-weight:600; letter-spacing:0.05em; border-bottom: 1px solid var(--border); white-space:nowrap; }
-    .th-op { text-align:left !important; color:var(--text-muted); width:185px; min-width:165px; padding-left: 24px !important;}
-    .th-nix { color:var(--accent-light) !important; background: rgba(124, 92, 252, 0.05);}
-    .th-van { color:var(--van-col) !important; }
-    .th-solid { color:var(--so-col) !important; }
-    .th-svelte{ color:var(--sv-col) !important; }
-    .th-vue { color:var(--v-col) !important; }
-    .th-react { color:var(--r-col) !important; }
-    .th-ang { color:var(--an-col) !important; }
-    .bench-table thead tr:last-child th { padding:0.4rem 0.9rem 0.6rem; font-size:0.65rem; color:var(--text-muted); border-bottom: 1px solid var(--border); }
-    .sub-op { text-align:left !important; padding-left: 24px !important;}
-    .fw-group { border-left:1px solid var(--border); }
-    .bench-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.15s; }
-    .bench-table tbody tr:hover { background: var(--bg-card-hover); }
-    .bench-table tbody tr.nix-row { background: rgba(124, 92, 252, 0.05); }
-    .bench-table tbody tr.nix-row:hover { background: rgba(124, 92, 252, 0.1); }
-    .bench-table td { padding:1rem 0.9rem; vertical-align:middle; }
-    .bench-table td.op-cell { text-align: left; padding-left: 24px; border-right:1px solid var(--border); }
-    .op-name { font-weight:600; font-size:0.9rem; color:var(--text-primary); display:block; margin-bottom:2px; }
-    .op-sub { font-size:0.75rem; color:var(--text-muted); }
-    .cell-inner { display:flex; flex-direction:column; align-items:center; gap:4px; }
-    .v-js { font-family:var(--font-mono); font-size:0.85rem; font-weight:600; color:var(--green); white-space:nowrap; }
-    .v-full { font-family:var(--font-mono); font-size:0.75rem; color:var(--blue); opacity:0.8; white-space:nowrap; }
-    .nix-cell { background: rgba(124, 92, 252, 0.05); }
-    .nix-cell .v-js { color:var(--green); font-size:0.95rem; }
-    .nix-cell .v-full { color:var(--accent-light); opacity:1; }
+
+    .bench-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 0.85rem;
+      min-width: 1100px;
+    }
+
+    .bench-table thead tr:first-child {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .bench-table thead th {
+      padding: 1rem 0.9rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .th-op {
+      text-align: left !important;
+      color: var(--text-muted);
+      width: 185px;
+      min-width: 165px;
+      padding-left: 24px !important;
+    }
+
+    .th-nix {
+      color: var(--accent-light) !important;
+      background: rgba(124, 92, 252, 0.05);
+    }
+
+    .th-van {
+      color: var(--van-col) !important;
+    }
+
+    .th-solid {
+      color: var(--so-col) !important;
+    }
+
+    .th-svelte {
+      color: var(--sv-col) !important;
+    }
+
+    .th-vue {
+      color: var(--v-col) !important;
+    }
+
+    .th-react {
+      color: var(--r-col) !important;
+    }
+
+    .th-ang {
+      color: var(--an-col) !important;
+    }
+
+    .bench-table thead tr:last-child th {
+      padding: 0.4rem 0.9rem 0.6rem;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sub-op {
+      text-align: left !important;
+      padding-left: 24px !important;
+    }
+
+    .fw-group {
+      border-left: 1px solid var(--border);
+    }
+
+    .bench-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .bench-table tbody tr:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .bench-table tbody tr.nix-row {
+      background: rgba(124, 92, 252, 0.05);
+    }
+
+    .bench-table tbody tr.nix-row:hover {
+      background: rgba(124, 92, 252, 0.1);
+    }
+
+    .bench-table td {
+      padding: 1rem 0.9rem;
+      vertical-align: middle;
+    }
+
+    .bench-table td.op-cell {
+      text-align: left;
+      padding-left: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .op-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .op-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .cell-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .v-js {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .v-full {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--blue);
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+
+    .nix-cell {
+      background: rgba(124, 92, 252, 0.05);
+    }
+
+    .nix-cell .v-js {
+      color: var(--green);
+      font-size: 0.95rem;
+    }
+
+    .nix-cell .v-full {
+      color: var(--accent-light);
+      opacity: 1;
+    }
+
     /* Estilos para la versión antigua (v1.3.0) */
-    .th-nix-old { color: var(--text-secondary) !important; background: rgba(255, 255, 255, 0.02); }
-    .nix-old-cell { background: rgba(255, 255, 255, 0.02); }
-    .nix-old-cell .v-js { color: var(--text-secondary); font-size: 0.85rem; }
-    .nix-old-cell .v-full { color: var(--text-muted); text-decoration: line-through; opacity: 0.5; }
-    .strike-time { text-decoration: line-through; color: var(--text-muted); opacity: 0.6; }
-    .mini-bar-wrap { width:60px; height:4px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; margin-top:2px; }
-    .mini-bar { height:100%; border-radius:2px; }
-    .bench-badge { display:inline-block; font-family:var(--font-mono); font-size:0.55rem; font-weight:700; letter-spacing:0.08em; padding:2px 6px; border-radius:4px; vertical-align:middle; margin-left:6px; }
-    .b-top { background:rgba(52,211,153,0.15); color:var(--green); border:1px solid rgba(52,211,153,0.3); }
-    .b-best { background:rgba(232,216,74,0.15); color:var(--van-col); border:1px solid rgba(232,216,74,0.3); }
-    .b-win { background:rgba(124,92,252,0.15); color:var(--accent-light); border:1px solid rgba(124,92,252,0.3); }
-    .bundle-size { font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--text-primary); }
-    .bundle-note { font-size:0.7rem; color:var(--text-muted); margin-top:2px; }
-    .bench-footnotes { margin-top: 1.5rem; display:flex; flex-direction:column; gap:0.5rem; text-align: left; padding: 0 12px;}
-    .bench-fn { font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); line-height:1.5; }
-    .bench-fn b { color:var(--text-secondary); }
-    
-    .bench-legend { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
-    .bench-leg-item { display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color: var(--text-secondary);}
-    .bench-leg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-    .bench-leg-dot.js { background:var(--green); box-shadow:0 0 6px var(--green); }
-    .bench-leg-dot.full { background:var(--blue); box-shadow:0 0 6px var(--blue); }
-    .bench-leg-label { color:var(--text-primary); font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; }
-    .bench-leg-divider { width:1px; height:20px; background:var(--border); }
+    .th-nix-old {
+      color: var(--text-secondary) !important;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .nix-old-cell {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .nix-old-cell .v-js {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .nix-old-cell .v-full {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .strike-time {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .mini-bar-wrap {
+      width: 60px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .mini-bar {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .bench-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    .b-top {
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .b-best {
+      background: rgba(232, 216, 74, 0.15);
+      color: var(--van-col);
+      border: 1px solid rgba(232, 216, 74, 0.3);
+    }
+
+    .b-win {
+      background: rgba(124, 92, 252, 0.15);
+      color: var(--accent-light);
+      border: 1px solid rgba(124, 92, 252, 0.3);
+    }
+
+    .bundle-size {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .bundle-note {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .bench-footnotes {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+      padding: 0 12px;
+    }
+
+    .bench-fn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .bench-fn b {
+      color: var(--text-secondary);
+    }
+
+    .bench-legend {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .bench-leg-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .bench-leg-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .bench-leg-dot.js {
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+    }
+
+    .bench-leg-dot.full {
+      background: var(--blue);
+      box-shadow: 0 0 6px var(--blue);
+    }
+
+    .bench-leg-label {
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    .bench-leg-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
 
 
     /* ===== BUILTIN FEATURES TABLE ===== */
@@ -2465,6 +2716,7 @@
     }
 
     @media (max-width: 1150px) {
+
       /* Navbar adjustments */
       .nav-links {
         display: none;
@@ -2528,6 +2780,7 @@
     }
 
     @media (max-width: 768px) {
+
       /* Grid / Layout */
       .why-grid {
         grid-template-columns: 1fr;
@@ -2580,11 +2833,29 @@
         min-width: 700px;
       }
 
-      .bench-table { min-width: 800px; }
-      .bench-table th, .bench-table td { padding: 0.6rem 0.4rem; font-size: 0.7rem;}
-      .th-op { width: 100px; min-width: 100px; padding-left: 12px !important;}
-      .op-name { font-size: 0.8rem; }
-      .op-sub { font-size: 0.65rem; }
+      .bench-table {
+        min-width: 800px;
+      }
+
+      .bench-table th,
+      .bench-table td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.7rem;
+      }
+
+      .th-op {
+        width: 100px;
+        min-width: 100px;
+        padding-left: 12px !important;
+      }
+
+      .op-name {
+        font-size: 0.8rem;
+      }
+
+      .op-sub {
+        font-size: 0.65rem;
+      }
 
       /* Footer */
       .footer .container {
@@ -2615,6 +2886,7 @@
         text-align: center;
       }
     }
+
     /* ===== SHOWCASE ===== */
     .showcase-grid {
       display: grid;
@@ -2712,7 +2984,6 @@
         grid-template-columns: 1fr;
       }
     }
-
   </style>
 </head>
 
@@ -2734,7 +3005,10 @@
         <li class="nav-dropdown">
           <a class="dropdown-trigger">
             Docs
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#quickstart">Quick Start</a></li>
@@ -2747,11 +3021,16 @@
         <li class="nav-dropdown">
           <a class="dropdown-trigger">
             Ecosystem
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Performance Benchmarks</a></li>
-            <li><a href="https://nix-ui.vercel.app/" target="_blank" rel="noopener">Nix-UI <span class="badge-new">New</span></a></li>
+            <li><a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Performance
+                Benchmarks</a></li>
+            <li><a href="https://nix-ui.vercel.app/" target="_blank" rel="noopener">Nix-UI <span
+                  class="badge-new">New</span></a></li>
             <li><a href="#showcases">Built with Nix</a></li>
           </ul>
         </li>
@@ -2784,7 +3063,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.7.6 — Performance & Heuristic Diffing
+        v1.7.7 — Performance & Heuristic Diffing
       </div>
       <h1>
         Build reactive UIs<br>
@@ -2841,9 +3120,9 @@
         <div class="stat-label">Gzipped bundle</div>
       </div>
       <div class="stat-item">
-        
+
         <div class="stat-value green">-90%</div>
-        <div class="stat-label">Faster Rendering (v1.7.6)</div>
+        <div class="stat-label">Faster Rendering (v1.7.7)</div>
       </div>
       <div class="stat-item">
         <div class="stat-value orange">221</div>
@@ -2878,7 +3157,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.7.6"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.7.7"</span>;
           </div>
         </div>
 
@@ -3528,7 +3807,8 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <span class="feature-card-icon">📋</span>
             <h3>Form Management</h3>
           </div>
-          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>useFieldArray</code> for dynamic lists.
+          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>useFieldArray</code>
+            for dynamic lists.
           </p>
           <code><span style="color:var(--accent-light)">const</span> form = <span style="color:var(--blue)">createForm</span>(
   { name: <span style="color:var(--green)">""</span>, email: <span style="color:var(--green)">""</span> },
@@ -3620,7 +3900,8 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
       <div class="section-header animate-on-scroll">
         <div class="section-label">📊 Performance Benchmarks</div>
         <h2 class="section-title">Raw speed. Zero compiler.</h2>
-        <p class="section-desc">We measured Nix.js against the industry standards using the official 1,000-row stress tests. The result? Top-tier performance that rivals—and sometimes beats—hand-optimized Vanilla JS.</p>
+        <p class="section-desc">We measured Nix.js against the industry standards using the official 1,000-row stress
+          tests. The result? Top-tier performance that rivals—and sometimes beats—hand-optimized Vanilla JS.</p>
       </div>
 
       <div class="bench-legend animate-on-scroll">
@@ -3638,281 +3919,628 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
       </div>
 
       <div class="tbl-wrap animate-on-scroll">
-      <table class="bench-table">
-        <thead>
-          <tr>
-            <th class="th-op" rowspan="2">Operation (1k rows)</th>
-            <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-            <th class="th-nix fw-group" colspan="2">Nix.js 1.7.6 🚀</th>
-            <th class="th-van fw-group" colspan="2">Vanilla JS</th>
-            <th class="th-solid fw-group" colspan="2">Solid.js</th>
-            <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
-            <th class="th-vue fw-group" colspan="2">Vue 3</th>
-            <th class="th-react fw-group" colspan="2">React 18</th>
-          </tr>
-          <tr>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-            <th class="sub-js fw-group">JS</th><th class="sub-full">Full</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- CREATE -->
-          <tr>
-            <td class="op-cell">
-              <span class="op-name">Create rows</span>
-              <span class="op-sub">Initial render</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">220.2ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">603.9ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:10%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">109.84ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~80ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~65ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:36%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~130ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~100ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:55%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~180ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~130ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:72%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~280ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~160ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:88%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~350ms</span></div></td>
-          </tr>
+        <table class="bench-table">
+          <thead>
+            <tr>
+              <th class="th-op" rowspan="2">Operation (1k rows)</th>
+              <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 1.7.7 🚀</th>
+              <th class="th-van fw-group" colspan="2">Vanilla JS</th>
+              <th class="th-solid fw-group" colspan="2">Solid.js</th>
+              <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
+              <th class="th-vue fw-group" colspan="2">Vue 3</th>
+              <th class="th-react fw-group" colspan="2">React 18</th>
+            </tr>
+            <tr>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+              <th class="sub-js fw-group">JS</th>
+              <th class="sub-full">Full</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- CREATE -->
+            <tr>
+              <td class="op-cell">
+                <span class="op-name">Create rows</span>
+                <span class="op-sub">Initial render</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">220.2ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">603.9ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:10%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">109.84ms</span></div>
+              </td>
 
-          <!-- REPLACE -->
-          <tr class="nix-row">
-            <td class="op-cell">
-              <span class="op-name">Replace rows</span>
-              <span class="op-sub">Full array swap</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">286.5ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">567.5ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:12%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">121.01ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~85ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~70ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:38%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~140ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~105ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:57%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~190ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~135ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:73%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~290ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~165ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:90%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~360ms</span></div></td>
-          </tr>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:30%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~80ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~65ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:36%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~130ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~100ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:55%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~180ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~130ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:72%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~280ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~160ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:88%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~350ms</span></div>
+              </td>
+            </tr>
 
-          <!-- UPDATE -->
-          <tr>
-            <td class="op-cell">
-              <span class="op-name">Update (1 in 10)</span>
-              <span class="op-sub">Fine-grained text update</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.8ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">40.1ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:2%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">31.66ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~4ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:24%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~15ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~5ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:30%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~20ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~8ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:48%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~30ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~12ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:72%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~45ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~15ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:90%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~55ms</span></div></td>
-          </tr>
+            <!-- REPLACE -->
+            <tr class="nix-row">
+              <td class="op-cell">
+                <span class="op-name">Replace rows</span>
+                <span class="op-sub">Full array swap</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">286.5ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">567.5ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:12%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">121.01ms</span></div>
+              </td>
 
-          <!-- SELECT -->
-          <tr class="nix-row">
-            <td class="op-cell">
-              <span class="op-name">Select row</span>
-              <span class="op-sub">Highlight 1 element</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">0.3ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">21.6ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:1%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">30.62ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~2ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:16%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~8ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~3ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:25%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~12ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~5ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:41%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~18ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~8ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:66%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~28ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~10ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:83%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~35ms</span></div></td>
-          </tr>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~55ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:30%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~85ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~70ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:38%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~140ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~105ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:57%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~190ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~135ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:73%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~290ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~165ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:90%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~360ms</span></div>
+              </td>
+            </tr>
 
-          <!-- SWAP -->
-          <tr>
-            <td class="op-cell">
-              <span class="op-name">Swap rows</span>
-              <span class="op-sub">Swap index 2 and 998</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">53.3ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">380.5ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:1%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">31.18ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~5ms <span class="bench-badge b-best">★</span></span><div class="mini-bar-wrap"><div class="mini-bar" style="width:14%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~20ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~8ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:22%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~30ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~12ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:34%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~45ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~25ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:71%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~90ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~30ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:85%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~110ms</span></div></td>
-          </tr>
+            <!-- UPDATE -->
+            <tr>
+              <td class="op-cell">
+                <span class="op-name">Update (1 in 10)</span>
+                <span class="op-sub">Fine-grained text update</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">0.8ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">40.1ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:2%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">31.66ms</span></div>
+              </td>
 
-          <!-- CLEAR -->
-          <tr class="nix-row">
-            <td class="op-cell">
-              <span class="op-name">Clear rows</span>
-              <span class="op-sub">Range.deleteContents()</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">43.2ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">307.5ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:15%;background:var(--accent-light)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">31.85ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~30ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:27%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~50ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~35ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:31%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~60ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~45ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:40%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~75ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~80ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:72%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~150ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~95ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:86%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~180ms</span></div></td>
-          </tr>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~4ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:24%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~15ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~5ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:30%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~20ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~8ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:48%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~30ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~12ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:72%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~45ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~15ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:90%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~55ms</span></div>
+              </td>
+            </tr>
 
-          <!-- DELETE -->
-          <tr>
-            <td class="op-cell">
-              <span class="op-name">Delete row</span>
-              <span class="op-sub">Eliminar 1 fila</span>
-            </td>
-            <!-- 1.3.0 -->
-            <td class="val-cell nix-old-cell fw-group"><div class="cell-inner"><span class="v-js strike-time">1.9ms</span></div></td>
-            <td class="val-cell nix-old-cell"><div class="cell-inner"><span class="v-full">44.8ms</span></div></td>
-            <!-- 1.7.6 -->
-            <td class="val-cell nix-cell fw-group">
-              <div class="cell-inner">
-                <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
-                <div class="mini-bar-wrap"><div class="mini-bar" style="width:5%;background:var(--green)"></div></div>
-              </div>
-            </td>
-            <td class="val-cell nix-cell"><div class="cell-inner"><span class="v-full">26.03ms</span></div></td>
-            
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~1ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:8%;background:var(--van-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~5ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~2ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:16%;background:var(--so-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~8ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~3ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:25%;background:var(--sv-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~12ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~8ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:66%;background:var(--v-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~25ms</span></div></td>
-            <td class="val-cell fw-group"><div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~10ms</span><div class="mini-bar-wrap"><div class="mini-bar" style="width:83%;background:var(--r-col)"></div></div></div></td>
-            <td class="val-cell"><div class="cell-inner"><span class="v-full">~35ms</span></div></td>
-          </tr>
+            <!-- SELECT -->
+            <tr class="nix-row">
+              <td class="op-cell">
+                <span class="op-name">Select row</span>
+                <span class="op-sub">Highlight 1 element</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">0.3ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">21.6ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:1%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">30.62ms</span></div>
+              </td>
 
-          <!-- BUNDLE -->
-          <tr style="background: rgba(0,0,0,0.3); border-top: 1px solid var(--border);">
-            <td class="op-cell" style="border-top:1px solid var(--border);">
-              <span class="op-name">Gzipped Size</span>
-              <span class="op-sub">Library footprint</span>
-            </td>
-            <td class="val-cell nix-old-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--text-secondary)">~10 KB</div>
-              <div class="bundle-note">v1.3.0</div>
-            </td>
-            <td class="val-cell nix-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--green)">~10 KB <span class="bench-badge b-win">WIN</span></div>
-              <div class="bundle-note">Router + Stores included</div>
-            </td>
-            <td class="val-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--van-col)">0 KB <span class="bench-badge b-best">★</span></div>
-              <div class="bundle-note">Browser Native</div>
-            </td>
-            <td class="val-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--so-col)">~7 KB</div>
-              <div class="bundle-note">Core only</div>
-            </td>
-            <td class="val-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--sv-col)">~2 KB*</div>
-              <div class="bundle-note">Requires compiler</div>
-            </td>
-            <td class="val-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--v-col)">~22 KB</div>
-              <div class="bundle-note">Core + Runtime</div>
-            </td>
-            <td class="val-cell fw-group" colspan="2">
-              <div class="bundle-size" style="color:var(--r-col)">~45 KB</div>
-              <div class="bundle-note">React + DOM</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-</div>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~2ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:16%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~8ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~3ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:25%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~12ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~5ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:41%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~18ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~8ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:66%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~28ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~10ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:83%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~35ms</span></div>
+              </td>
+            </tr>
 
-<div class="bench-footnotes animate-on-scroll" style="text-align: center; margin-top: 24px; padding: 0 16px;">
-  <div class="bench-fn">* Averages calculated from a base of <b>20 distinct samples</b> per operation mode to rule out V8 GC outliers. Based on official <b>js-framework-benchmark</b> methodology. Lower times are better.</div>
-</div>
+            <!-- SWAP -->
+            <tr>
+              <td class="op-cell">
+                <span class="op-name">Swap rows</span>
+                <span class="op-sub">Swap index 2 and 998</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">53.3ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">380.5ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:1%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">31.18ms</span></div>
+              </td>
+
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~5ms <span
+                      class="bench-badge b-best">★</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:14%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~20ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~8ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:22%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~30ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~12ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:34%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~45ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~25ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:71%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~90ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~30ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:85%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~110ms</span></div>
+              </td>
+            </tr>
+
+            <!-- CLEAR -->
+            <tr class="nix-row">
+              <td class="op-cell">
+                <span class="op-name">Clear rows</span>
+                <span class="op-sub">Range.deleteContents()</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">43.2ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">307.5ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:15%;background:var(--accent-light)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">31.85ms</span></div>
+              </td>
+
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~30ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:27%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~50ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~35ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:31%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~60ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~45ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:40%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~75ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~80ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:72%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~150ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~95ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:86%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~180ms</span></div>
+              </td>
+            </tr>
+
+            <!-- DELETE -->
+            <tr>
+              <td class="op-cell">
+                <span class="op-name">Delete row</span>
+                <span class="op-sub">Eliminar 1 fila</span>
+              </td>
+              <!-- 1.3.0 -->
+              <td class="val-cell nix-old-cell fw-group">
+                <div class="cell-inner"><span class="v-js strike-time">1.9ms</span></div>
+              </td>
+              <td class="val-cell nix-old-cell">
+                <div class="cell-inner"><span class="v-full">44.8ms</span></div>
+              </td>
+              <!-- 1.7.7 -->
+              <td class="val-cell nix-cell fw-group">
+                <div class="cell-inner">
+                  <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:5%;background:var(--green)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell nix-cell">
+                <div class="cell-inner"><span class="v-full">26.03ms</span></div>
+              </td>
+
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--van-col)">~1ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:8%;background:var(--van-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~5ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--so-col)">~2ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:16%;background:var(--so-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~8ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--sv-col)">~3ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:25%;background:var(--sv-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~12ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--v-col)">~8ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:66%;background:var(--v-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~25ms</span></div>
+              </td>
+              <td class="val-cell fw-group">
+                <div class="cell-inner"><span class="v-js" style="color:var(--r-col)">~10ms</span>
+                  <div class="mini-bar-wrap">
+                    <div class="mini-bar" style="width:83%;background:var(--r-col)"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="val-cell">
+                <div class="cell-inner"><span class="v-full">~35ms</span></div>
+              </td>
+            </tr>
+
+            <!-- BUNDLE -->
+            <tr style="background: rgba(0,0,0,0.3); border-top: 1px solid var(--border);">
+              <td class="op-cell" style="border-top:1px solid var(--border);">
+                <span class="op-name">Gzipped Size</span>
+                <span class="op-sub">Library footprint</span>
+              </td>
+              <td class="val-cell nix-old-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--text-secondary)">~10 KB</div>
+                <div class="bundle-note">v1.3.0</div>
+              </td>
+              <td class="val-cell nix-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--green)">~10 KB <span class="bench-badge b-win">WIN</span>
+                </div>
+                <div class="bundle-note">Router + Stores included</div>
+              </td>
+              <td class="val-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--van-col)">0 KB <span class="bench-badge b-best">★</span>
+                </div>
+                <div class="bundle-note">Browser Native</div>
+              </td>
+              <td class="val-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--so-col)">~7 KB</div>
+                <div class="bundle-note">Core only</div>
+              </td>
+              <td class="val-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--sv-col)">~2 KB*</div>
+                <div class="bundle-note">Requires compiler</div>
+              </td>
+              <td class="val-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--v-col)">~22 KB</div>
+                <div class="bundle-note">Core + Runtime</div>
+              </td>
+              <td class="val-cell fw-group" colspan="2">
+                <div class="bundle-size" style="color:var(--r-col)">~45 KB</div>
+                <div class="bundle-note">React + DOM</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bench-footnotes animate-on-scroll" style="text-align: center; margin-top: 24px; padding: 0 16px;">
+        <div class="bench-fn">* Averages calculated from a base of <b>20 distinct samples</b> per operation mode to rule
+          out V8 GC outliers. Based on official <b>js-framework-benchmark</b> methodology. Lower times are better.</div>
+      </div>
 
       <!-- Built-in Features Comparison -->
       <div class="builtin-table-wrapper animate-on-scroll">
@@ -4305,20 +4933,25 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
       <div class="section-header animate-on-scroll">
         <div class="section-label">🌟 Showcases</div>
         <h2 class="section-title">Built with <span class="gradient-text">Nix.js</span></h2>
-        <p class="section-desc">Discover how the community is leveraging the Nix.js ecosystem to build high-performance UIs without the complexity.</p>
+        <p class="section-desc">Discover how the community is leveraging the Nix.js ecosystem to build high-performance
+          UIs without the complexity.</p>
       </div>
 
       <div class="showcases-grid">
         <!-- Card 1 -->
-        <a href="https://nix-js-crypto-dashboard.vercel.app/" target="_blank" rel="noopener" class="showcase-card animate-on-scroll">
+        <a href="https://nix-js-crypto-dashboard.vercel.app/" target="_blank" rel="noopener"
+          class="showcase-card animate-on-scroll">
           <div class="showcase-image">
-            <img src="./images/showcases/nix-crypto-dashboard.png" alt="Crypto Dashboard Built with Nix.js" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Nix.js Crypto Dashboard</text></svg>'">
+            <img src="./images/showcases/nix-crypto-dashboard.png" alt="Crypto Dashboard Built with Nix.js"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Nix.js Crypto Dashboard</text></svg>'">
           </div>
           <div class="showcase-content">
             <h3>Crypto Dashboard</h3>
-            <p>A real-time cryptocurrency tracking dashboard demonstrating fine-grained reactivity, live data fetching, and dynamic UI updates.</p>
-            <span class="showcase-link">Visit project 
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <p>A real-time cryptocurrency tracking dashboard demonstrating fine-grained reactivity, live data fetching,
+              and dynamic UI updates.</p>
+            <span class="showcase-link">Visit project
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -4327,15 +4960,19 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
         </a>
 
         <!-- Card 2 -->
-        <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener" class="showcase-card animate-on-scroll">
+        <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener"
+          class="showcase-card animate-on-scroll">
           <div class="showcase-image">
-            <img src="./images/showcases/nix-student-library.png" alt="Unicolombo Project Built with Nix.js" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Academic System</text></svg>'">
+            <img src="./images/showcases/nix-student-library.png" alt="Unicolombo Project Built with Nix.js"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%2316161f\'/><text x=\'50%\' y=\'50%\' fill=\'%23a0a0b5\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'1.5rem\'>Academic System</text></svg>'">
           </div>
           <div class="showcase-content">
             <h3>University Academic System</h3>
-            <p>An academic tracking platform showcasing client-side routing, global state management, and nested layouts powered by Nix.js.</p>
-            <span class="showcase-link">Visit project 
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <p>An academic tracking platform showcasing client-side routing, global state management, and nested layouts
+              powered by Nix.js.</p>
+            <span class="showcase-link">Visit project
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -4400,7 +5037,8 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js has 221 passing tests covering the full public API: reactivity, templates, router, stores, typed forms, dynamic arrays,
+                Nix.js has 221 passing tests covering the full public API: reactivity, templates, router, stores, typed
+                forms, dynamic arrays,
                 DI, portals, error boundaries, and transitions. It ships as a strict TypeScript library with no runtime
                 dependencies. It is a great fit for small-to-medium apps, embedded widgets, and internal tools. For
                 large enterprise apps, evaluate it on your use case.
@@ -4480,7 +5118,11 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                The "Vanilla JS" baseline in standard benchmarks relies on typical patterns (like <code>removeChild</code> loops) which can trigger multiple internal browser reflows. Nix.js automates extreme low-level DOM optimizations for you. For instance, it uses <code>Range.deleteContents()</code> for atomic bulk clearing, and holds direct memory references to <code>TextNodes</code> for true O(1) updates. It writes the most optimal Vanilla JS possible, automatically.
+                The "Vanilla JS" baseline in standard benchmarks relies on typical patterns (like
+                <code>removeChild</code> loops) which can trigger multiple internal browser reflows. Nix.js automates
+                extreme low-level DOM optimizations for you. For instance, it uses <code>Range.deleteContents()</code>
+                for atomic bulk clearing, and holds direct memory references to <code>TextNodes</code> for true O(1)
+                updates. It writes the most optimal Vanilla JS possible, automatically.
               </div>
             </div>
           </div>
@@ -4497,9 +5139,11 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Absolutely. We believe in total transparency and reproducibility. You can run the exact same 1,000-row stress tests directly in your own browser using our live interactive benchmark tool.
+                Absolutely. We believe in total transparency and reproducibility. You can run the exact same 1,000-row
+                stress tests directly in your own browser using our live interactive benchmark tool.
                 <br><br>
-                <a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Run the live benchmarks here &rarr;</a>
+                <a href="https://nix-js-framework-benchmark.vercel.app/" target="_blank" rel="noopener">Run the live
+                  benchmarks here &rarr;</a>
               </div>
             </div>
           </div>
