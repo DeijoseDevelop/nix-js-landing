@@ -2674,6 +2674,323 @@
       background: var(--cyan);
     }
 
+    /* ===== NIX-IONIC SECTION ===== */
+    .nix-ionic-section {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nix-ionic-section::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .nix-ionic-section::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124, 92, 252, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ionic-hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ionic-hero-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .ionic-hero-text p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .ionic-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .ionic-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .ionic-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background: rgba(251, 146, 60, 0.12);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .ionic-install-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .ionic-install-box .dollar {
+      color: var(--orange);
+    }
+
+    .ionic-install-box .pkg {
+      color: var(--green);
+    }
+
+    .ionic-code-panel {
+      border-radius: 16px;
+      background: #0d0d14;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ionic-code-panel .code-header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ionic-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 64px;
+    }
+
+    .ionic-feature-card {
+      padding: 28px 24px;
+      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ionic-feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--accent-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .ionic-feature-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .ionic-feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .ionic-feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .ionic-feature-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .ionic-feature-card p {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .ionic-bundle-section {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .ionic-bundle-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ionic-bundle-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .ionic-bundle-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .ionic-bundle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(251, 146, 60, 0.1);
+      border: 1px solid rgba(251, 146, 60, 0.25);
+      color: var(--orange);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .ionic-bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .ionic-bundle-pill {
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .ionic-bundle-pill:hover {
+      border-color: var(--orange);
+      background: rgba(251, 146, 60, 0.05);
+    }
+
+    .ionic-bundle-pill-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .ionic-bundle-pill-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .ionic-migration-box {
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.9;
+    }
+
+    .ionic-migration-box .diff-del {
+      color: var(--red);
+      opacity: 0.7;
+    }
+
+    .ionic-migration-box .diff-add {
+      color: var(--green);
+    }
+
+    .ionic-migration-box .diff-cmt {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 1024px) {
+      .ionic-hero-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .ionic-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ionic-bundles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ionic-features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ionic-bundles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ionic-bundle-section {
+        padding: 24px;
+      }
+    }
+
     /* ===== TOOLTIP ===== */
     .tooltip {
       position: fixed;
@@ -3031,7 +3348,7 @@
                 Benchmarks</a></li>
             <li><a href="https://nix-ui.vercel.app/" target="_blank" rel="noopener">Nix-UI <span
                   class="badge-new">New</span></a></li>
-            <li><a href="https://www.npmjs.com/package/@deijose/nix-ionic" target="_blank" rel="noopener">Nix-Ionic <span
+            <li><a href="#nix-ionic" rel="noopener">Nix-Ionic <span
                   class="badge-new">New</span></a></li>
             <li><a href="#showcases">Built with Nix</a></li>
           </ul>
@@ -4925,6 +5242,188 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
           compiler-free package that respects your time and your bundle size.
         </p>
         <div class="inspired-quote-source">— Design philosophy of Nix.js</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nix-Ionic Section -->
+  <section class="section nix-ionic-section" id="nix-ionic">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label" style="color:var(--orange)">📱 Mobile Apps</div>
+        <h2 class="section-title">Nix.js goes&nbsp;<span style="background:linear-gradient(135deg,var(--orange),var(--accent-light));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">mobile.</span></h2>
+        <p class="section-desc">
+          <strong>Nix-Ionic</strong> bridges Nix.js reactivity with the full Ionic component library.
+          Build native-quality mobile apps with signals, client-side routing, and&nbsp;<em>modular loading</em>. Load only the components you need &mdash; <strong>34.8&nbsp;KB gzipped</strong> full package.
+        </p>
+      </div>
+
+      <!-- Hero layout: text + code -->
+      <div class="ionic-hero-layout animate-on-scroll">
+        <div class="ionic-hero-text">
+          <h3>Ionic Web Components.<br>Nix.js Reactivity.</h3>
+          <p>
+            Install <code style="font-family:var(--font-mono);font-size:0.85em;color:var(--orange);background:rgba(251,146,60,0.1);padding:2px 6px;border-radius:4px">@deijose/nix-ionic</code> and call <code style="font-family:var(--font-mono);font-size:0.85em;color:var(--accent-light);background:var(--accent-subtle);padding:2px 6px;border-radius:4px">setupNixIonic()</code>.
+            Only import the components your app actually uses — the bundler tree-shakes everything else.
+          </p>
+          <ul class="ionic-features-list">
+            <li><span class="ionic-check">✓</span> Modular loading — import only what you need</li>
+            <li><span class="ionic-check">✓</span> <strong>34.8 KB gzipped</strong> &mdash; verified on BundlePhobia</li>
+            <li><span class="ionic-check">✓</span> Pre-made bundles: layout, forms, overlays, navigation…</li>
+            <li><span class="ionic-check">✓</span> Full Ionic routing with ion-router &amp; ion-back-button</li>
+            <li><span class="ionic-check">✓</span> Compatible with Capacitor for true native deployment</li>
+            <li><span class="ionic-check">✓</span> Signals-first — all state is reactive by default</li>
+          </ul>
+          <div class="ionic-install-box">
+            <span><span class="dollar">$</span> npm install <span class="pkg">@deijose/nix-ionic</span></span>
+          </div>
+        </div>
+
+        <div class="ionic-code-panel">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span class="code-filename">main.ts</span>
+          </div>
+          <div class="code-body">
+            <pre><span class="kw">import</span> { setupNixIonic } <span class="kw">from</span> <span class="str">"@deijose/nix-ionic"</span>;
+<span class="kw">import</span> { createRouter, mount } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
+
+<span class="cmt">// Import only the bundles you need</span>
+<span class="kw">import</span> { layoutComponents } <span class="kw">from</span>
+  <span class="str">"@deijose/nix-ionic/bundles/layout"</span>;
+<span class="kw">import</span> { formComponents } <span class="kw">from</span>
+  <span class="str">"@deijose/nix-ionic/bundles/forms"</span>;
+
+<span class="cmt">// Or individual components for maximum tree-shaking</span>
+<span class="kw">import</span> { defineIonButton } <span class="kw">from</span>
+  <span class="str">"@deijose/nix-ionic/components"</span>;
+
+<span class="fn">setupNixIonic</span>({
+  components: [
+    ...layoutComponents,   <span class="cmt">// header, toolbar, content…</span>
+    ...formComponents,     <span class="cmt">// input, checkbox, select…</span>
+    defineIonButton,       <span class="cmt">// single component</span>
+  ],
+});
+
+<span class="kw">const</span> router = <span class="fn">createRouter</span>([
+  { path: <span class="str">"/"</span>,    component: () => <span class="fn">HomePage</span>() },
+  { path: <span class="str">"/about"</span>, component: () => <span class="fn">AboutPage</span>() },
+]);
+
+<span class="fn">mount</span>(<span class="kw">new</span> <span class="fn">App</span>(), <span class="str">"#app"</span>);</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature cards -->
+      <div class="ionic-features-grid">
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">⚡</span>
+          <h4>Modular Loading</h4>
+          <p>Register only the Ionic components your app uses. The full package is <strong style="color:var(--orange)">34.8 KB gzip</strong> &mdash; import individual bundles so your bundler tree-shakes unused components.</p>
+        </div>
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">📦</span>
+          <h4>8 Category Bundles</h4>
+          <p>Layout, Navigation, Forms, Lists, Feedback, Buttons, Overlays, and All. Import by category or mix & match individual components.</p>
+        </div>
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">🔗</span>
+          <h4>Sub-path Exports</h4>
+          <p>First-class <code style="color:var(--orange);font-size:0.85em">package.json exports</code> let bundlers resolve only the chunks you import. Full tree-shaking by design.</p>
+        </div>
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">📡</span>
+          <h4>Signals-First State</h4>
+          <p>Every page and component uses Nix.js signals. Form inputs, tab states, modal toggles — all reactive without extra wiring.</p>
+        </div>
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">🧭</span>
+          <h4>Built-in Routing</h4>
+          <p>ion-router, ion-route, ion-router-outlet, and ion-back-button are always registered. Deep linking and history-api navigation work out of the box.</p>
+        </div>
+        <div class="ionic-feature-card animate-on-scroll">
+          <span class="ionic-feature-icon">📲</span>
+          <h4>Capacitor Ready</h4>
+          <p>Wrap the output with Capacitor to deploy as a real iOS or Android app. Same codebase, same signals, native shell.</p>
+        </div>
+      </div>
+
+      <!-- Bundle showcase -->
+      <div class="ionic-bundle-section animate-on-scroll">
+        <div class="ionic-bundle-header">
+          <h3>Available Bundles — v0.3.0</h3>
+          <span class="ionic-bundle-badge">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange)"></span>
+            Tree-shakeable
+          </span>
+        </div>
+        <div class="ionic-bundles-grid">
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">layout</div>
+            <div class="ionic-bundle-pill-desc">header, toolbar, title, content, footer, buttons</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">navigation</div>
+            <div class="ionic-bundle-pill-desc">menu, menu-button, menu-toggle</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">forms</div>
+            <div class="ionic-bundle-pill-desc">input, textarea, checkbox, radio, select, toggle, searchbar</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">lists</div>
+            <div class="ionic-bundle-pill-desc">list, item, label, thumbnail, avatar, card</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">feedback</div>
+            <div class="ionic-bundle-pill-desc">spinner, progress-bar, skeleton-text, badge, chip, note</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">buttons</div>
+            <div class="ionic-bundle-pill-desc">button, fab, fab-button, fab-list, ripple-effect</div>
+          </div>
+          <div class="ionic-bundle-pill">
+            <div class="ionic-bundle-pill-name">overlays</div>
+            <div class="ionic-bundle-pill-desc">modal, popover, toast, alert, action-sheet</div>
+          </div>
+          <div class="ionic-bundle-pill" style="border-color:rgba(251,146,60,0.3);background:rgba(251,146,60,0.04)">
+            <div class="ionic-bundle-pill-name" style="color:var(--text-secondary)">all</div>
+            <div class="ionic-bundle-pill-desc">Everything — backward-compatible, ~35 KB gz</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px;font-size:0.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px">Migration from v0.2.x</div>
+        <div class="ionic-migration-box">
+          <span class="diff-cmt">// Before — loaded ALL components automatically (150 KB)</span><br>
+          <span class="diff-del">- setupNixIonic();</span><br><br>
+          <span class="diff-cmt">// After — you choose what to load</span><br>
+          <span class="diff-add">+ import { allComponents } from "@deijose/nix-ionic/bundles/all";</span><br>
+          <span class="diff-add">+ setupNixIonic({ components: allComponents });</span><br><br>
+          <span class="diff-cmt">// Or go modular for the smallest possible bundle</span><br>
+          <span class="diff-add">+ import { layoutComponents } from "@deijose/nix-ionic/bundles/layout";</span><br>
+          <span class="diff-add">+ setupNixIonic({ components: [...layoutComponents, defineIonButton] });</span>
+        </div>
+
+        <div style="margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <a href="https://www.npmjs.com/package/@deijose/nix-ionic" target="_blank" rel="noopener" class="btn-primary"
+             style="padding:10px 22px;font-size:0.88rem">
+            View on npm
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="https://github.com/DeijoseDevelop/nix-ionic" target="_blank" rel="noopener" class="btn-secondary"
+             style="padding:10px 22px;font-size:0.88rem">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   </section>
