@@ -5285,8 +5285,8 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <span class="code-filename">main.ts</span>
           </div>
           <div class="code-body">
-            <pre><span class="kw">import</span> { setupNixIonic } <span class="kw">from</span> <span class="str">"@deijose/nix-ionic"</span>;
-<span class="kw">import</span> { createRouter, mount } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
+            <pre><span class="kw">import</span> { setupNixIonic, IonRouterOutlet } <span class="kw">from</span> <span class="str">"@deijose/nix-ionic"</span>;
+<span class="kw">import</span> { NixComponent, html, mount } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
 <span class="cmt">// Import only the bundles you need</span>
 <span class="kw">import</span> { layoutComponents } <span class="kw">from</span>
@@ -5294,22 +5294,21 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
 <span class="kw">import</span> { formComponents } <span class="kw">from</span>
   <span class="str">"@deijose/nix-ionic/bundles/forms"</span>;
 
-<span class="cmt">// Or individual components for maximum tree-shaking</span>
-<span class="kw">import</span> { defineIonButton } <span class="kw">from</span>
-  <span class="str">"@deijose/nix-ionic/components"</span>;
-
 <span class="fn">setupNixIonic</span>({
-  components: [
-    ...layoutComponents,   <span class="cmt">// header, toolbar, content…</span>
-    ...formComponents,     <span class="cmt">// input, checkbox, select…</span>
-    defineIonButton,       <span class="cmt">// single component</span>
-  ],
+  components: [...layoutComponents, ...formComponents],
 });
 
-<span class="kw">const</span> router = <span class="fn">createRouter</span>([
-  { path: <span class="str">"/"</span>,    component: () => <span class="fn">HomePage</span>() },
-  { path: <span class="str">"/about"</span>, component: () => <span class="fn">AboutPage</span>() },
+<span class="cmt">// Ionic router — uses ion-router under the hood</span>
+<span class="kw">const</span> outlet = <span class="kw">new</span> <span class="fn">IonRouterOutlet</span>([
+  { path: <span class="str">"/"</span>,         component: (ctx) => <span class="kw">new</span> <span class="fn">HomePage</span>(ctx) },
+  { path: <span class="str">"/task/:id"</span>, component: (ctx) => <span class="kw">new</span> <span class="fn">TaskDetailPage</span>(ctx) },
 ]);
+
+<span class="kw">class</span> <span class="fn">App</span> <span class="kw">extends</span> <span class="type">NixComponent</span> {
+  <span class="fn">render</span>() {
+    <span class="kw">return</span> <span class="fn">html</span><span class="str">`&lt;ion-app&gt;${outlet}&lt;/ion-app&gt;`</span>;
+  }
+}
 
 <span class="fn">mount</span>(<span class="kw">new</span> <span class="fn">App</span>(), <span class="str">"#app"</span>);</pre>
           </div>
