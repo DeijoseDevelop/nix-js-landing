@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nix.js — Lightweight Reactive Micro-Framework</title>
+  <title>Nix.js — Lightweight Reactive Micro-Framework for JavaScript</title>
   <link rel="apple-touch-icon" sizes="57x57" href="./images/ico/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="./images/ico/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="./images/ico/apple-icon-72x72.png">
@@ -20,8 +20,60 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./images/ico/favicon-16x16.png">
   <link rel="manifest" href="./images/ico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="description" content="Nix.js is a signal-based micro-framework with no virtual DOM, no compiler, and zero dependencies. Ships with built-in router, stores, forms, transitions, portals, and Ionic mobile support in ~10 KB gzipped.">
+  <meta name="keywords" content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, ionic, mobile, nix-ionic">
+  <meta name="author" content="Deiver Vasquez">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nix-js.vercel.app/">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nix-js.vercel.app/">
+  <meta property="og:title" content="Nix.js — Lightweight Reactive Micro-Framework">
+  <meta property="og:description" content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Built-in router, stores, forms & Ionic mobile support — all in ~10 KB gzipped.">
+  <meta property="og:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Nix.js">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://nix-js.vercel.app/">
+  <meta name="twitter:title" content="Nix.js — Lightweight Reactive Micro-Framework">
+  <meta name="twitter:description" content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Built-in router, stores, forms & Ionic mobile support — all in ~10 KB gzipped.">
+  <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
+  <meta name="twitter:creator" content="@DeijoseDevelop">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nix.js",
+    "url": "https://nix-js.vercel.app/",
+    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Ships with built-in router, stores, forms, transitions, portals, and Ionic mobile support.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Deiver Vasquez",
+      "url": "https://github.com/DeijoseDevelop"
+    },
+    "license": "https://opensource.org/licenses/MIT",
+    "softwareVersion": "1.7.9",
+    "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, ionic, mobile"
+  }
+  </script>
+
+  <meta name="msapplication-TileColor" content="#7c5cfc">
   <meta name="msapplication-TileImage" content="./images/ico/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#7c5cfc">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
@@ -31,7 +83,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.7.7/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.7.9/+esm"
       }
     }
   </script>
@@ -3382,7 +3434,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.7.7 — Performance & Heuristic Diffing
+        v1.7.9 — Performance & Heuristic Diffing
       </div>
       <h1>
         Build reactive UIs<br>
@@ -3441,7 +3493,7 @@
       <div class="stat-item">
 
         <div class="stat-value green">-90%</div>
-        <div class="stat-label">Faster Rendering (v1.7.7)</div>
+        <div class="stat-label">Faster Rendering (v1.7.9)</div>
       </div>
       <div class="stat-item">
         <div class="stat-value orange">221</div>
@@ -3476,7 +3528,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.7.7"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.7.9"</span>;
           </div>
         </div>
 
@@ -4243,7 +4295,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 1.7.7 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 1.7.9 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -4281,7 +4333,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -4359,7 +4411,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -4437,7 +4489,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -4515,7 +4567,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -4593,7 +4645,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -4672,7 +4724,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -4750,7 +4802,7 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 1.7.7 -->
+              <!-- 1.7.9 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
