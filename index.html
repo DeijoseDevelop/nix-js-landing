@@ -3439,7 +3439,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.9.0 — Performance & Heuristic Diffing
+        v1.9.0 — Better Routing, Smarter State, Easier Forms
       </div>
       <h1>
         Build reactive UIs<br>
@@ -3447,7 +3447,8 @@
       </h1>
       <p class="hero-subtitle">
         A signal-based micro-framework. No virtual DOM, no compiler, no build-time magic.
-        Just signals and tagged templates. <strong>Performance-first reactivity.</strong>
+        Just signals and tagged templates. <strong>Now shipping stronger routing, global state, and form workflows with
+          the same zero-config developer experience.</strong>
       </p>
       <div class="hero-actions">
         <a href="https://docs.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
@@ -3500,7 +3501,7 @@
       <div class="stat-item">
 
         <div class="stat-value green">-90%</div>
-        <div class="stat-label">Faster Rendering (v1.9.0)</div>
+        <div class="stat-label">Benchmark gain vs baseline</div>
       </div>
       <div class="stat-item">
         <div class="stat-value orange">484</div>
@@ -4022,15 +4023,15 @@
           <div class="code-text animate-on-scroll">
             <h3>Client-side routing, built in.</h3>
             <p>
-              No extra package. History API router with dynamic params, nested routes,
-              query strings, guards, and lazy loading — ready to go.
+              No extra package. Switch between history or hash mode, attach typed route meta,
+              restore scroll automatically, and keep dynamic params, guards, and lazy loading.
             </p>
             <ul class="code-features">
-              <li><span class="check">✓</span> Dynamic route parameters</li>
+              <li><span class="check">✓</span> History + hash routing modes</li>
+              <li><span class="check">✓</span> Route meta available through resolve()</li>
+              <li><span class="check">✓</span> Custom scrollBehavior restoration</li>
               <li><span class="check">✓</span> Nested routes with RouterView depth</li>
-              <li><span class="check">✓</span> Navigation guards (global + per-route)</li>
-              <li><span class="check">✓</span> Lazy loading with lazy()</li>
-              <li><span class="check">✓</span> Reactive active-link styling</li>
+              <li><span class="check">✓</span> Navigation guards and lazy loading</li>
             </ul>
           </div>
           <div class="code-block animate-on-scroll">
@@ -4048,6 +4049,7 @@
   {
     path: <span class="str">"/dashboard"</span>,
     component: () => <span class="kw">new</span> <span class="fn">DashboardLayout</span>(),
+    meta: { requiresAuth: <span class="kw">true</span> },
     children: [
       { path: <span class="str">"/stats"</span>,    component: <span class="fn">lazy</span>(
         () => <span class="kw">import</span>(<span class="str">"./pages/Stats"</span>)) },
@@ -4056,11 +4058,16 @@
     ],
   },
   { path: <span class="str">"*"</span>, component: () => <span class="fn">NotFound</span>() },
-]);
+], {
+  mode: <span class="str">"hash"</span>,
+  scrollBehavior: (_to, _from, saved) =>
+    saved ?? { left: <span class="num">0</span>, top: <span class="num">0</span> }
+});
 
-<span class="cmt">// Auth guard — redirect if not logged in</span>
-router.<span class="fn">beforeEach</span>((to, from) => {
-  <span class="kw">if</span> (to.<span class="fn">startsWith</span>(<span class="str">"/dashboard"</span>) && !<span class="fn">isAuth</span>())
+<span class="cmt">// Auth guard using route meta from resolve()</span>
+router.<span class="fn">beforeEach</span>((to) => {
+  <span class="kw">const</span> match = router.<span class="fn">resolve</span>(to);
+  <span class="kw">if</span> (match?.meta?.requiresAuth && !<span class="fn">isAuth</span>())
     <span class="kw">return</span> <span class="str">"/login"</span>;
 });</pre>
             </div>
@@ -4074,15 +4081,16 @@ router.<span class="fn">beforeEach</span>((to, from) => {
           <div class="code-text animate-on-scroll">
             <h3>Global state in 5 lines.</h3>
             <p>
-              Every property becomes a signal automatically. Add typed actions,
-              reset to initial state with $reset(). No reducers, no dispatchers.
+              Every property becomes a signal automatically. Add typed actions and
+              derived getters, subscribe globally to changes, and reset with $reset().
             </p>
             <ul class="code-features">
               <li><span class="check">✓</span> Auto-signalized properties</li>
               <li><span class="check">✓</span> Typed actions with full inference</li>
+              <li><span class="check">✓</span> Optional gettersFactory for derived signals</li>
+              <li><span class="check">✓</span> Global $subscribe(key, next, prev)</li>
               <li><span class="check">✓</span> $reset() to restore initial state</li>
-              <li><span class="check">✓</span> Works with computed() and effect()</li>
-              <li><span class="check">✓</span> Use from any component or module</li>
+              <li><span class="check">✓</span> Works in any component or module</li>
             </ul>
           </div>
           <div class="code-block animate-on-scroll">
@@ -4091,7 +4099,7 @@ router.<span class="fn">beforeEach</span>((to, from) => {
               <span class="code-filename">store.ts</span>
             </div>
             <div class="code-body">
-              <pre><span class="kw">import</span> { createStore } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
+              <pre><span class="kw">import</span> { createStore, computed } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
 <span class="kw">const</span> cart = <span class="fn">createStore</span>(
   {
@@ -4109,12 +4117,20 @@ router.<span class="fn">beforeEach</span>((to, from) => {
       s.total.<span class="fn">update</span>(n => n - <span class="num">1</span>);
     },
     <span class="fn">clear</span>() { cart.<span class="fn">$reset</span>(); },
+  }),
+  (s) => ({
+    itemCount: <span class="fn">computed</span>(() => s.items.value.length),
+    hasItems: <span class="fn">computed</span>(() => s.items.value.length &gt; <span class="num">0</span>),
   })
 );
 
+cart.<span class="fn">$subscribe</span>((key, next, prev) => {
+  console.<span class="fn">log</span>(<span class="str">"Store change:"</span>, key, prev, <span class="str">"→"</span>, next);
+});
+
 cart.<span class="fn">add</span>(<span class="str">"Milk"</span>);
-cart.items.value;   <span class="cmt">// ["Milk"]</span>
-cart.total.value;   <span class="cmt">// 1</span></pre>
+cart.itemCount.value; <span class="cmt">// 1</span>
+cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </div>
           </div>
         </div>
@@ -4124,17 +4140,18 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
       <div class="tab-panel" id="tab-forms">
         <div class="code-layout">
           <div class="code-text animate-on-scroll">
-            <h3>Typed Forms & Dynamic Arrays.</h3>
+            <h3>Typed Forms, Dot Paths & Cross-Field Rules.</h3>
             <p>
-              Manage complex forms with ease. Built-in validation, dynamic field arrays,
-              and enhanced state tracking for submission and dirty states.
+              Manage complex forms with nested objects, cross-field rules, and dynamic arrays.
+              Validation is fully typed and works with built-ins, custom validators, or schemas.
             </p>
             <ul class="code-features">
               <li><span class="check">✓</span> Typed field validation (Zod/Valibot)</li>
+              <li><span class="check">✓</span> Dot-path validators for nested fields</li>
+              <li><span class="check">✓</span> Cross-field validators with allValues</li>
               <li><span class="check">✓</span> useFieldArray for dynamic lists</li>
               <li><span class="check">✓</span> validateOn: 'blur' | 'input' | 'submit'</li>
               <li><span class="check">✓</span> isSubmitting & submitCount tracking</li>
-              <li><span class="check">✓</span> Deeply reactive form state</li>
             </ul>
           </div>
           <div class="code-block animate-on-scroll">
@@ -4143,25 +4160,34 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
               <span class="code-filename">forms.ts</span>
             </div>
             <div class="code-body">
-              <pre><span class="kw">import</span> { createForm, useFieldArray, required, email } 
+              <pre><span class="kw">import</span> { createForm, useFieldArray, required, email, minLength } 
   <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
-<span class="kw">const</span> { form, handleSubmit } = <span class="fn">createForm</span>({
-  name: <span class="str">""</span>,
-  emails: [<span class="str">"test@example.com"</span>]
+<span class="kw">const</span> form = <span class="fn">createForm</span>({
+  profile: { email: <span class="str">""</span> },
+  password: <span class="str">""</span>,
+  confirmPassword: <span class="str">""</span>
 }, {
   validateOn: <span class="str">'blur'</span>,
-  validators: { name: [<span class="fn">required</span>()] }
+  validators: {
+    <span class="str">"profile.email"</span>: [<span class="fn">required</span>(), <span class="fn">email</span>()],
+    password: [<span class="fn">required</span>(), <span class="fn">minLength</span>(<span class="num">8</span>)],
+    confirmPassword: [
+      <span class="fn">required</span>(),
+      (value, allValues) =>
+        value !== allValues?.password ? <span class="str">"Passwords do not match"</span> : <span class="kw">null</span>
+    ]
+  }
 });
 
-<span class="cmt">// Dynamic field array for emails</span>
+<span class="cmt">// Dynamic field array</span>
 <span class="kw">const</span> { fields, append, remove } = <span class="fn">useFieldArray</span>(
-  form.emails, 
-  { validators: [<span class="fn">required</span>(), <span class="fn">email</span>()] }
+  [{ value: <span class="str">""</span> }],
+  { value: [<span class="fn">required</span>(), <span class="fn">email</span>()] }
 );
 
-<span class="kw">const</span> onSubmit = <span class="fn">handleSubmit</span>(data => {
-  console.<span class="fn">log</span>(<span class="str">"Form Submitting..."</span>, data);
+<span class="kw">const</span> onSubmit = form.<span class="fn">handleSubmit</span>(values => {
+  console.<span class="fn">log</span>(<span class="str">"Form submit:"</span>, values, fields.value.length);
 });</pre>
             </div>
           </div>
@@ -5607,6 +5633,26 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
+              What's new in v1.9.0?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                v1.9.0 focuses on real day-to-day developer experience: cleaner navigation behavior, smarter global
+                state, and easier form workflows. Under the hood that includes router <code>meta</code> +
+                <code>resolve()</code> parity, hash mode with scroll restoration, store <code>gettersFactory</code> +
+                <code>$subscribe()</code>, and cross-field form validation via <code>(value, allValues)</code>.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
               Can I use Nix.js without TypeScript?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -5636,12 +5682,11 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js has 484 passing tests covering the full public API: reactivity, templates, router, stores, typed
-                forms, dynamic arrays,
-                DI, portals, error boundaries, and transitions. It ships as a strict TypeScript library with no runtime
-                dependencies. Latest v8 coverage: 95.86% statements, 87.42% branches, 95.84% functions, 97.69% lines.
-                It is a great fit for small-to-medium apps, embedded widgets, and internal tools. For
-                large enterprise apps, evaluate it on your use case.
+                Yes. Nix.js is built for production with zero runtime dependencies, strong TypeScript support, and a
+                complete built-in stack (routing, state, forms, DI, transitions, and more) that avoids framework
+                sprawl. It currently has 484 passing tests with v8 coverage of 95.86% statements, 87.42% branches,
+                95.84% functions, and 97.69% lines. It's a solid choice for real web products and hybrid/mobile UI
+                experiences where performance and maintainability both matter.
               </div>
             </div>
           </div>
@@ -5667,6 +5712,26 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
+              Do I need migration changes from v1.8.x?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Usually no. v1.9.0 is backward-compatible for existing router, store, and form usage. New features are
+                additive: you can opt into route <code>meta</code>, hash mode, <code>scrollBehavior</code>,
+                <code>gettersFactory</code>, <code>$subscribe()</code>, and cross-field form validators only when you
+                need them.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
               Why not just use React, Vue, or Solid?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -5680,8 +5745,8 @@ cart.total.value;   <span class="cmt">// 1</span></pre>
                 Those are great choices for most projects. Choose Nix.js when you want <strong>fine-grained reactivity
                   without a compiler or a virtual DOM</strong>, when bundle size matters (React is ~45 KB gzipped, Vue
                 ~33 KB), or when you want routing, forms, stores, DI, portals, and transitions from <em>one</em> import
-                with no configuration. It's also ideal when you want to understand or extend a framework without
-                fighting a complex compiler.
+                with no configuration. In short: less setup, fewer dependencies, and faster onboarding for small and
+                medium apps.
               </div>
             </div>
           </div>
