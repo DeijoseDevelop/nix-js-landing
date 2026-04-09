@@ -21,9 +21,9 @@
   <link rel="manifest" href="./images/ico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="description"
-    content="Nix.js is a signal-based micro-framework with no virtual DOM, no compiler, and zero dependencies. Ships with built-in router, stores, forms, transitions, portals, and Ionic mobile support in ~10 KB gzipped.">
+    content="Nix.js is a signal-based micro-framework with no virtual DOM, no compiler, and zero dependencies. Build web apps with Nix-UI + Nix Query (async requests) or mobile apps with Nix-Ionic in one ecosystem.">
   <meta name="keywords"
-    content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, ionic, mobile, nix-ionic">
+    content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, nix-query, nix-ionic, ionic, mobile">
   <meta name="author" content="Deiver Vasquez">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nix-js.dev/">
@@ -33,7 +33,7 @@
   <meta property="og:url" content="https://nix-js.dev/">
   <meta property="og:title" content="Nix.js — Lightweight Reactive Micro-Framework">
   <meta property="og:description"
-    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Built-in router, stores, forms & Ionic mobile support — all in ~10 KB gzipped.">
+    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Two paths: web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.">
   <meta property="og:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -45,7 +45,7 @@
   <meta name="twitter:url" content="https://nix-js.dev/">
   <meta name="twitter:title" content="Nix.js — Lightweight Reactive Micro-Framework">
   <meta name="twitter:description"
-    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Built-in router, stores, forms & Ionic mobile support — all in ~10 KB gzipped.">
+    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Two paths: web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.">
   <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
   <meta name="twitter:creator" content="@DeijoseDevelop">
 
@@ -56,7 +56,7 @@
     "@type": "SoftwareApplication",
     "name": "Nix.js",
     "url": "https://nix-js.dev/",
-    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Ships with built-in router, stores, forms, transitions, portals, and Ionic mobile support.",
+    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -70,8 +70,8 @@
       "url": "https://github.com/DeijoseDevelop"
     },
     "license": "https://opensource.org/licenses/MIT",
-    "softwareVersion": "1.9.0",
-    "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, ionic, mobile"
+    "softwareVersion": "2.0.2",
+    "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
   }
   </script>
 
@@ -87,7 +87,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@1.9.0/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.0.2/+esm"
       }
     }
   </script>
@@ -1787,6 +1787,266 @@
       }
     }
 
+    /* ===== CASE STUDY: IRON BIKERS ===== */
+    .case-study-section {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-study-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -120px;
+      width: 460px;
+      height: 460px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 18px;
+    }
+
+    .case-kicker::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    .case-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+      letter-spacing: -1px;
+      line-height: 1.16;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .case-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .case-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #7dd3fc;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.24);
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .case-metric {
+      text-align: center;
+      padding: 16px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .case-metric strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.4px;
+      color: var(--accent-light);
+    }
+
+    .case-metric span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .case-phones {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .case-phone-stack {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
+    .case-phone-main {
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.45));
+    }
+
+    .case-phone-shell {
+      width: 300px;
+      border-radius: 2.5rem;
+      padding: 10px;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      position: relative;
+    }
+
+    .case-phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 112px;
+      height: 24px;
+      border-radius: 0 0 16px 16px;
+      background: #0f172a;
+      z-index: 3;
+    }
+
+    .case-phone-screen {
+      height: 600px;
+      border-radius: 2rem;
+      overflow: hidden;
+      background: #0b1222;
+      position: relative;
+    }
+
+    .case-phone-home {
+      width: 110px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.22);
+      margin: 8px auto 0;
+    }
+
+    .ib-slider {
+      height: 100%;
+      width: 300%;
+      display: flex;
+      animation: ib-slide 14s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .ib-slider img {
+      width: calc(100% / 3);
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes ib-slide {
+
+      0%,
+      28% {
+        transform: translateX(0);
+      }
+
+      33%,
+      61% {
+        transform: translateX(-33.3333%);
+      }
+
+      66%,
+      94% {
+        transform: translateX(-66.6666%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .case-phone-secondary {
+      position: absolute;
+      right: -36px;
+      top: 26px;
+      transform: rotate(-6deg) scale(0.85);
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    .case-phone-secondary .case-phone-shell {
+      width: 260px;
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .case-phone-secondary .case-phone-screen {
+      height: 560px;
+    }
+
+    .case-phone-secondary img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1024px) {
+      .case-study-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-phones {
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .case-phone-shell {
+        width: 280px;
+      }
+
+      .case-phone-screen {
+        height: 560px;
+      }
+
+      .case-phone-secondary {
+        display: none;
+      }
+    }
+
     /* ===== SHOWCASES ===== */
     .showcases-section {
       background: var(--bg-primary);
@@ -2730,6 +2990,67 @@
       background: var(--cyan);
     }
 
+    .hero-paths {
+      margin: 22px auto 0;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+
+    .hero-path-card {
+      text-align: left;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.25s;
+    }
+
+    .hero-path-card:hover {
+      border-color: var(--border-light);
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-3px);
+    }
+
+    .hero-path-card h3 {
+      margin: 8px 0 6px;
+      font-size: 1rem;
+      letter-spacing: -0.2px;
+      color: var(--text-primary);
+    }
+
+    .hero-path-card p {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .hero-path-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: var(--accent-subtle);
+      border: 1px solid rgba(124, 92, 252, 0.35);
+    }
+
+    .hero-path-action {
+      display: inline-flex;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.3px;
+    }
+
     /* ===== NIX-IONIC SECTION ===== */
     .nix-ionic-section {
       background: var(--bg-primary);
@@ -3197,6 +3518,10 @@
         justify-content: center;
       }
 
+      .hero-paths {
+        grid-template-columns: 1fr;
+      }
+
       /* Tables */
       .comparison-table-wrapper {
         overflow-x: auto;
@@ -3404,9 +3729,10 @@
           <ul class="dropdown-menu">
             <li><a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Performance
                 Benchmarks</a></li>
-            <li><a href="https://ui.nix-js.dev/" target="_blank" rel="noopener">Nix-UI <span
-                  class="badge-new">New</span></a></li>
-            <li><a href="#nix-ionic" rel="noopener">Nix-Ionic <span class="badge-new">New</span></a></li>
+            <li><a href="https://www.npmjs.com/package/@deijose/nix-query" target="_blank" rel="noopener">Nix Query
+                <span class="badge-new">New</span></a></li>
+            <li><a href="https://ui.nix-js.dev/" target="_blank" rel="noopener">Nix-UI</a></li>
+            <li><a href="#nix-ionic" rel="noopener">Nix-Ionic</a></li>
             <li><a href="#showcases">Built with Nix</a></li>
           </ul>
         </li>
@@ -3439,7 +3765,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v1.9.0 — Better Routing, Smarter State, Easier Forms
+        v2.0.2 — Runtime-hardened reactivity and DevTools sync fixes
       </div>
       <h1>
         Build reactive UIs<br>
@@ -3447,8 +3773,8 @@
       </h1>
       <p class="hero-subtitle">
         A signal-based micro-framework. No virtual DOM, no compiler, no build-time magic.
-        Just signals and tagged templates. <strong>Now shipping stronger routing, global state, and form workflows with
-          the same zero-config developer experience.</strong>
+        Just signals and tagged templates. <strong>Choose your path: web apps with Nix-UI + Nix Query for async
+          requests, or mobile apps with Nix-Ionic.</strong>
       </p>
       <div class="hero-actions">
         <a href="https://docs.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
@@ -3486,7 +3812,23 @@
         <span class="eco-badge"><span class="eco-dot"
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 95.86% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~10 KB gzipped</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.3.2</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
+      </div>
+      <div class="hero-paths">
+        <a class="hero-path-card" href="https://ui.nix-js.dev/" target="_blank" rel="noopener">
+          <span class="hero-path-tag">Web Path</span>
+          <h3>Build web products with Nix.js + Nix-UI</h3>
+          <p>Compose interfaces with Nix-UI and handle async requests/caching with Nix Query in the same stack.</p>
+          <span class="hero-path-action">Launch web apps -></span>
+        </a>
+        <a class="hero-path-card" href="#nix-ionic" rel="noopener">
+          <span class="hero-path-tag">Mobile Path</span>
+          <h3>Ship mobile with Nix-Ionic</h3>
+          <p>Ionic routing + Nix.js reactivity for one codebase that can target web, Android, and iOS.</p>
+          <span class="hero-path-action">Launch mobile apps -></span>
+        </a>
       </div>
     </div>
   </section>
@@ -3536,7 +3878,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@1.9.0"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.0.2"</span>;
           </div>
         </div>
 
@@ -4201,9 +4543,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-label">📦 Built-In Ecosystem</div>
-        <h2 class="section-title">One framework.<br>Everything included.</h2>
-        <p class="section-desc">Stop juggling third-party packages. Nix.js ships with every feature you need to build
-          production applications.</p>
+        <h2 class="section-title">One core.<br>Official packages.</h2>
+        <p class="section-desc">Build with a minimal reactive core and scale with first-party tools like Nix Query,
+          Nix Ionic, and Nix UI without dependency roulette.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card animate-on-scroll">
@@ -4269,8 +4611,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <span class="feature-card-icon">⏳</span>
             <h3>Async & Suspense</h3>
           </div>
-          <p>suspend() for data fetching, createQuery() for shared queries, lazy() for code-splitting. Smart
-            invalidation without DOM rebuild.</p>
+          <p>suspend() for async views, lazy() for code-splitting, and Nix Query for robust async requests, retries,
+            and query cache invalidation.</p>
           <code><span style="color:var(--blue)">suspend</span>(
   () => <span style="color:var(--blue)">fetch</span>(<span style="color:var(--green)">"/api/users"</span>).then(r => r.json()),
   (users) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
@@ -4328,7 +4670,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 1.9.0 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.0.2 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -4366,7 +4708,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -4444,7 +4786,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -4522,7 +4864,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -4600,7 +4942,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -4678,7 +5020,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -4757,7 +5099,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -4835,7 +5177,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 1.9.0 -->
+              <!-- 2.0.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -5341,8 +5683,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
         </h2>
         <p class="section-desc">
           <strong>Nix-Ionic</strong> bridges Nix.js reactivity with the full Ionic component library.
-          Build native-quality mobile apps with signals, client-side routing, and&nbsp;<em>modular loading</em>. Load
-          only the components you need &mdash; <strong>34.8&nbsp;KB gzipped</strong> full package.
+          Build native-quality mobile apps with signals, client-side routing, and&nbsp;<em>modular loading</em>.
+          Since <strong>v1.x</strong>, only 6 routing-critical Ionic elements are registered by default, and the rest
+          is imported on demand.
         </p>
       </div>
 
@@ -5359,8 +5702,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </p>
           <ul class="ionic-features-list">
             <li><span class="ionic-check">✓</span> Modular loading — import only what you need</li>
-            <li><span class="ionic-check">✓</span> <strong>34.8 KB gzipped</strong> &mdash; verified on BundlePhobia
-            </li>
+            <li><span class="ionic-check">✓</span> Core bootstrap registers only 6 essential Ionic elements</li>
             <li><span class="ionic-check">✓</span> Pre-made bundles: layout, forms, overlays, navigation…</li>
             <li><span class="ionic-check">✓</span> Full Ionic routing with ion-router &amp; ion-back-button</li>
             <li><span class="ionic-check">✓</span> Compatible with Capacitor for true native deployment</li>
@@ -5368,6 +5710,17 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </ul>
           <div class="ionic-install-box">
             <span><span class="dollar">$</span> npm install <span class="pkg">@deijose/nix-ionic</span></span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;font-size:0.78rem;color:var(--text-muted)">
+            <span
+              style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(251,146,60,0.08)">Nix-Ionic
+              1.2.1</span>
+            <span
+              style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
+              2.0.2 compatible</span>
+            <span
+              style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
+              Core 8.x</span>
           </div>
         </div>
 
@@ -5412,9 +5765,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
         <div class="ionic-feature-card animate-on-scroll">
           <span class="ionic-feature-icon">⚡</span>
           <h4>Modular Loading</h4>
-          <p>Register only the Ionic components your app uses. The full package is <strong
-              style="color:var(--orange)">34.8 KB gzip</strong> &mdash; import individual bundles so your bundler
-            tree-shakes unused components.</p>
+          <p>Register only the Ionic components your app uses. The runtime initializes a minimal routing core first,
+            then you add bundles (or individual components) so the bundler tree-shakes the rest.</p>
         </div>
         <div class="ionic-feature-card animate-on-scroll">
           <span class="ionic-feature-icon">📦</span>
@@ -5451,7 +5803,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
       <!-- Bundle showcase -->
       <div class="ionic-bundle-section animate-on-scroll">
         <div class="ionic-bundle-header">
-          <h3>Available Bundles — v0.5.0</h3>
+          <h3>Available Bundles — v1.2.1</h3>
           <span class="ionic-bundle-badge">
             <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange)"></span>
             Tree-shakeable
@@ -5494,9 +5846,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
         <div
           style="margin-bottom:16px;font-size:0.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px">
-          Migration from v0.2.x</div>
+          Legacy migration guide (v0.2.x -> v1.x)</div>
         <div class="ionic-migration-box">
-          <span class="diff-cmt">// Before — loaded ALL components automatically (150 KB)</span><br>
+          <span class="diff-cmt">// Before — loaded all components automatically</span><br>
           <span class="diff-del">- setupNixIonic();</span><br><br>
           <span class="diff-cmt">// After — you choose what to load</span><br>
           <span class="diff-add">+ import { allComponents } from "@deijose/nix-ionic/bundles/all";</span><br>
@@ -5507,6 +5859,10 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
         </div>
 
         <div style="margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <a href="https://github.com/DeijoseDevelop/create-nix-app/tree/main/template-nix-ionic" target="_blank"
+            rel="noopener" class="btn-secondary" style="padding:10px 22px;font-size:0.88rem">
+            Starter Template
+          </a>
           <a href="https://www.npmjs.com/package/@deijose/nix-ionic" target="_blank" rel="noopener" class="btn-primary"
             style="padding:10px 22px;font-size:0.88rem">
             View on npm
@@ -5524,6 +5880,75 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </svg>
             GitHub
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study: Iron Bikers -->
+  <section id="caso-de-exito" class="section case-study-section">
+    <div class="container">
+      <div class="case-study-grid">
+        <div class="animate-on-scroll">
+          <div class="case-kicker">Caso de Exito</div>
+          <h2 class="case-title">Iron Bikers: <span class="gradient-text">app movil</span> para comunidad biker</h2>
+          <p class="case-text">
+            Desarrollamos una app movil completa para gestionar su comunidad: registro de miembros, coordinacion de
+            rutas y eventos, comunicacion interna y herramientas administrativas, todo desde el celular.
+          </p>
+
+          <div class="case-tags">
+            <span class="case-tag">App Movil</span>
+            <span class="case-tag">Android & iOS</span>
+            <span class="case-tag">Gestion de Comunidad</span>
+            <span class="case-tag">Rutas & Eventos</span>
+          </div>
+
+          <div class="case-metrics">
+            <div class="case-metric">
+              <strong>4</strong>
+              <span>Semanas</span>
+            </div>
+            <div class="case-metric">
+              <strong>Android</strong>
+              <span>& iOS</span>
+            </div>
+            <div class="case-metric">
+              <strong>100%</strong>
+              <span>A medida</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-phones animate-on-scroll">
+          <div class="case-phone-stack">
+            <div class="case-phone-main">
+              <div class="case-phone-shell">
+                <div class="case-phone-notch"></div>
+                <div class="case-phone-screen">
+                  <div class="ib-slider">
+                    <img src="/images/app-1.webp" alt="Iron Bikers App Login" width="300" height="600" loading="lazy"
+                      decoding="async">
+                    <img src="/images/app-3.webp" alt="Iron Bikers App Inicio Claro" width="300" height="600"
+                      loading="lazy" decoding="async">
+                    <img src="/images/app-2.webp" alt="Iron Bikers App Inicio Oscuro" width="300" height="600"
+                      loading="lazy" decoding="async">
+                  </div>
+                </div>
+              </div>
+              <div class="case-phone-home"></div>
+            </div>
+
+            <div class="case-phone-secondary" aria-hidden="true">
+              <div class="case-phone-shell">
+                <div class="case-phone-notch"></div>
+                <div class="case-phone-screen">
+                  <img src="/images/app-2.webp" alt="App Screen Trasera" width="260" height="560" loading="lazy"
+                    decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -5633,7 +6058,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in v1.9.0?
+              What's new in Nix.js 2.0.2?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5643,29 +6068,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                v1.9.0 focuses on real day-to-day developer experience: cleaner navigation behavior, smarter global
-                state, and easier form workflows. Under the hood that includes router <code>meta</code> +
-                <code>resolve()</code> parity, hash mode with scroll restoration, store <code>gettersFactory</code> +
-                <code>$subscribe()</code>, and cross-field form validation via <code>(value, allValues)</code>.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Can I use Nix.js without TypeScript?
-              <span class="faq-chevron">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Yes — Nix.js is plain JavaScript at runtime. TypeScript is optional. You get full type safety when using
-                TS, but the library works identically in a plain <code>.js</code> or even directly in a browser
-                <code>&lt;script type="module"&gt;</code> tag via an import map.
+                Nix.js 2.x focused on reliability: safer reactivity behavior across bundling scenarios, stronger
+                DevTools synchronization, and a more mature ecosystem with dedicated packages like
+                <code>@deijose/nix-query</code> and <code>@deijose/nix-ionic</code>.
               </div>
             </div>
           </div>
@@ -5682,18 +6087,15 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Nix.js is built for production with zero runtime dependencies, strong TypeScript support, and a
-                complete built-in stack (routing, state, forms, DI, transitions, and more) that avoids framework
-                sprawl. It currently has 484 passing tests with v8 coverage of 95.86% statements, 87.42% branches,
-                95.84% functions, and 97.69% lines. It's a solid choice for real web products and hybrid/mobile UI
-                experiences where performance and maintainability both matter.
+                Yes. It is designed for production with zero runtime dependencies in the core, strong TypeScript
+                support, and a practical ecosystem for web and mobile workflows.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Does it work with Vite, Webpack, or Parcel?
+              How do I handle async requests and caching in web apps?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5703,16 +6105,16 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Nix.js is a standard ES module and works with any bundler that supports ESM — Vite, Webpack 5,
-                Rollup, Parcel, esbuild, Bun. It also runs without a bundler in modern browsers via
-                <code>type="importmap"</code> and <code>https://esm.sh/@deijose/nix-js</code>.
+                Use <code>@deijose/nix-query</code> for async requests, query cache, retries, and invalidation.
+                Pair it with <code>@deijose/nix-ui</code> for UI components in web projects. Start with:
+                <code>npm install @deijose/nix-js @deijose/nix-ui @deijose/nix-query</code>.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Do I need migration changes from v1.8.x?
+              Can I build mobile apps with Nix.js?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5722,17 +6124,15 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Usually no. v1.9.0 is backward-compatible for existing router, store, and form usage. New features are
-                additive: you can opt into route <code>meta</code>, hash mode, <code>scrollBehavior</code>,
-                <code>gettersFactory</code>, <code>$subscribe()</code>, and cross-field form validators only when you
-                need them.
+                Yes. Use <code>@deijose/nix-ionic@1.2.1</code> with Ionic Core for routing + native-style UI, then wrap
+                with Capacitor for Android/iOS deployment using the same codebase.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Why not just use React, Vue, or Solid?
+              Do I need migration changes from Nix.js 1.x?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5742,18 +6142,15 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Those are great choices for most projects. Choose Nix.js when you want <strong>fine-grained reactivity
-                  without a compiler or a virtual DOM</strong>, when bundle size matters (React is ~45 KB gzipped, Vue
-                ~33 KB), or when you want routing, forms, stores, DI, portals, and transitions from <em>one</em> import
-                with no configuration. In short: less setup, fewer dependencies, and faster onboarding for small and
-                medium apps.
+                Usually minimal. Most upgrades are dependency updates plus a quick validation pass over routes,
+                reactive effects, and tooling integrations.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              How do I handle SSR or server-side rendering?
+              Can I verify benchmark numbers myself?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5763,52 +6160,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js is a client-side framework and does not currently support SSR. It targets browser environments
-                where the DOM is available. If you need server-side rendering, consider pairing a static HTML shell with
-                Nix.js for client-side hydration, or using a full-stack framework. SSR support is on the long-term
-                roadmap.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              How is it possible for a framework to beat Vanilla JS?
-              <span class="faq-chevron">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                The "Vanilla JS" baseline in standard benchmarks relies on typical patterns (like
-                <code>removeChild</code> loops) which can trigger multiple internal browser reflows. Nix.js automates
-                extreme low-level DOM optimizations for you. For instance, it uses <code>Range.deleteContents()</code>
-                for atomic bulk clearing, and holds direct memory references to <code>TextNodes</code> for true O(1)
-                updates. It writes the most optimal Vanilla JS possible, automatically.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Can I verify these performance numbers myself?
-              <span class="faq-chevron">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Absolutely. We believe in total transparency and reproducibility. You can run the exact same 1,000-row
-                stress tests directly in your own browser using our live interactive benchmark tool.
-                <br><br>
-                <a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Run the live
-                  benchmarks here &rarr;</a>
+                Yes. Run the same benchmark scenarios from the public playground:
+                <a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Open live benchmarks
+                  &rarr;</a>
               </div>
             </div>
           </div>
@@ -5821,19 +6175,20 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
   <!-- CTA -->
   <section class="cta">
     <div class="cta-content animate-on-scroll">
-      <h2>Ready to build<br><span class="gradient-text">something great?</span></h2>
-      <p>Start building reactive UIs in minutes. No compiler, no config, no learning curve — just install and go.</p>
+      <h2>Two paths.<br><span class="gradient-text">Web or mobile.</span></h2>
+      <p>Build web apps with Nix.js + Nix-UI + Nix Query for async requests, or ship mobile apps with Nix-Ionic.
+        Same reactive model, same ecosystem.</p>
       <div class="cta-actions">
-        <a href="https://www.npmjs.com/package/@deijose/nix-js" class="btn-primary" target="_blank" rel="noopener">
-          Install Nix.js
+        <a href="https://ui.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
+          Start Web Path
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
         </a>
-        <a href="https://github.com/DeijoseDevelop/nix-js" class="btn-secondary" target="_blank" rel="noopener">
-          Read the Docs
+        <a href="#nix-ionic" class="btn-secondary" rel="noopener">
+          Start Mobile Path
         </a>
       </div>
     </div>
