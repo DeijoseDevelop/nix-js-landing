@@ -21,7 +21,7 @@
   <link rel="manifest" href="./images/ico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="description"
-    content="Nix.js is a signal-based micro-framework with no virtual DOM, no compiler, and zero dependencies. Ships with routing, stores, forms, transitions, and official packages like Nix Query and Nix Ionic in ~10 KB gzipped.">
+    content="Nix.js is a signal-based micro-framework with no virtual DOM, no compiler, and zero dependencies. Build web apps with Nix-UI + Nix Query (async requests) or mobile apps with Nix-Ionic in one ecosystem.">
   <meta name="keywords"
     content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, nix-query, nix-ionic, ionic, mobile">
   <meta name="author" content="Deiver Vasquez">
@@ -33,7 +33,7 @@
   <meta property="og:url" content="https://nix-js.dev/">
   <meta property="og:title" content="Nix.js — Lightweight Reactive Micro-Framework">
   <meta property="og:description"
-    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Routing, stores, forms, and official packages like Nix Query and Nix Ionic — all in ~10 KB gzipped.">
+    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Two paths: web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.">
   <meta property="og:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -45,7 +45,7 @@
   <meta name="twitter:url" content="https://nix-js.dev/">
   <meta name="twitter:title" content="Nix.js — Lightweight Reactive Micro-Framework">
   <meta name="twitter:description"
-    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Routing, stores, forms, and official packages like Nix Query and Nix Ionic — all in ~10 KB gzipped.">
+    content="Signal-based reactivity. No virtual DOM, no compiler, no deps. Two paths: web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.">
   <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1QQXUHkJeyEQzow9zkHzQN7phrtmk10Y6&sz=w1200">
   <meta name="twitter:creator" content="@DeijoseDevelop">
 
@@ -56,7 +56,7 @@
     "@type": "SoftwareApplication",
     "name": "Nix.js",
     "url": "https://nix-js.dev/",
-    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Ships with routing, stores, forms, transitions, portals, and official packages like Nix Query and Nix Ionic.",
+    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build web apps with Nix-UI + Nix Query for async requests, or mobile apps with Nix-Ionic.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -2732,9 +2732,9 @@
 
     .hero-paths {
       margin: 22px auto 0;
-      max-width: 980px;
+      max-width: 860px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
       animation: fadeInUp 0.6s ease-out 0.6s both;
     }
@@ -3513,8 +3513,8 @@
       </h1>
       <p class="hero-subtitle">
         A signal-based micro-framework. No virtual DOM, no compiler, no build-time magic.
-        Just signals and tagged templates. <strong>Start with the core, then scale with official paths for server
-          state and mobile apps using Nix Query and Nix Ionic.</strong>
+        Just signals and tagged templates. <strong>Choose your path: web apps with Nix-UI + Nix Query for async
+          requests, or mobile apps with Nix-Ionic.</strong>
       </p>
       <div class="hero-actions">
         <a href="https://docs.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
@@ -3552,22 +3552,16 @@
         <span class="eco-badge"><span class="eco-dot"
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 95.86% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~10 KB gzipped</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.3.2</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
       <div class="hero-paths">
-        <a class="hero-path-card" href="#quickstart">
-          <span class="hero-path-tag">Core Path</span>
-          <h3>Start fast with Nix.js core</h3>
-          <p>Reactive UI, routing, forms, and state with one framework and no runtime dependencies.</p>
-          <span class="hero-path-action">Build web UI fast -></span>
-        </a>
-        <a class="hero-path-card" href="https://www.npmjs.com/package/@deijose/nix-query" target="_blank"
-          rel="noopener">
-          <span class="hero-path-tag">Data Path</span>
-          <h3>Add server-state with Nix Query</h3>
-          <p>Shared cache, invalidation, and async lifecycle control built for signals-first applications.</p>
-          <span class="hero-path-action">Scale data flows -></span>
+        <a class="hero-path-card" href="https://ui.nix-js.dev/" target="_blank" rel="noopener">
+          <span class="hero-path-tag">Web Path</span>
+          <h3>Build web products with Nix.js + Nix-UI</h3>
+          <p>Compose interfaces with Nix-UI and handle async requests/caching with Nix Query in the same stack.</p>
+          <span class="hero-path-action">Launch web apps -></span>
         </a>
         <a class="hero-path-card" href="#nix-ionic" rel="noopener">
           <span class="hero-path-tag">Mobile Path</span>
@@ -4357,8 +4351,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <span class="feature-card-icon">⏳</span>
             <h3>Async & Suspense</h3>
           </div>
-          <p>suspend() for async views, lazy() for code-splitting, and Nix Query for production-grade server state and
-            cache invalidation.</p>
+          <p>suspend() for async views, lazy() for code-splitting, and Nix Query for robust async requests, retries,
+            and query cache invalidation.</p>
           <code><span style="color:var(--blue)">suspend</span>(
   () => <span style="color:var(--blue)">fetch</span>(<span style="color:var(--green)">"/api/users"</span>).then(r => r.json()),
   (users) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
@@ -5765,14 +5759,14 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <div class="faq-answer">
               <div class="faq-answer-inner">
                 Yes. It is designed for production with zero runtime dependencies in the core, strong TypeScript
-                support, and a practical ecosystem for routing, forms, state, mobile, and server-state workflows.
+                support, and a practical ecosystem for web and mobile workflows.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              How do I handle server-state fetching and caching?
+              How do I handle async requests and caching in web apps?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -5782,8 +5776,9 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Use <code>@deijose/nix-query</code> for shared query cache, invalidation, and async state lifecycles.
-                Start with: <code>npm install @deijose/nix-query @deijose/nix-js</code>.
+                Use <code>@deijose/nix-query</code> for async requests, query cache, retries, and invalidation.
+                Pair it with <code>@deijose/nix-ui</code> for UI components in web projects. Start with:
+                <code>npm install @deijose/nix-js @deijose/nix-ui @deijose/nix-query</code>.
               </div>
             </div>
           </div>
@@ -5851,24 +5846,20 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
   <!-- CTA -->
   <section class="cta">
     <div class="cta-content animate-on-scroll">
-      <h2>Choose your path.<br><span class="gradient-text">Ship this week.</span></h2>
-      <p>Start with the core, add server-state when needed, or go straight to mobile. Same mental model, same
-        ecosystem, less framework sprawl.</p>
+      <h2>Two paths.<br><span class="gradient-text">Web or mobile.</span></h2>
+      <p>Build web apps with Nix.js + Nix-UI + Nix Query for async requests, or ship mobile apps with Nix-Ionic.
+        Same reactive model, same ecosystem.</p>
       <div class="cta-actions">
-        <a href="https://www.npmjs.com/package/@deijose/nix-js" class="btn-primary" target="_blank" rel="noopener">
-          Start Core
+        <a href="https://ui.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
+          Start Web Path
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
         </a>
-        <a href="https://www.npmjs.com/package/@deijose/nix-query" class="btn-secondary" target="_blank"
-          rel="noopener">
-          Add Nix Query
-        </a>
         <a href="#nix-ionic" class="btn-secondary" rel="noopener">
-          Build Mobile
+          Start Mobile Path
         </a>
       </div>
     </div>
