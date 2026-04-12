@@ -70,7 +70,7 @@
       "url": "https://github.com/DeijoseDevelop"
     },
     "license": "https://opensource.org/licenses/MIT",
-    "softwareVersion": "2.0.2",
+    "softwareVersion": "2.1.0",
     "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
   }
   </script>
@@ -87,7 +87,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.0.2/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.1.0/+esm"
       }
     }
   </script>
@@ -3765,7 +3765,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v2.0.2 — Runtime-hardened reactivity and DevTools sync fixes
+        v2.1.0 — Runtime-hardened reactivity and DevTools sync fixes
       </div>
       <h1>
         Build reactive UIs<br>
@@ -3878,7 +3878,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.0.2"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.1.0"</span>;
           </div>
         </div>
 
@@ -4491,7 +4491,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <li><span class="check">✓</span> Typed field validation (Zod/Valibot)</li>
               <li><span class="check">✓</span> Dot-path validators for nested fields</li>
               <li><span class="check">✓</span> Cross-field validators with allValues</li>
-              <li><span class="check">✓</span> useFieldArray for dynamic lists</li>
+              <li><span class="check">✓</span> nixFieldArray for dynamic lists</li>
               <li><span class="check">✓</span> validateOn: 'blur' | 'input' | 'submit'</li>
               <li><span class="check">✓</span> isSubmitting & submitCount tracking</li>
             </ul>
@@ -4502,7 +4502,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <span class="code-filename">forms.ts</span>
             </div>
             <div class="code-body">
-              <pre><span class="kw">import</span> { createForm, useFieldArray, required, email, minLength } 
+              <pre><span class="kw">import</span> { createForm, nixFieldArray, required, email, minLength } 
   <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
 <span class="kw">const</span> form = <span class="fn">createForm</span>({
@@ -4523,7 +4523,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 });
 
 <span class="cmt">// Dynamic field array</span>
-<span class="kw">const</span> { fields, append, remove } = <span class="fn">useFieldArray</span>(
+<span class="kw">const</span> { fields, append, remove } = <span class="fn">nixFieldArray</span>(
   [{ value: <span class="str">""</span> }],
   { value: [<span class="fn">required</span>(), <span class="fn">email</span>()] }
 );
@@ -4553,7 +4553,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <span class="feature-card-icon">📋</span>
             <h3>Form Management</h3>
           </div>
-          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>useFieldArray</code>
+          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>nixFieldArray</code>
             for dynamic lists.
           </p>
           <code><span style="color:var(--accent-light)">const</span> form = <span style="color:var(--blue)">createForm</span>(
@@ -4670,7 +4670,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.0.2 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.1.0 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -4708,7 +4708,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -4786,7 +4786,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -4864,7 +4864,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -4942,7 +4942,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -5020,7 +5020,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -5099,7 +5099,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -5177,7 +5177,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 2.0.2 -->
+              <!-- 2.1.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -5717,7 +5717,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               1.2.1</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              2.0.2 compatible</span>
+              2.1.0 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>
@@ -6058,7 +6058,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in Nix.js 2.0.2?
+              What's new in Nix.js 2.1.0?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
