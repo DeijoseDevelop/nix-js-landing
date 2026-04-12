@@ -4491,7 +4491,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <li><span class="check">✓</span> Typed field validation (Zod/Valibot)</li>
               <li><span class="check">✓</span> Dot-path validators for nested fields</li>
               <li><span class="check">✓</span> Cross-field validators with allValues</li>
-              <li><span class="check">✓</span> useFieldArray for dynamic lists</li>
+              <li><span class="check">✓</span> nixFieldArray for dynamic lists</li>
               <li><span class="check">✓</span> validateOn: 'blur' | 'input' | 'submit'</li>
               <li><span class="check">✓</span> isSubmitting & submitCount tracking</li>
             </ul>
@@ -4502,7 +4502,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <span class="code-filename">forms.ts</span>
             </div>
             <div class="code-body">
-              <pre><span class="kw">import</span> { createForm, useFieldArray, required, email, minLength } 
+              <pre><span class="kw">import</span> { createForm, nixFieldArray, required, email, minLength } 
   <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
 <span class="kw">const</span> form = <span class="fn">createForm</span>({
@@ -4523,7 +4523,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 });
 
 <span class="cmt">// Dynamic field array</span>
-<span class="kw">const</span> { fields, append, remove } = <span class="fn">useFieldArray</span>(
+<span class="kw">const</span> { fields, append, remove } = <span class="fn">nixFieldArray</span>(
   [{ value: <span class="str">""</span> }],
   { value: [<span class="fn">required</span>(), <span class="fn">email</span>()] }
 );
@@ -4553,7 +4553,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <span class="feature-card-icon">📋</span>
             <h3>Form Management</h3>
           </div>
-          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>useFieldArray</code>
+          <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>nixFieldArray</code>
             for dynamic lists.
           </p>
           <code><span style="color:var(--accent-light)">const</span> form = <span style="color:var(--blue)">createForm</span>(
