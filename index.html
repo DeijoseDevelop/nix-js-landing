@@ -70,7 +70,7 @@
       "url": "https://github.com/DeijoseDevelop"
     },
     "license": "https://opensource.org/licenses/MIT",
-    "softwareVersion": "2.1.0",
+    "softwareVersion": "2.2.1",
     "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
   }
   </script>
@@ -83,10 +83,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's new in Nix.js 2.1.0?",
+        "name": "What's new in Nix.js 2.2.1?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nix.js 2.x focused on reliability: safer reactivity behavior across bundling scenarios, stronger DevTools synchronization, and a more mature ecosystem with dedicated packages like nix-query and nix-ionic."
+          "text": "Nix.js 2.2.1 introduces a native reactive plugin system, a unified options API for stores, and enhanced security hardening against prototype pollution. It also features first-class ReadonlySignal support for state protection."
         }
       },
       {
@@ -137,7 +137,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.1.0/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.2.1/+esm"
       }
     }
   </script>
@@ -4270,6 +4270,116 @@
         grid-column: span 2;
       }
     }
+
+    /* ===== ADVANCED STORES SECTION ===== */
+    .advanced-store-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .usage-card {
+      background: #0d0d14;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .usage-header {
+      padding: 20px 24px;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .usage-header h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 4px;
+    }
+
+    .usage-header p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .usage-body {
+      padding: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .plugins-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .plugin-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+
+    .plugin-item:hover {
+      border-color: var(--accent-light);
+      background: var(--bg-card-hover);
+      transform: translateX(8px);
+    }
+
+    .plugin-item-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      background: rgba(124, 92, 252, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .plugin-item-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .plugin-item-content p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .plugin-item-code {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.2);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .advanced-store-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .advanced-store-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 64px;
+    }
   </style>
 </head>
 
@@ -4287,6 +4397,7 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
+        <li><a href="#plugins">Plugins</a></li>
         <li><a href="#playground">Playground</a></li>
         <li class="nav-dropdown">
           <a class="dropdown-trigger">
@@ -4354,7 +4465,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v2.1.0 — Runtime-hardened reactivity and DevTools sync fixes
+        v2.2.1 — Native Plugins, Unified Options API & Security Hardening
       </div>
       <h1>
         Build reactive UIs in the browser<br>
@@ -4630,7 +4741,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.1.0"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.2.1"</span>;
           </div>
         </div>
 
@@ -4763,9 +4874,9 @@
               <line x1="12" y1="22.08" x2="12" y2="12" />
             </svg>
           </div>
-          <h3>Batteries Included</h3>
-          <p>Router, forms, stores, dependency injection, portals, error boundaries, transitions — all built-in. One
-            import, zero config.</p>
+          <h3>Extensible & Native</h3>
+          <p>Native reactive plugin system, router, forms, stores, and portals. Extend the framework using the same 
+            signals you already know — no new API required.</p>
         </div>
         <div class="why-card animate-on-scroll">
           <div class="why-icon blue">
@@ -4775,9 +4886,9 @@
               <polyline points="8 6 2 12 8 18" />
             </svg>
           </div>
-          <h3>TypeScript Native</h3>
-          <p>Every API is fully typed from the ground up. Typed injection keys, typed store signals, typed route params
-            — real type safety.</p>
+          <h3>Hardened & Type Safe</h3>
+          <p>Full TS inference with ReadonlySignal state protection. Native defense against prototype pollution and 
+            unsafe state mutations built into the core.</p>
         </div>
         <div class="why-card animate-on-scroll">
           <div class="why-icon pink">
@@ -5195,18 +5306,18 @@ router.<span class="fn">beforeEach</span>((to) => {
       <div class="tab-panel" id="tab-store">
         <div class="code-layout">
           <div class="code-text animate-on-scroll">
-            <h3>Global state in 5 lines.</h3>
+            <h3>Global state without the boilerplate.</h3>
             <p>
-              Every property becomes a signal automatically. Add typed actions and
-              derived getters, subscribe globally to changes, and reset with $reset().
+              The store is now native to the reactive graph. Extend behavior with plugins, protect state with 
+              ReadonlySignal, and enjoy a unified API that scales with your app.
             </p>
             <ul class="code-features">
-              <li><span class="check">✓</span> Auto-signalized properties</li>
-              <li><span class="check">✓</span> Typed actions with full inference</li>
-              <li><span class="check">✓</span> Optional gettersFactory for derived signals</li>
-              <li><span class="check">✓</span> Global $subscribe(key, next, prev)</li>
-              <li><span class="check">✓</span> $reset() to restore initial state</li>
-              <li><span class="check">✓</span> Works in any component or module</li>
+              <li><span class="check">✓</span> <strong>Native Plugins:</strong> Use watch/computed to extend features.</li>
+              <li><span class="check">✓</span> <strong>Unified API:</strong> Actions, getters & plugins in one config object.</li>
+              <li><span class="check">✓</span> <strong>Full Lifecycle:</strong> Resource management with $id and $dispose.</li>
+              <li><span class="check">✓</span> <strong>Hardened Security:</strong> Native prototype pollution protection.</li>
+              <li><span class="check">✓</span> <strong>Direct $watch:</strong> Observe the entire state tree with one call.</li>
+              <li><span class="check">✓</span> <strong>Shared Bridge:</strong> Composable plugins for cross-store logic.</li>
             </ul>
           </div>
           <div class="code-block animate-on-scroll">
@@ -5217,36 +5328,31 @@ router.<span class="fn">beforeEach</span>((to) => {
             <div class="code-body">
               <pre><span class="kw">import</span> { createStore, computed } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
 
-<span class="kw">const</span> cart = <span class="fn">createStore</span>(
-  {
-    items: [] <span class="kw">as</span> <span class="type">string</span>[],
-    total: <span class="num">0</span>,
-  },
-  (s) => ({
+<span class="kw">const</span> cart = <span class="fn">createStore</span>({
+  items: [] <span class="kw">as</span> <span class="type">string</span>[],
+  total: <span class="num">0</span>,
+}, {
+  name: <span class="str">"cart"</span>,
+  actions: (s) => ({
     <span class="fn">add</span>(item: <span class="type">string</span>) {
       s.items.<span class="fn">update</span>(arr => [...arr, item]);
       s.total.<span class="fn">update</span>(n => n + <span class="num">1</span>);
     },
-    <span class="fn">remove</span>(item: <span class="type">string</span>) {
-      s.items.<span class="fn">update</span>(arr =>
-        arr.<span class="fn">filter</span>(i => i !== item));
-      s.total.<span class="fn">update</span>(n => n - <span class="num">1</span>);
-    },
-    <span class="fn">clear</span>() { cart.<span class="fn">$reset</span>(); },
+    <span class="fn">clear</span>() { cart.<span class="fn">$reset</span>(); }
   }),
-  (s) => ({
-    itemCount: <span class="fn">computed</span>(() => s.items.value.length),
-    hasItems: <span class="fn">computed</span>(() => s.items.value.length &gt; <span class="num">0</span>),
-  })
-);
-
-cart.<span class="fn">$subscribe</span>((key, next, prev) => {
-  console.<span class="fn">log</span>(<span class="str">"Store change:"</span>, key, prev, <span class="str">"→"</span>, next);
+  getters: (s) => ({
+    count: <span class="fn">computed</span>(() => s.items.value.length),
+    isEmpty: <span class="fn">computed</span>(() => s.items.value.length === <span class="num">0</span>),
+  }),
+  plugins: [(store) => {
+    <span class="cmt">// Native reactivity: if you know signals, you know plugins</span>
+    store.<span class="fn">$watch</span>((state) => console.<span class="fn">log</span>(<span class="str">"State sync:"</span>, state));
+  }]
 });
 
 cart.<span class="fn">add</span>(<span class="str">"Milk"</span>);
-cart.itemCount.value; <span class="cmt">// 1</span>
-cart.hasItems.value;  <span class="cmt">// true</span></pre>
+cart.count.value; <span class="cmt">// 1</span>
+cart.isEmpty.value; <span class="cmt">// false</span></pre>
             </div>
           </div>
         </div>
@@ -5308,6 +5414,91 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Stores & Plugins -->
+  <section class="section advanced-stores" id="plugins">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">🛠️ Advanced Global State</div>
+        <h2 class="section-title">Stores with Middleware power.</h2>
+        <p class="section-desc">Global stores in Nix.js aren't just data containers. Use the <strong>Native Plugin System</strong> 
+          to add persistence, logging, and cross-store communication in seconds.</p>
+      </div>
+
+      <div class="advanced-store-layout">
+        <!-- Live Usage Example -->
+        <div class="usage-card animate-on-scroll">
+          <div class="usage-header">
+            <h4>Registering Plugins</h4>
+            <p>Compose your reactive behavior in the createStore options.</p>
+          </div>
+          <div class="usage-body">
+            <pre><code><span class="kw">const</span> cart = <span class="fn">createStore</span>(initialState, {
+  name: <span class="str">"cart"</span>,
+  <span class="cmt">// Registered plugins for THIS store</span>
+  plugins: [
+    <span class="fn">persistPlugin</span>(<span class="str">"cart-items"</span>),
+    <span class="fn">loggerPlugin</span>({ collapsed: <span class="kw">true</span> }),
+    <span class="fn">guardPlugin</span>([<span class="fn">validateStock</span>]),
+    <span class="fn">bridgePlugin</span>(userStore, syncData)
+  ]
+});</code></pre>
+          </div>
+        </div>
+
+        <!-- Descriptive Plugin List -->
+        <div class="plugins-list">
+          <!-- Persist -->
+          <div class="plugin-item animate-on-scroll">
+            <div class="plugin-item-icon">💾</div>
+            <div class="plugin-item-content">
+              <h3>Persist</h3>
+              <p>Hydrate state and auto-save every change to <strong>localStorage</strong> using the native <code>watch()</code> primitive.</p>
+              <div class="plugin-item-code">persistPlugin(storageKey, options?)</div>
+            </div>
+          </div>
+          <!-- Logger -->
+          <div class="plugin-item animate-on-scroll">
+            <div class="plugin-item-icon">📝</div>
+            <div class="plugin-item-content">
+              <h3>DevTools Logger</h3>
+              <p>Capture exact <strong>state diffs</strong> between reactive flushes, grouped by store name for clean debugging.</p>
+              <div class="plugin-item-code">loggerPlugin({ collapsed: true })</div>
+            </div>
+          </div>
+          <!-- Guard -->
+          <div class="plugin-item animate-on-scroll">
+            <div class="plugin-item-icon">🛡️</div>
+            <div class="plugin-item-content">
+              <h3>Mutation Guard</h3>
+              <p>Intercept <code>$patch</code> and <code>$reset</code> to <strong>validate or transform</strong> state before it actually lands.</p>
+              <div class="plugin-item-code">guardPlugin([ validatorFn ])</div>
+            </div>
+          </div>
+          <!-- Bridge -->
+          <div class="plugin-item animate-on-scroll">
+            <div class="plugin-item-icon">🌉</div>
+            <div class="plugin-item-content">
+              <h3>Cross-Store Bridge</h3>
+              <p>Reactive decoupling: make stores communicate without importing each other via the <strong>global signal graph</strong>.</p>
+              <div class="plugin-item-code">bridgePlugin(sourceStore, syncCallback)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="advanced-store-footer animate-on-scroll">
+        <a href="https://docs.nix-js.dev" class="btn-secondary" target="_blank" rel="noopener">
+          Learn how to build your own plugins
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -5568,7 +5759,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.1.0 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.2.1 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -5606,7 +5797,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -5684,7 +5875,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -5762,7 +5953,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -5840,7 +6031,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -5918,7 +6109,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -5997,7 +6188,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -6075,7 +6266,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 2.1.0 -->
+              <!-- 2.2.1 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -6615,7 +6806,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               1.2.1</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              2.1.0 compatible</span>
+              2.2.1 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>
@@ -6956,7 +7147,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in Nix.js 2.1.0?
+              What's new in Nix.js 2.2.1?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -6966,9 +7157,10 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 2.x focused on reliability: safer reactivity behavior across bundling scenarios, stronger
-                DevTools synchronization, and a more mature ecosystem with dedicated packages like
-                <code>@deijose/nix-query</code> and <code>@deijose/nix-ionic</code>.
+                Nix.js 2.2.1 introduces a <strong>Native Reactive Plugin System</strong> that leverages the framework's own 
+                primitives (watch, computed) for extension. It also features a <strong>Unified Options API</strong> 
+                for stores, <strong>ReadonlySignal</strong> state protection, and critical security hardening 
+                against prototype pollution.
               </div>
             </div>
           </div>
