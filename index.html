@@ -4401,7 +4401,7 @@
       <div class="ecosystem-bar">
         <span class="eco-badge"><span class="eco-dot ts"></span> TypeScript-first</span>
         <span class="eco-badge"><span class="eco-dot mit"></span> MIT License</span>
-        <span class="eco-badge"><span class="eco-dot test"></span> 484 tests passing</span>
+        <span class="eco-badge"><span class="eco-dot test"></span> 524 tests passing</span>
         <span class="eco-badge"><span class="eco-dot"
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 95.86% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~12 KB gzipped</span>
@@ -4441,7 +4441,7 @@
         <div class="stat-label">Best-case JS-only gain</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value orange">484</div>
+        <div class="stat-value orange">524</div>
         <div class="stat-label">Tests passing</div>
       </div>
       <div class="stat-item">
@@ -4832,8 +4832,9 @@
             </svg>
           </div>
           <h3>XSS Hardened</h3>
-          <p>User-provided strings are inserted via textContent. URI components are encoded. Built-in security from day
-            one.</p>
+          <p>Interpolated values are inserted as text nodes, never parsed as HTML. URL attributes like
+            <code>href</code>/<code>src</code> are sanitized — <code>javascript:</code>, <code>data:text/html</code> and
+            other dangerous schemes are blocked automatically.</p>
         </div>
       </div>
     </div>
