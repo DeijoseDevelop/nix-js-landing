@@ -1415,6 +1415,23 @@
       border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
+    .feature-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .feature-card-link:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
     /* ===== QUICK START ===== */
     .quickstart-section {
       background: var(--bg-secondary);
@@ -4657,10 +4674,13 @@
             <span style="color:var(--text-muted)"># npm</span><br>
             <span style="color:var(--green)">$</span> npm install <span
               style="color:var(--accent-light)">@deijose/nix-js</span><br><br>
+            <span style="color:var(--text-muted)"># or scaffold a full project</span><br>
+            <span style="color:var(--green)">$</span> npx create-nix-app <span
+              style="color:var(--accent-light)">my-app</span><br><br>
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.2"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.3"</span>;
           </div>
         </div>
 
@@ -5455,15 +5475,29 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
   </section>
 
   <!-- DX Ecosystem — New additions -->
+  <style>
+    .dx-ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .dx-ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
   <section class="section" id="dx-ecosystem">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-label">🛠️ DX Ecosystem</div>
-        <h2 class="section-title">New in the ecosystem.<br>Testing + Vite.</h2>
-        <p class="section-desc">First-party tooling that fits the framework: a test harness built for Nix.js components
-          and a Vite plugin for zero-config transformation.</p>
+        <h2 class="section-title">New in the ecosystem.<br>Testing + Vite + CLI.</h2>
+        <p class="section-desc">First-party tooling that fits the framework: a test harness, a Vite plugin for
+          zero-config transformation, and two CLIs for scaffolding and code generation.</p>
       </div>
-      <div class="features-grid">
+      <div class="dx-ecosystem-grid">
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
             <span class="feature-card-icon">🧪</span>
@@ -5482,6 +5516,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <span style="color:var(--blue)">expect</span>(<span style="color:var(--blue)">getByText</span>(<span
               style="color:var(--green)">"1"</span>)).<span style="color:var(--blue)">toBeTruthy</span>()
             );</code>
+          <a href="https://www.npmjs.com/package/@deijose/nix-js-testing" class="feature-card-link" target="_blank"
+            rel="noopener">Read docs →</a>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5499,6 +5535,44 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               style="color:var(--blue)">defineConfig</span>({
             plugins: [<span style="color:var(--blue)">nix</span>()],
             });</code>
+          <a href="https://www.npmjs.com/package/@deijose/vite-plugin-nix-js" class="feature-card-link" target="_blank"
+            rel="noopener">Read docs →</a>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">🚀</span>
+            <h3>create-nix-app CLI</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Scaffold a Nix.js project in seconds. Vanilla JS, TypeScript, or Ionic mobile templates with Vite, tests,
+            and
+            HMR pre-configured.</p>
+          <code><span style="color:var(--accent-light)">npx</span> <span style="color:var(--blue)">create-nix-app</span>
+            <span style="color:var(--blue)">my-app</span>
+
+            <span style="color:var(--accent-light)">cd</span> <span style="color:var(--blue)">my-app</span>
+            <span style="color:var(--accent-light)">npm run</span> <span style="color:var(--blue)">dev</span></code>
+          <a href="https://www.npmjs.com/package/create-nix-app" class="feature-card-link" target="_blank"
+            rel="noopener">Read docs →</a>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">⌨️</span>
+            <h3>Nix.js CLI</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Generate components, pages, stores, and services inside an existing project. Auto-detects Nix.js or
+            Nix Ionic and picks the right template.</p>
+          <code><span style="color:var(--accent-light)">npx</span> <span style="color:var(--blue)">nixjs</span> <span
+              style="color:var(--blue)">add component Button</span>
+
+            <span style="color:var(--accent-light)">npx</span> <span style="color:var(--blue)">nixjs</span> <span
+              style="color:var(--blue)">dev</span>
+
+            <span style="color:var(--accent-light)">npx</span> <span style="color:var(--blue)">nixjs</span> <span
+              style="color:var(--blue)">build</span></code>
+          <a href="https://www.npmjs.com/package/@deijose/nix-cli" class="feature-card-link" target="_blank"
+            rel="noopener">Read docs →</a>
         </div>
       </div>
     </div>
