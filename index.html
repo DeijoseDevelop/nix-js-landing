@@ -51,78 +51,77 @@
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Nix.js",
-    "url": "https://nix-js.dev/",
-    "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build web apps with Nix-UI, mobile apps with Nix-Ionic, and use Nix Query for async requests and cache in both.",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Deiver Vasquez",
-      "url": "https://github.com/DeijoseDevelop"
-    },
-    "license": "https://opensource.org/licenses/MIT",
-    "softwareVersion": "2.3.0",
-    "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nix.js",
+      "url": "https://nix-js.dev/",
+      "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build web apps with Nix-UI, mobile apps with Nix-Ionic, and use Nix Query for async requests and cache in both.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Deiver Vasquez",
+        "url": "https://github.com/DeijoseDevelop"
+      },
+      "license": "https://opensource.org/licenses/MIT",
+      "softwareVersion": "2.5.1",
+      "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
+    }
   </script>
 
   <!-- FAQ Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What's new in Nix.js 2.3.0?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nix.js 2.x focused on reliability: safer reactivity behavior across bundling scenarios, stronger DevTools synchronization, and a more mature ecosystem with dedicated packages like nix-query and nix-ionic."
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+          "@type": "Question",
+          "name": "What's new in Nix.js 2.5.1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nix.js 2.5.1 focuses on core stability, more robust form handling, and greater routing flexibility for testing and multi-router apps. The ecosystem packages (nix-query, nix-ionic, nix-ui) are aligned with this release."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Nix.js production-ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It is designed for production with zero runtime dependencies in the core, strong TypeScript support, and a practical ecosystem for web and mobile workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use JS libraries that touch the DOM directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Nix.js works directly with DOM-first libraries like Chart.js, Leaflet, and AG Grid without wrappers. If it runs in browser JavaScript, you can integrate it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I handle async requests and caching in web or mobile apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use nix-query for async requests, query cache, retries, and invalidation. It is platform-agnostic and works in both web and mobile stacks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I build mobile apps with Nix.js?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Use nix-ionic with Ionic Core for routing + native-style UI, then wrap with Capacitor for Android/iOS deployment using the same codebase."
+          }
         }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Nix.js production-ready?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. It is designed for production with zero runtime dependencies in the core, strong TypeScript support, and a practical ecosystem for web and mobile workflows."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use JS libraries that touch the DOM directly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Nix.js works directly with DOM-first libraries like Chart.js, Leaflet, and AG Grid without wrappers. If it runs in browser JavaScript, you can integrate it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I handle async requests and caching in web or mobile apps?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use nix-query for async requests, query cache, retries, and invalidation. It is platform-agnostic and works in both web and mobile stacks."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I build mobile apps with Nix.js?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Use nix-ionic with Ionic Core for routing + native-style UI, then wrap with Capacitor for Android/iOS deployment using the same codebase."
-        }
-      }
-    ]
-  }
+      ]
+    }
   </script>
 
   <meta name="msapplication-TileColor" content="#7c5cfc">
@@ -137,7 +136,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.3.0/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.5.1/+esm"
       }
     }
   </script>
@@ -4401,7 +4400,7 @@
       <div class="ecosystem-bar">
         <span class="eco-badge"><span class="eco-dot ts"></span> TypeScript-first</span>
         <span class="eco-badge"><span class="eco-dot mit"></span> MIT License</span>
-        <span class="eco-badge"><span class="eco-dot test"></span> 484 tests passing</span>
+        <span class="eco-badge"><span class="eco-dot test"></span> 524 tests passing</span>
         <span class="eco-badge"><span class="eco-dot"
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 95.86% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~12 KB gzipped</span>
@@ -4441,7 +4440,7 @@
         <div class="stat-label">Best-case JS-only gain</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value orange">484</div>
+        <div class="stat-value orange">524</div>
         <div class="stat-label">Tests passing</div>
       </div>
       <div class="stat-item">
@@ -4661,7 +4660,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.3.0"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.1"</span>;
           </div>
         </div>
 
@@ -4832,8 +4831,9 @@
             </svg>
           </div>
           <h3>XSS Hardened</h3>
-          <p>User-provided strings are inserted via textContent. URI components are encoded. Built-in security from day
-            one.</p>
+          <p>Interpolated values are inserted as text nodes, never parsed as HTML. URL attributes like
+            <code>href</code>/<code>src</code> are sanitized — <code>javascript:</code>, <code>data:text/html</code> and
+            other dangerous schemes are blocked automatically.</p>
         </div>
       </div>
     </div>
@@ -5361,13 +5361,15 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           <p>Built-in field validation, dynamic arrays, and Zod/Valibot interop. Now includes <code>nixFieldArray</code>
             for dynamic lists.
           </p>
-          <code><span style="color:var(--accent-light)">const</span> form = <span style="color:var(--blue)">createForm</span>(
-  { name: <span style="color:var(--green)">""</span>, email: <span style="color:var(--green)">""</span> },
-  { validators: {
-    name:  [<span style="color:var(--blue)">required</span>(), <span style="color:var(--blue)">minLength</span>(<span style="color:var(--orange)">2</span>)],
-    email: [<span style="color:var(--blue)">required</span>(), <span style="color:var(--blue)">email</span>()],
-  }}
-);</code>
+          <code><span style="color:var(--accent-light)">const</span> form = <span
+              style="color:var(--blue)">createForm</span>(
+            { name: <span style="color:var(--green)">""</span>, email: <span style="color:var(--green)">""</span> },
+            { validators: {
+            name: [<span style="color:var(--blue)">required</span>(), <span
+              style="color:var(--blue)">minLength</span>(<span style="color:var(--orange)">2</span>)],
+            email: [<span style="color:var(--blue)">required</span>(), <span style="color:var(--blue)">email</span>()],
+            }}
+            );</code>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5376,12 +5378,13 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </div>
           <p>Render modals, tooltips, and toasts outside the component tree. Supports outlet tokens, refs, and
             provide/inject.</p>
-          <code><span style="color:var(--accent-light)">const</span> modal = <span style="color:var(--blue)">portal</span>(
-  <span style="color:var(--blue)">html</span><span style="color:var(--green)">`&lt;div class="modal"&gt;
-    &lt;h2&gt;Confirm action&lt;/h2&gt;
-    &lt;button @click=${close}&gt;OK&lt;/button&gt;
-  &lt;/div&gt;`</span>
-);</code>
+          <code><span style="color:var(--accent-light)">const</span> modal = <span
+              style="color:var(--blue)">portal</span>(
+            <span style="color:var(--blue)">html</span><span style="color:var(--green)">`&lt;div class="modal"&gt;
+              &lt;h2&gt;Confirm action&lt;/h2&gt;
+              &lt;button @click=${close}&gt;OK&lt;/button&gt;
+              &lt;/div&gt;`</span>
+            );</code>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5390,12 +5393,12 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </div>
           <p>Catch render and reactive errors gracefully. Show fallback UIs without crashing the entire application.</p>
           <code><span style="color:var(--blue)">createErrorBoundary</span>(
-  <span style="color:var(--accent-light)">new</span> <span style="color:var(--blue)">DataWidget</span>(),
-  (err) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
-    &lt;p class="error"&gt;
-      Failed: ${String(err)}
-    &lt;/p&gt;`</span>
-);</code>
+            <span style="color:var(--accent-light)">new</span> <span style="color:var(--blue)">DataWidget</span>(),
+            (err) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
+              &lt;p class="error"&gt;
+              Failed: ${String(err)}
+              &lt;/p&gt;`</span>
+            );</code>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5405,11 +5408,13 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           <p>CSS class-based enter/leave animations. No wrapper elements, JS hooks for full control, appear on first
             render.</p>
           <code><span style="color:var(--blue)">transition</span>(
-  () => show.value
-    ? <span style="color:var(--blue)">html</span><span style="color:var(--green)">`&lt;p&gt;Hello!&lt;/p&gt;`</span>
-    : <span style="color:var(--accent-light)">null</span>,
-  { name: <span style="color:var(--green)">"fade"</span>, appear: <span style="color:var(--orange)">true</span> }
-);</code>
+            () => show.value
+            ? <span style="color:var(--blue)">html</span><span
+              style="color:var(--green)">`&lt;p&gt;Hello!&lt;/p&gt;`</span>
+            : <span style="color:var(--accent-light)">null</span>,
+            { name: <span style="color:var(--green)">"fade"</span>, appear: <span
+              style="color:var(--orange)">true</span> }
+            );</code>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5419,13 +5424,14 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           <p>suspend() for async views, lazy() for code-splitting, and Nix Query for robust async requests, retries,
             and query cache invalidation.</p>
           <code><span style="color:var(--blue)">suspend</span>(
-  () => <span style="color:var(--blue)">fetch</span>(<span style="color:var(--green)">"/api/users"</span>).then(r => r.json()),
-  (users) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
-    &lt;ul&gt;${users.map(u =>
-      html\`&lt;li&gt;${u.name}&lt;/li&gt;\`
-    )}&lt;/ul&gt;`</span>,
-  { invalidate: refreshKey }
-);</code>
+            () => <span style="color:var(--blue)">fetch</span>(<span
+              style="color:var(--green)">"/api/users"</span>).then(r => r.json()),
+            (users) => <span style="color:var(--blue)">html</span><span style="color:var(--green)">`
+              &lt;ul&gt;${users.map(u =>
+              html\`&lt;li&gt;${u.name}&lt;/li&gt;\`
+              )}&lt;/ul&gt;`</span>,
+            { invalidate: refreshKey }
+            );</code>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
@@ -5434,12 +5440,15 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </div>
           <p>Vue-style provide/inject with typed keys. Pass data down the tree without prop drilling. Nearest ancestor
             wins.</p>
-          <code><span style="color:var(--accent-light)">const</span> THEME = <span style="color:var(--blue)">createInjectionKey</span>&lt;
-  Signal&lt;<span style="color:var(--yellow)">string</span>&gt;
-&gt;(<span style="color:var(--green)">"theme"</span>);
+          <code><span style="color:var(--accent-light)">const</span> THEME = <span
+              style="color:var(--blue)">createInjectionKey</span>&lt;
+            Signal&lt;<span style="color:var(--yellow)">string</span>&gt;
+            &gt;(<span style="color:var(--green)">"theme"</span>);
 
-<span style="color:var(--blue)">provide</span>(THEME, <span style="color:var(--blue)">signal</span>(<span style="color:var(--green)">"dark"</span>));
-<span style="color:var(--accent-light)">const</span> theme = <span style="color:var(--blue)">inject</span>(THEME);</code>
+            <span style="color:var(--blue)">provide</span>(THEME, <span style="color:var(--blue)">signal</span>(<span
+              style="color:var(--green)">"dark"</span>));
+            <span style="color:var(--accent-light)">const</span> theme = <span
+              style="color:var(--blue)">inject</span>(THEME);</code>
         </div>
       </div>
     </div>
@@ -5598,7 +5607,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.3.0 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.5.1 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -6987,7 +6996,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in Nix.js 2.3.0?
+              What's new in Nix.js 2.5.1?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -6997,9 +7006,10 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 2.x focused on reliability: safer reactivity behavior across bundling scenarios, stronger
-                DevTools synchronization, and a more mature ecosystem with dedicated packages like
-                <code>@deijose/nix-query</code> and <code>@deijose/nix-ionic</code>.
+                Nix.js 2.5.1 focuses on core stability, more robust form handling, and greater routing flexibility for
+                testing and multi-router apps. The ecosystem packages
+                <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>, and <code>@deijose/nix-ui</code>
+                are aligned with this release.
               </div>
             </div>
           </div>
@@ -7245,7 +7255,10 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
     // Smooth scroll
@@ -7253,7 +7266,10 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (target) target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       });
     });
 
