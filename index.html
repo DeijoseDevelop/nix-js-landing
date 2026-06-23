@@ -5454,6 +5454,56 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
     </div>
   </section>
 
+  <!-- DX Ecosystem — New additions -->
+  <section class="section" id="dx-ecosystem">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">🛠️ DX Ecosystem</div>
+        <h2 class="section-title">New in the ecosystem.<br>Testing + Vite.</h2>
+        <p class="section-desc">First-party tooling that fits the framework: a test harness built for Nix.js components
+          and a Vite plugin for zero-config transformation.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">🧪</span>
+            <h3>Nix.js Testing</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Render components, interact with signals, and assert against the real DOM with helpers designed for Nix.js.
+            No synthetic wrappers required.</p>
+          <code><span style="color:var(--accent-light)">const</span> { getByText } = <span
+              style="color:var(--blue)">render</span>(<span style="color:var(--blue)">Counter</span>());
+
+            <span style="color:var(--blue)">expect</span>(<span style="color:var(--blue)">getByText</span>(<span
+              style="color:var(--green)">"0"</span>)).<span style="color:var(--blue)">toBeTruthy</span>();
+            count.value++;
+            <span style="color:var(--blue)">await</span> <span style="color:var(--blue)">waitFor</span>(() =>
+            <span style="color:var(--blue)">expect</span>(<span style="color:var(--blue)">getByText</span>(<span
+              style="color:var(--green)">"1"</span>)).<span style="color:var(--blue)">toBeTruthy</span>()
+            );</code>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">⚡</span>
+            <h3>Vite Plugin for Nix.js</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Drop the plugin into your Vite config and get optimized Nix.js handling, better HMR, and template-aware
+            transforms out of the box.</p>
+          <code><span style="color:var(--accent-light)">import</span> nix <span
+              style="color:var(--accent-light)">from</span> <span
+              style="color:var(--green)">"@deijose/vite-plugin-nix-js"</span>;
+
+            <span style="color:var(--accent-light)">export default</span> <span
+              style="color:var(--blue)">defineConfig</span>({
+            plugins: [<span style="color:var(--blue)">nix</span>()],
+            });</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section nix-query-section" id="nix-query">
     <div class="container">
       <div class="section-header animate-on-scroll">
