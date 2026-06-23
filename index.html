@@ -70,7 +70,7 @@
         "url": "https://github.com/DeijoseDevelop"
       },
       "license": "https://opensource.org/licenses/MIT",
-      "softwareVersion": "2.5.1",
+      "softwareVersion": "2.5.2",
       "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, ionic, mobile"
     }
   </script>
@@ -82,10 +82,10 @@
       "@type": "FAQPage",
       "mainEntity": [{
           "@type": "Question",
-          "name": "What's new in Nix.js 2.5.1?",
+          "name": "What's new in Nix.js 2.5.2?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nix.js 2.5.1 focuses on core stability, more robust form handling, and greater routing flexibility for testing and multi-router apps. The ecosystem packages (nix-query, nix-ionic, nix-ui) are aligned with this release."
+            "text": "Nix.js 2.5.2 brings safer store guard composition, a custom equality option for computed signals, and named-export support for lazy-loaded components. The ecosystem packages are aligned with this release."
           }
         },
         {
@@ -136,7 +136,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.5.1/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.5.2/+esm"
       }
     }
   </script>
@@ -4357,7 +4357,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v2.5.1 — Core stability, forms and routing improvements
+        v2.5.2 — Safer guards, computed equality, and named lazy exports
       </div>
       <h1>
         Build reactive UIs in the browser<br>
@@ -4405,7 +4405,7 @@
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 95.86% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~12 KB gzipped</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.3.5</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.3.6</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
 
@@ -4660,7 +4660,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.1"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.2"</span>;
           </div>
         </div>
 
@@ -5607,7 +5607,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.5.1 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.5.2 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -5645,7 +5645,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -5723,7 +5723,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -5801,7 +5801,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -5879,7 +5879,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -5957,7 +5957,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -6036,7 +6036,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -6114,7 +6114,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 2.5.1 -->
+              <!-- 2.5.2 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -6655,7 +6655,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               1.4.7</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              2.5.1 compatible</span>
+              2.5.2 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>
@@ -6741,7 +6741,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
       <!-- Bundle showcase -->
       <div class="ionic-bundle-section animate-on-scroll">
         <div class="ionic-bundle-header">
-          <h3>Available Bundles — v1.4.7</h3>
+          <h3>Available Bundles — v1.4.8</h3>
           <span class="ionic-bundle-badge">
             <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange)"></span>
             Tree-shakeable
@@ -6996,7 +6996,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in Nix.js 2.5.1?
+              What's new in Nix.js 2.5.2?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -7006,8 +7006,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 2.5.1 focuses on core stability, more robust form handling, and greater routing flexibility for
-                testing and multi-router apps. The ecosystem packages
+                Nix.js 2.5.2 brings safer store guard composition, a custom equality option for computed signals, and
+                named-export support for lazy-loaded components. The ecosystem packages
                 <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>, and <code>@deijose/nix-ui</code>
                 are aligned with this release.
               </div>
@@ -7081,7 +7081,7 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Use <code>@deijose/nix-ionic@1.4.7</code> with Ionic Core for routing + native-style UI, then wrap
+                Yes. Use <code>@deijose/nix-ionic@1.4.8</code> with Ionic Core for routing + native-style UI, then wrap
                 with Capacitor for Android/iOS deployment using the same codebase.
               </div>
             </div>
