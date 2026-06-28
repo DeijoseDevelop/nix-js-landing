@@ -70,7 +70,7 @@
         "url": "https://github.com/DeijoseDevelop"
       },
       "license": "https://opensource.org/licenses/MIT",
-      "softwareVersion": "2.5.3",
+      "softwareVersion": "2.6.0",
       "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, nix-auth, authentication, authorization, ionic, mobile"
     }
   </script>
@@ -82,10 +82,10 @@
       "@type": "FAQPage",
       "mainEntity": [{
           "@type": "Question",
-          "name": "What's new in Nix.js 2.5.3?",
+          "name": "What's new in Nix.js 2.6.0?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nix.js 2.5.3 brings safer error-boundary fallback rendering, devtools visibility for injected routers, non-overlapping concurrent transitions, and bounded devtools signal history. The ecosystem packages are aligned with this release."
+            "text": "Nix.js 2.6.0 adds programmatic form value manipulation: nixField.setValue, createForm.setValue / setValues / reset(newValues), and nixFieldArray.setValues / patchValues / reset(items). It also exports DeepPartial<T> for typed partial updates. The ecosystem packages are aligned with this release."
           }
         },
         {
@@ -144,7 +144,7 @@
   <script type="importmap">
     {
       "imports": {
-        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.5.3/+esm"
+        "@deijose/nix-js": "https://cdn.jsdelivr.net/npm/@deijose/nix-js@2.6.0/+esm"
       }
     }
   </script>
@@ -4536,7 +4536,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v2.5.3 — Safer error boundaries, devtools, transitions, and signal history
+        v2.6.0 — Programmatic form values, reset baselines, and array patches
       </div>
       <h1>
         Build reactive UIs in the browser<br>
@@ -4843,7 +4843,7 @@
             <span style="color:var(--text-muted)"># or via ESM CDN (no install)</span><br>
             <span style="color:var(--accent-light)">import</span> { signal } <span
               style="color:var(--accent-light)">from</span><br>
-            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.5.3"</span>;
+            &nbsp;&nbsp;<span style="color:var(--green)">"https://esm.sh/@deijose/nix-js@2.6.0"</span>;
           </div>
         </div>
 
@@ -5790,7 +5790,8 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
           </div>
 
           <div class="nix-query-callout">
-            v1.3.7 includes offline queue controls: <strong>replayQueue()</strong> and <strong>clearQueue()</strong>.
+            v1.4.0 adds reactive params to createQuery: signal-driven cache keys, automatic refetch, and
+            race-condition-safe invalidation.
           </div>
 
           <a href="https://www.npmjs.com/package/@deijose/nix-query" class="btn-primary" target="_blank" rel="noopener">
@@ -6032,7 +6033,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.5.3 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 2.6.0 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -6070,7 +6071,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -6148,7 +6149,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -6226,7 +6227,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -6304,7 +6305,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -6382,7 +6383,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -6461,7 +6462,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -6539,7 +6540,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 2.5.3 -->
+              <!-- 2.6.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -7080,7 +7081,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
               1.4.11</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              2.5.3 compatible</span>
+              2.6.0 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>
@@ -7421,7 +7422,7 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              What's new in Nix.js 2.5.3?
+              What's new in Nix.js 2.6.0?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -7431,8 +7432,10 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 2.5.3 brings safer error-boundary fallback rendering, devtools visibility for injected routers,
-                non-overlapping concurrent transitions, and bounded devtools signal history. The ecosystem packages
+                Nix.js 2.6.0 adds programmatic form value manipulation: <code>nixField.setValue</code>,
+                <code>createForm.setValue</code> / <code>setValues</code> / <code>reset(newValues)</code>, and
+                <code>nixFieldArray.setValues</code> / <code>patchValues</code> / <code>reset(items)</code>.
+                It also exports <code>DeepPartial&lt;T&gt;</code> for typed partial updates. The ecosystem packages
                 <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>, and <code>@deijose/nix-ui</code>
                 are aligned with this release.
               </div>
