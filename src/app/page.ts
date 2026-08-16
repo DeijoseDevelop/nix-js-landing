@@ -33,15 +33,15 @@ export const generateMetadata = (): PageMetadata => ({
   title: "Nix.js — Lightweight Reactive Micro-Framework for JavaScript",
   description:
     "Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler. ~14 KB gzipped, zero dependencies.",
-  canonical: "https://nix-js.dev/",
+  canonical: "https://www.nix-js.dev/",
   openGraph: {
     type: "website",
     title: "Nix.js — Lightweight Reactive Micro-Framework for JavaScript",
     description:
       "Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler.",
     siteName: "Nix.js",
-    url: "https://nix-js.dev/",
-    image: "https://nix-js.dev/og-image.jpg",
+    url: "https://www.nix-js.dev/",
+    image: "https://www.nix-js.dev/og-image.jpg",
     imageAlt: "Nix.js — lightweight reactive micro-framework for JavaScript",
     imageWidth: 1730,
     imageHeight: 909,
@@ -53,7 +53,7 @@ export const generateMetadata = (): PageMetadata => ({
     title: "Nix.js — Lightweight Reactive Micro-Framework for JavaScript",
     description:
       "Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler.",
-    image: "https://nix-js.dev/og-image.jpg",
+    image: "https://www.nix-js.dev/og-image.jpg",
     imageAlt: "Nix.js — lightweight reactive micro-framework for JavaScript",
   },
 });
