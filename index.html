@@ -21,9 +21,9 @@
   <link rel="manifest" href="/images/ico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="description"
-    content="Build reactive UIs with no build step. Nix.js is a 14KB signal-based framework with zero dependencies. Complete ecosystem: Nix-UI, Nix-Ionic, Nix-Query, Nix-i18n, and Nix-Auth.">
+    content="Build reactive UIs with no build step. Nix.js is a 14KB signal-based framework with zero dependencies. Complete ecosystem: Nix.js Kit, Nix-UI, Nix-Ionic, Nix-Query, Nix-i18n, and Nix-Auth.">
   <meta name="keywords"
-    content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, nix-query, nix-ionic, ionic, mobile, nix-auth, authentication, authorization, rbac, jwt, oidc">
+    content="nix.js, nixjs, reactive framework, javascript framework, signals, no virtual dom, lightweight, micro-framework, typescript, nix-query, nix-ionic, ionic, mobile, nix-auth, authentication, authorization, rbac, jwt, oidc, nix-js-kit, meta-framework, ssg, ssr, islands">
   <meta name="author" content="Deiver Vasquez">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nix-js.dev/">
@@ -56,7 +56,7 @@
       "@type": "SoftwareApplication",
       "name": "Nix.js",
       "url": "https://nix-js.dev/",
-      "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build web apps with Nix-UI, mobile apps with Nix-Ionic, use Nix Query for async state, Nix i18n for translations, and Nix Auth for authentication and authorization.",
+      "description": "A signal-based reactive micro-framework for JavaScript and TypeScript. No virtual DOM, no compiler, no dependencies. Build full-stack apps with Nix.js Kit, web apps with Nix-UI, mobile apps with Nix-Ionic, use Nix Query for async state, Nix i18n for translations, and Nix Auth for authentication and authorization.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -71,7 +71,7 @@
       },
       "license": "https://opensource.org/licenses/MIT",
       "softwareVersion": "2.6.0",
-      "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, nix-auth, authentication, authorization, ionic, mobile"
+      "keywords": "reactive, signals, javascript, typescript, micro-framework, no virtual dom, nix-query, nix-auth, authentication, authorization, ionic, mobile, nix-js-kit, meta-framework, ssg, ssr, islands"
     }
   </script>
 
@@ -3103,9 +3103,9 @@
 
     .hero-paths {
       margin: 22px auto 0;
-      max-width: 860px;
+      max-width: 1100px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       animation: fadeInUp 0.6s ease-out 0.6s both;
     }
@@ -3352,6 +3352,129 @@
       background: var(--bg-primary);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+    }
+
+    /* ===== Nix.js Kit section ===== */
+    .nix-kit-section {
+      background: linear-gradient(180deg, rgba(52, 50, 200, 0.04) 0%, transparent 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nix-kit-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .nix-kit-copy {
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .nix-kit-copy p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .nix-kit-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .nix-kit-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .nix-kit-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2bc7f0;
+      background: rgba(43, 199, 240, 0.14);
+      font-size: 0.7rem;
+      margin-top: 2px;
+    }
+
+    .nix-kit-modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .nix-kit-mode {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .nix-kit-wow-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .nix-kit-wow-card {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(43, 199, 240, 0.04);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .nix-kit-wow-card strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+      font-size: 0.88rem;
+    }
+
+    .nix-kit-callout {
+      margin: 16px 0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(43, 199, 240, 0.25);
+      background: rgba(43, 199, 240, 0.06);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .nix-kit-callout code {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #2bc7f0;
+    }
+
+    @media (max-width: 768px) {
+      .nix-kit-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     .nix-query-layout {
@@ -4454,6 +4577,41 @@
   <!-- Tooltip -->
   <div class="tooltip" id="tooltip">Copied!</div>
 
+  <!-- Announcement Bar -->
+  <style>
+    .announcement-bar {
+      background: linear-gradient(90deg, #3432c8, #256fe1, #2bc7f0);
+      color: #fff;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .announcement-bar a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .announcement-bar a:hover {
+      opacity: 0.85;
+    }
+
+    .announcement-bar .ab-sep {
+      margin: 0 8px;
+      opacity: 0.6;
+    }
+  </style>
+  <div class="announcement-bar">
+    <span>New:</span>
+    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit 1.4.5</a>
+    <span class="ab-sep">—</span>
+    <span>Full-stack meta-framework with file-based routing, SSG/SSR/ISR, and islands.</span>
+    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Explore →</a>
+  </div>
+
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -4492,6 +4650,8 @@
             </svg>
           </a>
           <ul class="dropdown-menu">
+            <li><a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit
+                <span class="badge-new">New</span></a></li>
             <li><a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Performance
                 Benchmarks</a></li>
             <li><a href="https://www.npmjs.com/package/@deijose/nix-query" target="_blank" rel="noopener">Nix Query
@@ -4536,6 +4696,12 @@
         <span class="dot"></span>
         v2.6.0 — Programmatic form values, reset baselines, and array patches
       </div>
+      <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:linear-gradient(90deg,rgba(52,50,200,0.15),rgba(43,199,240,0.15));border:1px solid rgba(43,199,240,0.3);font-size:0.8rem;font-weight:600;color:#2bc7f0;margin-bottom:32px;margin-left:10px;animation:fadeInUp 0.6s ease-out 0.1s both;text-decoration:none;">
+        <span
+          style="width:6px;height:6px;border-radius:50%;background:#2bc7f0;animation:blink 2s ease-in-out infinite"></span>
+        Nix.js Kit 1.4.5 — Full-stack meta-framework →
+      </a>
       <h1>
         Build reactive UIs in the browser<br>
         <span class="gradient-text">with no build step.</span>
@@ -4584,10 +4750,18 @@
         <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.3.6</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#f472b6"></span> Nix Auth 1.0.1</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#3432c8"></span> Nix.js Kit 1.4.5</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
 
       <div class="hero-paths">
+        <a class="hero-path-card" href="https://kit.nix-js.dev/" target="_blank" rel="noopener">
+          <span class="hero-path-tag">Meta-framework</span>
+          <h3>Build full-stack apps with Nix.js Kit</h3>
+          <p>File-based routing, SSG, SSR, ISR, islands, content collections, and zero client JS by default. Next.js
+            conventions with Astro-style islands.</p>
+          <span class="hero-path-action">Explore Nix.js Kit -></span>
+        </a>
         <a class="hero-path-card" href="https://ui.nix-js.dev/" target="_blank" rel="noopener">
           <span class="hero-path-tag">Web Path</span>
           <h3>Build web products with Nix.js + Nix-UI</h3>
@@ -5661,6 +5835,22 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
       <div class="dx-ecosystem-grid">
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">
+            <span class="feature-card-icon">🚀</span>
+            <h3>Nix.js Kit</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Full-stack meta-framework for Nix.js. File-based routing, SSG, SSR, ISR, islands, content collections,
+            image optimization, middleware, and zero client JS by default.</p>
+          <code><span style="color:var(--accent-light)">npx</span> <span style="color:var(--blue)">create-nix-app</span>
+            <span style="color:var(--blue)">my-kit</span>
+            <span style="color:var(--green)">--template kit</span>
+
+            <span style="color:var(--accent-light)">cd</span> <span style="color:var(--blue)">my-kit</span>
+            <span style="color:var(--accent-light)">npm run</span> <span style="color:var(--blue)">dev</span></code>
+          <a href="https://kit.nix-js.dev/" class="feature-card-link" target="_blank" rel="noopener">Read docs →</a>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
             <span class="feature-card-icon">🧪</span>
             <h3>Nix.js Testing</h3>
             <span class="badge-new" style="margin-left:auto">New</span>
@@ -5734,6 +5924,110 @@ cart.hasItems.value;  <span class="cmt">// true</span></pre>
               style="color:var(--blue)">build</span></code>
           <a href="https://www.npmjs.com/package/@deijose/nix-cli" class="feature-card-link" target="_blank"
             rel="noopener">Read docs →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nix.js Kit Section -->
+  <section class="section nix-kit-section" id="nix-kit">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">🚀 Nix.js Kit</div>
+        <h2 class="section-title">Next.js conventions.<br><span class="gradient-text">Astro-style islands. Zero client
+            JS.</span>
+        </h2>
+        <p class="section-desc">A full-stack meta-framework built on Nix.js signals — file-based routing, SSG, SSR, ISR,
+          content collections, image optimization, middleware, and SPA-like navigation.</p>
+      </div>
+
+      <div class="nix-kit-layout">
+        <div class="nix-kit-copy animate-on-scroll">
+          <p><strong>@deijose/nix-js-kit</strong> brings production framework features to Nix.js:</p>
+          <div class="nix-kit-modes">
+            <span class="nix-kit-mode">SSG</span>
+            <span class="nix-kit-mode">SSR</span>
+            <span class="nix-kit-mode">ISR</span>
+            <span class="nix-kit-mode">Islands</span>
+            <span class="nix-kit-mode">API Routes</span>
+            <span class="nix-kit-mode">Server Actions</span>
+          </div>
+          <ul class="nix-kit-points">
+            <li><span class="nix-kit-check">✓</span> <span><strong>File-based routing</strong> with dynamic routes,
+                catch-all, and route groups.</span></li>
+            <li><span class="nix-kit-check">✓</span> <span><strong>Islands architecture</strong> — hydrate only
+                interactive components with <code>load</code>, <code>idle</code>, <code>visible</code>
+                directives.</span></li>
+            <li><span class="nix-kit-check">✓</span> <span><strong>Zero client JS by default</strong> — pages ship as
+                static HTML unless you opt into hydration.</span></li>
+            <li><span class="nix-kit-check">✓</span> <span><strong>Content collections</strong> with typed Markdown,
+                YAML frontmatter, and Zod validation.</span></li>
+          </ul>
+
+          <div class="nix-kit-wow-grid">
+            <div class="nix-kit-wow-card">
+              <strong>SSG + SSR + ISR</strong>
+              Static generation, server rendering, and incremental regeneration per route.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>Image Optimization</strong>
+              Build-time WebP/AVIF with srcset/sizes and lazy loading.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>Middleware</strong>
+              Auth, redirects, and header injection before routing.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>SPA Router</strong>
+              Client-side navigation with style hoisting and no flash.
+            </div>
+          </div>
+
+          <div class="nix-kit-callout">
+            v1.4.5 adds <code>headLinks</code> support for favicons and meta tags in <code>&lt;head&gt;</code>,
+            plus improved SSR flag handling for Vercel deployments.
+          </div>
+
+          <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
+            Explore Nix.js Kit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="code-block animate-on-scroll">
+          <div class="code-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span class="code-filename">src/app/page.ts</span>
+          </div>
+          <div class="code-body">
+            <pre><span class="kw">import</span> { html } <span class="kw">from</span> <span class="str">"@deijose/nix-js"</span>;
+<span class="kw">import</span> type { PageProps } <span class="kw">from</span> <span class="str">"@deijose/nix-js-kit"</span>;
+<span class="kw">import</span> { island } <span class="kw">from</span> <span class="str">"@deijose/nix-js-kit"</span>;
+<span class="kw">import</span> { load } <span class="kw">from</span> <span class="str">"./page.data.ts"</span>;
+<span class="kw">import</span> Counter <span class="kw">from</span> <span class="str">"../islands/Counter"</span>;
+
+<span class="kw">export default</span> <span class="kw">function</span> <span class="fn">HomePage</span>({ data }: PageProps&lt;<span class="kw">typeof</span> load&gt;) {
+  <span class="kw">return</span> <span class="fn">html</span><span class="str">`</span>
+    <span class="str">&lt;article&gt;</span>
+      <span class="str">&lt;h1&gt;</span>${data.title}<span class="str">&lt;/h1&gt;</span>
+      <span class="str">&lt;p&gt;</span>The answer is ${data.count}.<span class="str">&lt;/p&gt;</span>
+      ${<span class="fn">island</span>(<span class="str">"Counter"</span>, Counter, { initial: <span class="num">0</span> }, <span class="str">"load"</span>)}
+    <span class="str">&lt;/article&gt;</span>
+  <span class="str">`</span>;
+}
+
+<span class="cmt">// page.data.ts — server-side data loader</span>
+<span class="kw">export const</span> load: PageDataLoad = <span class="kw">async</span> () =&gt; {
+  <span class="kw">return</span> { title: <span class="str">"Hello Nix.js Kit"</span>, count: <span class="num">42</span> };
+};
+
+<span class="cmt">// Zero client JS by default.
+// Islands hydrate only when you say so.</span></pre>
+          </div>
         </div>
       </div>
     </div>
@@ -7559,17 +7853,20 @@ console.<span class="fn">log</span>(auth.<span class="fn">can</span>(<span class
   <!-- CTA -->
   <section class="cta">
     <div class="cta-content animate-on-scroll">
-      <h2>Two paths.<br><span class="gradient-text">Web or mobile.</span></h2>
-      <p>Build web apps with Nix.js + Nix-UI, or ship mobile apps with Nix-Ionic.
-        Add Nix Query as the same async/cache layer in either path.</p>
+      <h2>Three paths.<br><span class="gradient-text">Kit, web, or mobile.</span></h2>
+      <p>Build full-stack apps with Nix.js Kit, web apps with Nix.js + Nix-UI, or ship mobile apps with Nix-Ionic.
+        Add Nix Query as the same async/cache layer in any path.</p>
       <div class="cta-actions">
-        <a href="https://ui.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
-          Start Web Path
+        <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
+          Explore Nix.js Kit
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
+        </a>
+        <a href="https://ui.nix-js.dev/" class="btn-secondary" target="_blank" rel="noopener">
+          Start Web Path
         </a>
         <a href="#nix-ionic" class="btn-secondary" rel="noopener">
           Start Mobile Path
