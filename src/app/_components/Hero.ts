@@ -59,8 +59,8 @@ export function Hero(): NixTemplate {
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 92.9% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~14 KB gzipped</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.4.2</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#f472b6"></span> Nix Auth 1.1.0</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.4.3</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#f472b6"></span> Nix Auth 1.1.1</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#3432c8"></span> Nix.js Kit 2.0.4</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
