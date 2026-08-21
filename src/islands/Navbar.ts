@@ -6,6 +6,7 @@
 import { html } from "@deijose/nix-js";
 
 function Navbar() {
+  if (typeof document === "undefined") return null;
   const navbar = document.getElementById("navbar");
   if (!navbar) return null;
 

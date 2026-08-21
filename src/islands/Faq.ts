@@ -6,6 +6,7 @@
 import { html } from "@deijose/nix-js";
 
 function Faq() {
+  if (typeof document === "undefined") return null;
   const items = Array.from(document.querySelectorAll(".faq-item"));
 
   const toggle = (btn: HTMLElement) => {

@@ -5,7 +5,9 @@
 import { html } from "@deijose/nix-js";
 import { raw } from "@deijose/nix-js-kit/content";
 import type { LayoutProps } from "@deijose/nix-js-kit";
-import { islandMarker } from "./lib/island-marker";
+import { island } from "@deijose/nix-js-kit";
+import Navbar from "../islands/Navbar.ts";
+import ScrollReveal from "../islands/ScrollReveal.ts";
 
 const announcement = `<div class="announcement-bar">
     <span>New:</span>
@@ -116,7 +118,7 @@ export default function LandingLayout({ children }: LayoutProps) {
       ${children}
     </main>
     ${raw(footer)}
-    ${islandMarker("Navbar", {}, "load")}
-    ${islandMarker("ScrollReveal", {}, "load")}
+    ${island("Navbar", Navbar, {}, "load")}
+    ${island("ScrollReveal", ScrollReveal, {}, "load")}
   `;
 }

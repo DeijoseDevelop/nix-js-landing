@@ -6,6 +6,7 @@
 import { html } from "@deijose/nix-js";
 
 function ScrollReveal() {
+  if (typeof window === "undefined" || typeof document === "undefined") return null;
   const elements = document.querySelectorAll(".animate-on-scroll");
 
   if (!("IntersectionObserver" in window)) {
