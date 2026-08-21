@@ -61,8 +61,8 @@ export function NixKit(): NixTemplate {
           </div>
 
           <div class="nix-kit-callout">
-            v1.4.7 adds zero-404 static deployments (render-endpoint marker), hover-only
-            prefetch, inline-CSS docs, and self-hosted fonts.
+            v2.0.4 adds recursive content collections, island HMR, unified Web handler,
+            static Range/HEAD, and sanitized production errors.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
