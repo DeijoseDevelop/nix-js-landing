@@ -1,7 +1,3 @@
-// ============================================================================
-// Layout data — head links (inline CSS + favicons + manifest) and metadata
-// ============================================================================
-
 import type { PageDataLoad } from "@deijose/nix-js-kit";
 import { getInlineCss } from "./lib/inline-css";
 

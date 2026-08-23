@@ -1,7 +1,7 @@
-// ============================================================================
-// FaqSection — FAQ section: sidebar + static accordion list
-// Behavior (open/close) is wired by the Faq island.
-// ============================================================================
+/**
+ * FAQ section: sidebar + static accordion list. Open/close behavior is
+ * wired by the Faq island.
+ */
 
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";

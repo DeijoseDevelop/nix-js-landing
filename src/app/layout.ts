@@ -1,6 +1,6 @@
-// ============================================================================
-// Root layout — announcement bar, navbar, main content, footer
-// ============================================================================
+/**
+ * Root layout: announcement bar, navbar, main content, and footer.
+ */
 
 import { html } from "@deijose/nix-js";
 import { raw } from "@deijose/nix-js-kit/content";

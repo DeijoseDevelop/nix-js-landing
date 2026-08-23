@@ -1,7 +1,7 @@
-// ============================================================================
-// Navbar island — scrolled state, mobile menu, smooth-scroll anchor links
-// Renders nothing: it wires behavior onto the static navbar markup.
-// ============================================================================
+/**
+ * Wires scrolled state, mobile menu, and smooth-scroll anchor links onto the
+ * static navbar markup. Renders nothing.
+ */
 
 import { html } from "@deijose/nix-js";
 

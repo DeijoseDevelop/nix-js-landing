@@ -1,7 +1,3 @@
-// ============================================================================
-// CodeTabs island — developer experience code tabs
-// ============================================================================
-
 import { html, signal } from "@deijose/nix-js";
 
 const TABS = [

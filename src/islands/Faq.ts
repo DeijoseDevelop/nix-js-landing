@@ -1,7 +1,7 @@
-// ============================================================================
-// Faq island — accordion behavior for the static FAQ list
-// Renders nothing: it wires click handling onto the server-rendered markup.
-// ============================================================================
+/**
+ * Accordion behavior for the static FAQ list. Renders nothing: it wires
+ * click handling onto the server-rendered markup.
+ */
 
 import { html } from "@deijose/nix-js";
 

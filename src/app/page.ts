@@ -1,7 +1,3 @@
-// ============================================================================
-// Landing page — all sections
-// ============================================================================
-
 import { html } from "@deijose/nix-js";
 import type { PageMetadata } from "@deijose/nix-js-kit";
 import { Hero } from "./_components/Hero";

@@ -1,7 +1,3 @@
-// ============================================================================
-// Generate sitemap.xml + robots.txt after the SSG build
-// ============================================================================
-
 import { generateSitemap, generateRobots } from "@deijose/nix-js-kit/seo";
 
 const SITE_URL = "https://nix-js.dev";

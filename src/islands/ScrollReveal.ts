@@ -1,7 +1,7 @@
-// ============================================================================
-// ScrollReveal island — adds .visible to .animate-on-scroll elements
-// Renders nothing; safe when IntersectionObserver is unavailable.
-// ============================================================================
+/**
+ * Adds `.visible` to `.animate-on-scroll` elements. Renders nothing and is
+ * safe when IntersectionObserver is unavailable.
+ */
 
 import { html } from "@deijose/nix-js";
 

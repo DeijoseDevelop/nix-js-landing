@@ -1,7 +1,3 @@
-// ============================================================================
-// TodoDemo island — repeat() + signal() playground demo
-// ============================================================================
-
 import { html, signal, computed, repeat } from "@deijose/nix-js";
 
 interface Todo {
