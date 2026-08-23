@@ -28,7 +28,7 @@ import { Contribute } from "./_components/Contribute";
 export const generateMetadata = (): PageMetadata => ({
   title: "Nix.js — Lightweight Reactive Micro-Framework for JavaScript",
   description:
-    "Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler. ~14 KB gzipped, zero dependencies.",
+    "Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler. ~15 KB gzipped, zero dependencies.",
   canonical: "https://www.nix-js.dev/",
   openGraph: {
     type: "website",

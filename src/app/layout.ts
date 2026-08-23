@@ -11,7 +11,7 @@ import ScrollReveal from "../islands/ScrollReveal.ts";
 
 const announcement = `<div class="announcement-bar">
     <span>New:</span>
-    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit 2.0.4</a>
+    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit 2.1.1</a>
     <span class="ab-sep">—</span>
     <span>Full-stack meta-framework with file-based routing, SSG/SSR/ISR, and islands.</span>
     <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Explore →</a>

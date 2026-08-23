@@ -29,8 +29,8 @@ export function NixAuth(): NixTemplate {
           </ul>
 
           <div class="nix-auth-callout">
-            v1.0.1 adds <strong>createAuthManager</strong> for multi-context apps, <strong>SSR seeds</strong>, and an
-            optional <strong>@deijose/nix-js-auth/command</strong> subpath for nix-query integration.
+            v1.2.2 adds transient error retry in <strong>refresh()</strong>, multi-tab sync via
+            <strong>BroadcastChannel</strong>, and a reactive <strong>useAuth()</strong>.
           </div>
 
           <a href="https://www.npmjs.com/package/@deijose/nix-js-auth" class="btn-primary" target="_blank"

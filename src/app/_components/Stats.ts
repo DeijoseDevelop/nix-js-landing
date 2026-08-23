@@ -6,7 +6,7 @@ export function Stats(): NixTemplate {
 <div class="stats container animate-on-scroll">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-value purple">~14 KB</div>
+        <div class="stat-value purple">~15 KB</div>
         <div class="stat-label">Gzipped bundle</div>
       </div>
       <div class="stat-item">

@@ -37,7 +37,7 @@ export function SizeBench(): NixTemplate {
               <div class="size-bar"
                 style="width: 28%; background: var(--accent); box-shadow: 0 0 15px var(--accent-glow);"></div>
             </div>
-            <div class="size-value" style="color: var(--accent-light);">~14 KB</div>
+            <div class="size-value" style="color: var(--accent-light);">~15 KB</div>
           </div>
         </div>
         <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">

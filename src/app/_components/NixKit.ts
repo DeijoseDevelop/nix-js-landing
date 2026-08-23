@@ -57,8 +57,8 @@ export function NixKit(): NixTemplate {
           </div>
 
           <div class="nix-kit-callout">
-            v2.0.4 adds recursive content collections, island HMR, unified Web handler,
-            static Range/HEAD, and sanitized production errors.
+            v2.1.1 adds route-level code-splitting, layout slots, Redis/KV cache adapters,
+            and real Suspense streaming.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">

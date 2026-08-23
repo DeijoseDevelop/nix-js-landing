@@ -43,10 +43,10 @@ export function NixIonic(): NixTemplate {
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;font-size:0.78rem;color:var(--text-muted)">
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(251,146,60,0.08)">Nix-Ionic
-              1.4.11</span>
+              1.4.14</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              3.0.3 compatible</span>
+              3.2.1 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>
@@ -132,7 +132,7 @@ export function NixIonic(): NixTemplate {
       <!-- Bundle showcase -->
       <div class="ionic-bundle-section animate-on-scroll">
         <div class="ionic-bundle-header">
-          <h3>Available Bundles — v1.4.8</h3>
+          <h3>Available Bundles — v1.4.14</h3>
           <span class="ionic-bundle-badge">
             <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange)"></span>
             Tree-shakeable

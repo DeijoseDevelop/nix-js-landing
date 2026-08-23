@@ -32,7 +32,7 @@ export function Faq(): NixTemplate {
 
           <div class="faq-item">
             <button class="faq-question">
-              What's new in Nix.js 3.0.3?
+              What's new in Nix.js 3.2.1?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -42,7 +42,9 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 3.0.3 adds keyed <code>repeat()</code> hydration, incremental <code>renderToChunks()</code>
+                Nix.js 3.2.1 adds unified event delegation in hydration, a structuredClone escape hatch
+                for store serialization, and documented re-entrancy guards. It also keeps keyed
+                <code>repeat()</code> hydration and incremental <code>renderToChunks()</code>
                 streaming, render protocols (<code>mountDom</code>/<code>hydrateDom</code>), trusted <code>raw()</code>
                 HTML, and array range delimiters that fix hydration marker collisions.
                 It also exports <code>DeepPartial&lt;T&gt;</code> for typed partial updates. The ecosystem packages
