@@ -1,7 +1,7 @@
-// ============================================================================
-// Inline CSS — reads all style files, minifies them, and outputs a single CSS
-// string (zero render-blocking requests: everything ships inside one <style>)
-// ============================================================================
+/**
+ * Reads all style files, minifies them, and outputs a single CSS string:
+ * zero render-blocking requests, everything ships inside one `<style>`.
+ */
 
 import { readFile } from "node:fs/promises";
 import { resolve, join } from "node:path";

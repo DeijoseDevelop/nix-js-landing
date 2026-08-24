@@ -1,7 +1,3 @@
-// ============================================================================
-// NixI18n — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 
@@ -33,7 +29,8 @@ export function NixI18n(): NixTemplate {
           </ul>
 
           <div class="nix-i18n-callout">
-            v1.2.0 adds nested fallback keys, a generate CLI, and a dev overlay for missing translations.
+            v1.3.2 fixes 8 critical issues: no caching of failed requests, AST-based CLI
+            extraction, and a plugin composition pipeline.
           </div>
 
           <a href="https://github.com/DeijoseDevelop/nix-i18n" class="btn-primary" target="_blank" rel="noopener">

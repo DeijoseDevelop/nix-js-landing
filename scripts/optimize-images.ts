@@ -1,8 +1,9 @@
-// ============================================================================
-// One-off image optimization — converts showcase PNGs and the logo to
-// compressed WebP at 2x display size.
-// Run: bun run scripts/optimize-images.ts
-// ============================================================================
+/**
+ * One-off image optimization: converts showcase PNGs and the logo to
+ * compressed WebP at 2x display size.
+ *
+ * Run: bun run scripts/optimize-images.ts
+ */
 
 import sharp from "sharp";
 import { readdir, readFile } from "node:fs/promises";

@@ -1,7 +1,3 @@
-// ============================================================================
-// ClockDemo island — effect() + lifecycle playground demo
-// ============================================================================
-
 import { html, signal, effect } from "@deijose/nix-js";
 
 function ClockDemo() {

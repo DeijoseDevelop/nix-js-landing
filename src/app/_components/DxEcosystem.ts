@@ -1,7 +1,3 @@
-// ============================================================================
-// DxEcosystem — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 

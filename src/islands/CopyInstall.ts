@@ -1,7 +1,3 @@
-// ============================================================================
-// CopyInstall island — click-to-copy install command with tooltip
-// ============================================================================
-
 import { html, signal } from "@deijose/nix-js";
 
 const COMMAND = "npm create nix-app@latest";

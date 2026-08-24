@@ -1,7 +1,3 @@
-// ============================================================================
-// CounterDemo island — signal() + computed() playground demo
-// ============================================================================
-
 import { html, signal, computed } from "@deijose/nix-js";
 
 function CounterDemo() {

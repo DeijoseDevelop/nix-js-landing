@@ -1,7 +1,3 @@
-// ============================================================================
-// Stats — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 
@@ -10,7 +6,7 @@ export function Stats(): NixTemplate {
 <div class="stats container animate-on-scroll">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-value purple">~14 KB</div>
+        <div class="stat-value purple">~15 KB</div>
         <div class="stat-label">Gzipped bundle</div>
       </div>
       <div class="stat-item">

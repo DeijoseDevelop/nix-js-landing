@@ -1,7 +1,3 @@
-// ============================================================================
-// NixQuery — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 
@@ -56,9 +52,8 @@ export function NixQuery(): NixTemplate {
           </div>
 
           <div class="nix-query-callout">
-            v1.4.2 adds reactive params to createQuery plus params-aware cache helpers: signal-driven
-            cache keys, automatic refetch, <code>query.key</code>, and <code>{ params }</code> support for
-            <code>getQueryData</code>, <code>setQueryData</code>, and <code>updateQueryData</code>.
+            v1.5.1 adds single-flight request dedup, <code>keepPreviousData</code>, <code>dispose()</code>,
+            and a robust stableStringify.
           </div>
 
           <a href="https://www.npmjs.com/package/@deijose/nix-query" class="btn-primary" target="_blank" rel="noopener">

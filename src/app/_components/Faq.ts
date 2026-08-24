@@ -1,7 +1,7 @@
-// ============================================================================
-// FaqSection — FAQ section: sidebar + static accordion list
-// Behavior (open/close) is wired by the Faq island.
-// ============================================================================
+/**
+ * FAQ section: sidebar + static accordion list. Open/close behavior is
+ * wired by the Faq island.
+ */
 
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
@@ -32,7 +32,7 @@ export function Faq(): NixTemplate {
 
           <div class="faq-item">
             <button class="faq-question">
-              What's new in Nix.js 2.6.0?
+              What's new in Nix.js 3.4.0?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -42,12 +42,12 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 2.6.0 adds programmatic form value manipulation: <code>nixField.setValue</code>,
-                <code>createForm.setValue</code> / <code>setValues</code> / <code>reset(newValues)</code>, and
-                <code>nixFieldArray.setValues</code> / <code>patchValues</code> / <code>reset(items)</code>.
-                It also exports <code>DeepPartial&lt;T&gt;</code> for typed partial updates. The ecosystem packages
-                <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>, and <code>@deijose/nix-ui</code>
-                are aligned with this release.
+                Nix.js 3.4.0 moves partial attribute interpolation to the Vite plugin
+                (<code>@deijose/vite-plugin-nix-js</code> >= 1.1.0), making the core runtime leaner by ~2 KB.
+                The plugin's compile-time lexer rewrites partials into full bindings before the core sees them.
+                Nix.js Kit 2.3.0 delegates to the plugin when installed, falling back to its legacy transform.
+                The ecosystem packages <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>,
+                and <code>@deijose/nix-ui</code> are aligned with this release.
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Use <code>@deijose/nix-ionic@1.4.9</code> with Ionic Core for routing + native-style UI, then wrap
+                Yes. Use <code>@deijose/nix-ionic@1.4.14</code> with Ionic Core for routing + native-style UI, then wrap
                 with Capacitor for Android/iOS deployment using the same codebase.
               </div>
             </div>

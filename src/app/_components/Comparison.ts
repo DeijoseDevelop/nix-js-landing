@@ -1,7 +1,3 @@
-// ============================================================================
-// Comparison — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 
@@ -46,7 +42,7 @@ export function Comparison(): NixTemplate {
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 2.6.0 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 3.4.0 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>
@@ -84,7 +80,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">603.9ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">21.83ms <span class="bench-badge b-win">WIN</span></span>
@@ -162,7 +158,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">567.5ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">29.99ms <span class="bench-badge b-win">WIN</span></span>
@@ -240,7 +236,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">40.1ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.21ms <span class="bench-badge b-top">TOP</span></span>
@@ -318,7 +314,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">21.6ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.02ms <span class="bench-badge b-top">TOP</span></span>
@@ -396,7 +392,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">380.5ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.86ms <span class="bench-badge b-top">TOP</span></span>
@@ -475,7 +471,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">307.5ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">15.31ms <span class="bench-badge b-win">WIN</span></span>
@@ -553,7 +549,7 @@ export function Comparison(): NixTemplate {
               <td class="val-cell nix-old-cell">
                 <div class="cell-inner"><span class="v-full">44.8ms</span></div>
               </td>
-              <!-- 2.6.0 -->
+              <!-- 3.4.0 -->
               <td class="val-cell nix-cell fw-group">
                 <div class="cell-inner">
                   <span class="v-js">0.76ms <span class="bench-badge b-top">TOP</span></span>
@@ -629,7 +625,7 @@ export function Comparison(): NixTemplate {
                 <div class="bundle-note">v1.3.0</div>
               </td>
               <td class="val-cell nix-cell fw-group" colspan="2">
-                <div class="bundle-size" style="color:var(--green)">~14 KB <span class="bench-badge b-win">WIN</span>
+                <div class="bundle-size" style="color:var(--green)">~15 KB <span class="bench-badge b-win">WIN</span>
                 </div>
                 <div class="bundle-note">Router + Stores included</div>
               </td>

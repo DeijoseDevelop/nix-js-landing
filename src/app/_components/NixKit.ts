@@ -1,7 +1,3 @@
-// ============================================================================
-// NixKit — section (ported from the original landing HTML)
-// ============================================================================
-
 import { raw } from "@deijose/nix-js-kit/content";
 import type { NixTemplate } from "@deijose/nix-js";
 
@@ -61,8 +57,8 @@ export function NixKit(): NixTemplate {
           </div>
 
           <div class="nix-kit-callout">
-            v1.4.7 adds zero-404 static deployments (render-endpoint marker), hover-only
-            prefetch, inline-CSS docs, and self-hosted fonts.
+            v2.3.0 adds interpolation delegation to the Vite plugin, route-level code-splitting,
+            layout slots, Redis/KV cache adapters, and real Suspense streaming.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
