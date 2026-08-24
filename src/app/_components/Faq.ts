@@ -32,7 +32,7 @@ export function Faq(): NixTemplate {
 
           <div class="faq-item">
             <button class="faq-question">
-              What's new in Nix.js 3.2.1?
+              What's new in Nix.js 3.4.0?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -42,14 +42,12 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 3.2.1 adds unified event delegation in hydration, a structuredClone escape hatch
-                for store serialization, and documented re-entrancy guards. It also keeps keyed
-                <code>repeat()</code> hydration and incremental <code>renderToChunks()</code>
-                streaming, render protocols (<code>mountDom</code>/<code>hydrateDom</code>), trusted <code>raw()</code>
-                HTML, and array range delimiters that fix hydration marker collisions.
-                It also exports <code>DeepPartial&lt;T&gt;</code> for typed partial updates. The ecosystem packages
-                <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>, and <code>@deijose/nix-ui</code>
-                are aligned with this release.
+                Nix.js 3.4.0 moves partial attribute interpolation to the Vite plugin
+                (<code>@deijose/vite-plugin-nix-js</code> >= 1.1.0), making the core runtime leaner by ~2 KB.
+                The plugin's compile-time lexer rewrites partials into full bindings before the core sees them.
+                Nix.js Kit 2.3.0 delegates to the plugin when installed, falling back to its legacy transform.
+                The ecosystem packages <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>,
+                and <code>@deijose/nix-ui</code> are aligned with this release.
               </div>
             </div>
           </div>
@@ -121,7 +119,7 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Use <code>@deijose/nix-ionic@1.4.9</code> with Ionic Core for routing + native-style UI, then wrap
+                Yes. Use <code>@deijose/nix-ionic@1.4.14</code> with Ionic Core for routing + native-style UI, then wrap
                 with Capacitor for Android/iOS deployment using the same codebase.
               </div>
             </div>

@@ -2,7 +2,7 @@ import { html } from "@deijose/nix-js";
 import type { PageMetadata } from "@deijose/nix-js-kit";
 import { Hero } from "./_components/Hero";
 import { Stats } from "./_components/Stats";
-import { SizeBench } from "./_components/SizeBench";
+// import { SizeBench } from "./_components/SizeBench";
 import { InspiredPreview } from "./_components/InspiredPreview";
 import { Interop } from "./_components/Interop";
 import { QuickStart } from "./_components/QuickStart";
@@ -58,7 +58,7 @@ export default function HomePage() {
   return html`
     ${Hero()}
     ${Stats()}
-    ${SizeBench()}
+    ${/* SizeBench() */""}
     ${InspiredPreview()}
     ${Interop()}
     ${QuickStart()}

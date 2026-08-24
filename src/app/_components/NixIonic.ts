@@ -46,7 +46,7 @@ export function NixIonic(): NixTemplate {
               1.4.14</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(96,165,250,0.08)">Nix.js
-              3.2.1 compatible</span>
+              3.4.0 compatible</span>
             <span
               style="padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(52,211,153,0.08)">Ionic
               Core 8.x</span>

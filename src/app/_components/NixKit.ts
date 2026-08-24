@@ -57,8 +57,8 @@ export function NixKit(): NixTemplate {
           </div>
 
           <div class="nix-kit-callout">
-            v2.1.1 adds route-level code-splitting, layout slots, Redis/KV cache adapters,
-            and real Suspense streaming.
+            v2.3.0 adds interpolation delegation to the Vite plugin, route-level code-splitting,
+            layout slots, Redis/KV cache adapters, and real Suspense streaming.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
