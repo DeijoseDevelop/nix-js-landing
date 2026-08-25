@@ -17,8 +17,8 @@ export function Showcases(): NixTemplate {
           class="showcase-card animate-on-scroll">
           <div class="showcase-image">
             <picture>
-            <source srcset="/images/showcases/home.webp" type="image/webp" />
-            <img loading="lazy" src="/images/showcases/home.webp"
+            <source srcset="/images/showcases/bikeros-landing.webp" type="image/webp" />
+            <img loading="lazy" src="/images/showcases/bikeros-landing.webp"
               alt="BikerOS landing page — built with Nix.js Kit (SSG, islands, SEO)"
               onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'>
           </picture><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%2316161f\\'/><text x=\\'50%\\' y=\\'50%\\' fill=\\'%23a0a0b5\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\' font-family=\\'sans-serif\\' font-weight=\\'bold\\' font-size=\\'1.5rem\\'>BikerOS Landing</text></svg>'">
@@ -97,6 +97,63 @@ export function Showcases(): NixTemplate {
             </span>
           </div>
         </div>
+
+        <!-- Nix.js Kit Docs -->
+        <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener" class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <picture>
+            <source srcset="/images/showcases/nix-js-kit-docs.webp" type="image/webp" />
+            <img loading="lazy" src="/images/showcases/nix-js-kit-docs.png"
+              alt="Nix.js Kit documentation site — built with Nix.js Kit itself (dogfooding)"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'>
+          </picture><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%2316161f\\'/><text x=\\'50%\\' y=\\'50%\\' fill=\\'%23a0a0b5\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\' font-family=\\'sans-serif\\' font-weight=\\'bold\\' font-size=\\'1.5rem\\'>Nix.js Kit Docs</text></svg>'">
+          </div>
+          <div class="showcase-content">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <span style="font-size:0.7rem;font-weight:700;color:var(--accent-light);background:var(--accent-subtle);padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:0.5px">Nix.js Kit</span>
+              <span style="font-size:0.7rem;font-weight:600;color:var(--text-muted)">Dogfooding</span>
+            </div>
+            <h3>Nix.js Kit Docs</h3>
+            <p>The official Nix.js Kit documentation — built with Nix.js Kit itself. File-based routing, SSG, islands,
+              Shiki code highlighting, full-text search, and SEO out of the box.</p>
+            <span class="showcase-link">Visit project
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Unicolombo Academic System -->
+        <a href="https://parcial-1-analisis-2-unicolombo.vercel.app/home" target="_blank" rel="noopener"
+          class="showcase-card animate-on-scroll">
+          <div class="showcase-image">
+            <picture>
+            <source srcset="/images/showcases/nix-student-library.webp" type="image/webp" />
+            <img loading="lazy" src="/images/showcases/nix-student-library.png"
+              alt="Academic Management System built using Nix.js and Nix-UI components"
+              onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'>
+          </picture><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%2316161f\\'/><text x=\\'50%\\' y=\\'50%\\' fill=\\'%23a0a0b5\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\' font-family=\\'sans-serif\\' font-weight=\\'bold\\' font-size=\\'1.5rem\\'>Academic System</text></svg>'">
+          </div>
+          <div class="showcase-content">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <span style="font-size:0.7rem;font-weight:700;color:var(--blue);background:rgba(96,165,250,0.1);padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:0.5px">Nix.js</span>
+              <span style="font-size:0.7rem;font-weight:600;color:var(--text-muted)">SPA</span>
+            </div>
+            <h3>University Academic System</h3>
+            <p>An academic tracking platform showcasing client-side routing, global state management, and nested layouts
+              powered by Nix.js.</p>
+            <span class="showcase-link">Visit project
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
