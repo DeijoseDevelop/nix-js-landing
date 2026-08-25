@@ -15,7 +15,7 @@ export function Stats(): NixTemplate {
         <div class="stat-label">Best-case JS-only gain</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value orange">524</div>
+        <div class="stat-value orange">1054</div>
         <div class="stat-label">Tests passing</div>
       </div>
       <div class="stat-item">

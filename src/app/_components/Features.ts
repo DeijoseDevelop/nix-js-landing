@@ -35,7 +35,7 @@ export function Features(): NixTemplate {
           </div>
           <h3>No Compiler Required</h3>
           <p>Templates are standard JavaScript tagged template literals. No JSX transform, no SFC compiler, no
-            build-time magic needed.</p>
+            build-time magic needed. An optional build-time compiler (<code>@deijose/nix-js-compiler</code>) is available for up to -44% faster renders when you want maximum performance.</p>
         </div>
         <div class="why-card animate-on-scroll">
           <div class="why-icon orange">

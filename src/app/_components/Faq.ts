@@ -32,7 +32,7 @@ export function Faq(): NixTemplate {
 
           <div class="faq-item">
             <button class="faq-question">
-              What's new in Nix.js 3.4.0?
+              What's new in Nix.js 3.5.0?
               <span class="faq-chevron">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -42,12 +42,36 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nix.js 3.4.0 moves partial attribute interpolation to the Vite plugin
-                (<code>@deijose/vite-plugin-nix-js</code> >= 1.1.0), making the core runtime leaner by ~2 KB.
-                The plugin's compile-time lexer rewrites partials into full bindings before the core sees them.
-                Nix.js Kit 2.3.0 delegates to the plugin when installed, falling back to its legacy transform.
-                The ecosystem packages <code>@deijose/nix-query</code>, <code>@deijose/nix-ionic</code>,
-                and <code>@deijose/nix-ui</code> are aligned with this release.
+                Nix.js 3.5.0 adds an optional build-time compiler (<code>@deijose/nix-js-compiler</code>) that
+                generates direct DOM manipulation code, eliminating runtime TreeWalker and detectContext overhead
+                (-28% average, up to -44% faster renders). The Vite plugin (<code>@deijose/vite-plugin-nix-js</code> >= 2.0.2) uses
+                the compiler automatically — no manual setup needed.
+                Nix.js Kit 2.4.4 adds client-only islands (<code>directive: "only"</code>, <code>ssr: false</code>),
+                <code>fallback</code> content, <code>isSSR()</code> for environment reads, and fixes hydration
+                for islands without SSR DOM.
+                The ecosystem packages <code>@deijose/nix-query</code> 1.5.1, <code>@deijose/nix-ionic</code> 2.0.7,
+                <code>@deijose/nix-js-auth</code> 1.2.2, and <code>@deijose/nix-i18n</code> 1.3.2 are aligned.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Do I need a compiler or build step?
+              <span class="faq-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. Nix.js works with zero build step — templates are standard JavaScript tagged template literals
+                that run natively via ESM/import maps. The build-time compiler (<code>@deijose/nix-js-compiler</code>)
+                is <strong>optional</strong> and only improves performance by -28% on average (up to -44%) on rendering benchmarks.
+                The Vite plugin enables it automatically when installed, but you can use Nix.js without any
+                bundler at all.
               </div>
             </div>
           </div>
@@ -119,7 +143,7 @@ export function Faq(): NixTemplate {
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Use <code>@deijose/nix-ionic@1.4.14</code> with Ionic Core for routing + native-style UI, then wrap
+                Yes. Use <code>@deijose/nix-ionic@2.0.7</code> with Ionic Core for routing + native-style UI, then wrap
                 with Capacitor for Android/iOS deployment using the same codebase.
               </div>
             </div>
@@ -139,25 +163,6 @@ export function Faq(): NixTemplate {
               <div class="faq-answer-inner">
                 Usually minimal. Most upgrades are dependency updates plus a quick validation pass over routes,
                 reactive effects, and tooling integrations.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Can I verify benchmark numbers myself?
-              <span class="faq-chevron">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Yes. Run the same benchmark scenarios from the public playground:
-                <a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Open live benchmarks
-                  &rarr;</a>
               </div>
             </div>
           </div>

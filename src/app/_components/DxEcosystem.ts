@@ -40,17 +40,49 @@ export function DxEcosystem(): NixTemplate {
             <span class="badge-new" style="margin-left:auto">New</span>
           </div>
           <p>Drop the plugin into your Vite config and get optimized Nix.js handling, better HMR, and template-aware
-            transforms out of the box.</p>
-          <code><span style="color:var(--accent-light)">import</span> nix <span
+            transforms out of the box. Includes the optional build-time compiler for up to -44% faster renders.</p>
+          <code><span style="color:var(--accent-light)">import</span> nixJs <span
               style="color:var(--accent-light)">from</span> <span
               style="color:var(--green)">"@deijose/vite-plugin-nix-js"</span>;
 
             <span style="color:var(--accent-light)">export default</span> <span
               style="color:var(--blue)">defineConfig</span>({
-            plugins: [<span style="color:var(--blue)">nix</span>()],
+            plugins: [<span style="color:var(--blue)">nixJs</span>()],
             });</code>
           <a href="https://www.npmjs.com/package/@deijose/vite-plugin-nix-js" class="feature-card-link" target="_blank"
             rel="noopener">Read docs →</a>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">🔧</span>
+            <h3>Build-Time Compiler</h3>
+            <span class="badge-new" style="margin-left:auto">Optional</span>
+          </div>
+          <p>Optional compile-time compiler that parses <code>html\`\`</code> templates and generates direct DOM
+            manipulation code. Eliminates runtime TreeWalker and detectContext overhead. -28% average (-44% peak) faster renders, matches Solid on 6/9 CPU benchmarks.</p>
+          <code><span style="color:var(--accent-light)">import</span> { compileTemplate } <span
+              style="color:var(--accent-light)">from</span> <span
+              style="color:var(--green)">"@deijose/nix-js-compiler"</span>;
+
+            <span style="color:var(--cmt)">// Used internally by the Vite plugin</span>
+            <span style="color:var(--cmt)">// — no manual setup needed</span></code>
+          <a href="https://www.npmjs.com/package/@deijose/nix-js-compiler" class="feature-card-link" target="_blank"
+            rel="noopener">Read docs →</a>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card-header">
+            <span class="feature-card-icon">🎨</span>
+            <h3>VS Code Extension</h3>
+            <span class="badge-new" style="margin-left:auto">New</span>
+          </div>
+          <p>Syntax highlighting for <code>html\`\`</code> templates and <code>raw()</code>, event binding autocomplete,
+            diagnostics, quick fixes, formatting, and snippets. Powered by a language server that also works in Neovim, Helix, Zed, and Emacs.</p>
+          <code><span style="color:var(--cmt)"># Install from the VS Code Marketplace</span>
+            <span style="color:var(--green)">$</span> code --install-extension DeijoseDevelop.vscode-nix-js
+
+            <span style="color:var(--cmt)"># Or search "Nix.js" in the Extensions panel</span></code>
+          <a href="https://marketplace.visualstudio.com/items?itemName=DeijoseDevelop.vscode-nix-js" class="feature-card-link" target="_blank"
+            rel="noopener">Install →</a>
         </div>
         <div class="feature-card animate-on-scroll">
           <div class="feature-card-header">

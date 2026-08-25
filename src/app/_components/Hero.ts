@@ -10,20 +10,20 @@ export function Hero(): NixTemplate {
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        v3.4.0 — Partial attribute interpolation moved to Vite plugin, leaner core
+        v3.5.0 — Optional build-time compiler, client-only islands, leaner core
       </div>
       <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener"
         style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:linear-gradient(90deg,rgba(52,50,200,0.15),rgba(43,199,240,0.15));border:1px solid rgba(43,199,240,0.3);font-size:0.8rem;font-weight:600;color:#2bc7f0;margin-bottom:32px;margin-left:10px;animation:fadeInUp 0.6s ease-out 0.1s both;text-decoration:none;">
         <span
           style="width:6px;height:6px;border-radius:50%;background:#2bc7f0;animation:blink 2s ease-in-out infinite"></span>
-        Nix.js Kit 2.3.0 — Full-stack meta-framework →
+        Nix.js Kit 2.4.4 — Full-stack meta-framework →
       </a>
       <h1>
         Build reactive UIs in the browser<br>
         <span class="gradient-text">with no build step.</span>
       </h1>
       <p class="hero-subtitle">
-        Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler.
+        Signal-based reactivity that runs natively with ESM/import maps. No virtual DOM. No compiler required — but an optional build-time compiler gives up to -44% faster renders.
         <strong>Use DOM-first JS libraries directly (Chart.js, Leaflet, AG Grid) and pick your path: web with Nix-UI
           or mobile with Nix-Ionic. Nix Query works in both.</strong>
       </p>
@@ -50,14 +50,15 @@ export function Hero(): NixTemplate {
       <div class="ecosystem-bar">
         <span class="eco-badge"><span class="eco-dot ts"></span> TypeScript-first</span>
         <span class="eco-badge"><span class="eco-dot mit"></span> MIT License</span>
-        <span class="eco-badge"><span class="eco-dot test"></span> 628 tests passing</span>
+        <span class="eco-badge"><span class="eco-dot test"></span> 1054 tests passing</span>
         <span class="eco-badge"><span class="eco-dot"
             style="background:#10b981;box-shadow:0 0 10px rgba(16, 185, 129,0.5)"></span> 92.9% Coverage</span>
         <span class="eco-badge"><span class="eco-dot size"></span> ~15 KB gzipped</span>
         <span class="eco-badge"><span class="eco-dot" style="background:#60a5fa"></span> Nix UI</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.4.3</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#f472b6"></span> Nix Auth 1.1.1</span>
-        <span class="eco-badge"><span class="eco-dot" style="background:#3432c8"></span> Nix.js Kit 2.3.0</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#fb923c"></span> Nix Query 1.5.1</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#f472b6"></span> Nix Auth 1.2.2</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#3432c8"></span> Nix.js Kit 2.4.4</span>
+        <span class="eco-badge"><span class="eco-dot" style="background:#a78bfa"></span> VS Code Extension</span>
         <span class="eco-badge"><span class="eco-dot zero"></span> Zero dependencies</span>
       </div>
 
