@@ -7,33 +7,50 @@ export function IronBikers(): NixTemplate {
     <div class="container">
       <div class="case-study-grid">
         <div class="animate-on-scroll">
-          <div class="case-kicker">Success Case</div>
-          <h2 class="case-title">Iron Bikers: <span class="gradient-text">mobile app</span> for biker community</h2>
+          <div class="case-kicker">Production Case Study</div>
+          <h2 class="case-title">BikerOS: <span class="gradient-text">the OS for motorcycle clubs</span></h2>
           <p class="case-text">
-            We developed a full-featured mobile app to manage their community: member registration, route and event
-            coordination, internal communication, and administrative tools—all from the phone.
+            A full-stack platform for motorcycle clubs — live GPS tracking, SOS emergencies, route management,
+            events, and a web admin panel. Built entirely on the Nix.js ecosystem across 4 apps.
           </p>
 
           <div class="case-tags">
-            <span class="case-tag">Mobile App</span>
-            <span class="case-tag">Android & iOS</span>
-            <span class="case-tag">Community Management</span>
-            <span class="case-tag">Routes & Events</span>
+            <span class="case-tag">Nix-Ionic (Mobile)</span>
+            <span class="case-tag">Nix.js Kit (Landing + Web)</span>
+            <span class="case-tag">Nix Query (Data)</span>
+            <span class="case-tag">SSG + SSR</span>
+            <span class="case-tag">Offline-first</span>
+            <span class="case-tag">White-label ready</span>
           </div>
 
           <div class="case-metrics">
             <div class="case-metric">
-              <strong>4</strong>
-              <span>Weeks</span>
+              <strong>2</strong>
+              <span>Apps shipped</span>
             </div>
             <div class="case-metric">
-              <strong>Android</strong>
-              <span>& iOS</span>
+              <strong>6</strong>
+              <span>SOS types</span>
+            </div>
+            <div class="case-metric">
+              <strong>40+</strong>
+              <span>Members per club</span>
             </div>
             <div class="case-metric">
               <strong>100%</strong>
-              <span>Custom Built</span>
+              <span>Nix.js ecosystem</span>
             </div>
+          </div>
+
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://www.bikeros.co/" target="_blank" rel="noopener" class="btn-primary" style="padding:10px 22px;font-size:0.88rem">
+              Visit bikeros.co
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -44,11 +61,11 @@ export function IronBikers(): NixTemplate {
                 <div class="case-phone-notch"></div>
                 <div class="case-phone-screen">
                   <div class="ib-slider">
-                    <img src="/images/app-1.webp" alt="Iron Bikers App Login" width="300" height="600" loading="lazy"
+                    <img src="/images/bikeros-sos.webp" alt="BikerOS App — SOS Emergency" width="300" height="600" loading="lazy"
                       decoding="async">
-                    <img src="/images/app-3.webp" alt="Iron Bikers App Light Mode" width="300" height="600"
+                    <img src="/images/bikeros-home.webp" alt="BikerOS App — Home Dashboard" width="300" height="600"
                       loading="lazy" decoding="async">
-                    <img src="/images/app-2.webp" alt="Iron Bikers App Dark Mode" width="300" height="600"
+                    <img src="/images/bikeros-eventos.webp" alt="BikerOS App — Events & Rides" width="300" height="600"
                       loading="lazy" decoding="async">
                   </div>
                 </div>
@@ -60,11 +77,38 @@ export function IronBikers(): NixTemplate {
               <div class="case-phone-shell">
                 <div class="case-phone-notch"></div>
                 <div class="case-phone-screen">
-                  <img src="/images/app-2.webp" alt="App Back Screen" width="260" height="560" loading="lazy"
+                  <img src="/images/bikeros-perfil.webp" alt="BikerOS App — Pilot Profile" width="260" height="560" loading="lazy"
                     decoding="async">
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture breakdown -->
+      <div class="case-architecture animate-on-scroll" style="margin-top:48px">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:20px;color:var(--text-primary)">Built on the Nix.js ecosystem</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <div style="padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--card-bg)">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Mobile App</div>
+            <strong style="display:block;margin-bottom:6px">BikerOS App</strong>
+            <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Nix-Ionic + Nix Query. SOS emergencies, live GPS tracking, offline routes, ICE medical info, event RSVP.</p>
+          </div>
+          <div style="padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--card-bg)">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Landing Page</div>
+            <strong style="display:block;margin-bottom:6px">bikeros.co</strong>
+            <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Nix.js Kit with SSG, islands, SEO, sitemap, and content collections. Pricing, features, FAQ.</p>
+          </div>
+          <div style="padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--card-bg)">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Admin Panel</div>
+            <strong style="display:block;margin-bottom:6px">BikerOS Web</strong>
+            <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Nix.js + Nix Query. Member management, route builder with map, event dashboard, billing and invoicing.</p>
+          </div>
+          <div style="padding:20px;border:1px solid var(--border);border-radius:12px;background:var(--card-bg)">
+            <div style="font-size:0.75rem;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">White-label</div>
+            <strong style="display:block;margin-bottom:6px">Iron Bikers</strong>
+            <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">BikerOS white-label instance for the Iron Bikers club. Custom branding, domain, and club-specific features.</p>
           </div>
         </div>
       </div>

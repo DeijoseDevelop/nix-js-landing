@@ -113,7 +113,6 @@ export function Ecosystem(): NixTemplate {
     </div>
   </section>
 
-  <!-- DX Ecosystem — New additions -->
   <style>
     .dx-ecosystem-grid {
       display: grid;
