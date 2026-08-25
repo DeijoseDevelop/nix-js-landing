@@ -24,17 +24,27 @@ export function NixKit(): NixTemplate {
             <span class="nix-kit-mode">Islands</span>
             <span class="nix-kit-mode">API Routes</span>
             <span class="nix-kit-mode">Server Actions</span>
+            <span class="nix-kit-mode">Streaming</span>
+            <span class="nix-kit-mode">Adapters</span>
           </div>
           <ul class="nix-kit-points">
             <li><span class="nix-kit-check">✓</span> <span><strong>File-based routing</strong> with dynamic routes,
-                catch-all, and route groups.</span></li>
+                catch-all, route groups, <code>generateStaticParams</code>, and named <strong>layout slots</strong>
+                (<code>*.slot.ts</code>).</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Islands architecture</strong> — hydrate only
                 interactive components with <code>load</code>, <code>idle</code>, <code>visible</code>,
-                and <code>only</code> (client-only) directives. Optional <code>fallback</code> and <code>ssr: false</code>.</span></li>
+                and <code>only</code> (client-only) directives. Optional <code>fallback</code>, <code>ssr: false</code>,
+                and <code>isSSR()</code> for environment reads.</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Zero client JS by default</strong> — pages ship as
-                static HTML unless you opt into hydration.</span></li>
+                static HTML unless you opt into hydration. Route-level code-splitting via per-island
+                <code>import()</code> chunks.</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Content collections</strong> with typed Markdown,
                 YAML frontmatter, and Zod validation.</span></li>
+            <li><span class="nix-kit-check">✓</span> <span><strong>Server actions</strong> with <code>nixJsAction()</code>
+                — reactive <code>pending</code>, <code>error</code>, and <code>data</code> signals. Progressive
+                enhancement via HTML form submissions. <code>fail()</code> and <code>redirect()</code> helpers.</span></li>
+            <li><span class="nix-kit-check">✓</span> <span><strong>Suspense streaming</strong> — <code>streamBoundary()</code>
+                emits <code>&lt;template&gt;</code> chunks that swap fallback content in-place when resolved.</span></li>
           </ul>
 
           <div class="nix-kit-wow-grid">
@@ -44,7 +54,8 @@ export function NixKit(): NixTemplate {
             </div>
             <div class="nix-kit-wow-card">
               <strong>Image Optimization</strong>
-              Build-time WebP/AVIF with srcset/sizes and lazy loading.
+              Build-time WebP/AVIF with srcset/sizes, lazy loading, and <code>getImage()</code> API.
+              SHA-256 transform keys, atomic writes, bounded concurrency.
             </div>
             <div class="nix-kit-wow-card">
               <strong>Middleware</strong>
@@ -54,12 +65,29 @@ export function NixKit(): NixTemplate {
               <strong>SPA Router</strong>
               Client-side navigation with style hoisting and no flash.
             </div>
+            <div class="nix-kit-wow-card">
+              <strong>Cache Adapters</strong>
+              Filesystem, Redis, Upstash, and Cloudflare KV. Tag-based invalidation.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>Deployment Adapters</strong>
+              Vercel, Netlify, Bun, and Node. One command: <code>nix-js-kit adapter &lt;name&gt;</code>.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>Custom Error Pages</strong>
+              <code>404.page.ts</code> and <code>500.page.ts</code> rendered during SSG, SSR, and all adapters.
+            </div>
+            <div class="nix-kit-wow-card">
+              <strong>Security Hardened</strong>
+              CSRF origin checks, path traversal fuzz tests, production error sanitization.
+            </div>
           </div>
 
           <div class="nix-kit-callout">
-            v2.4.4 adds client-only islands (<code>directive: "only"</code>, <code>ssr: false</code>),
-            <code>fallback</code> content for loading states, <code>isSSR()</code> for environment reads,
-            and fixes hydration for islands without SSR DOM.
+            v2.4.4 — client-only islands (<code>directive: "only"</code>, <code>ssr: false</code>),
+            <code>fallback</code> content, <code>isSSR()</code>, and hydration fix for islands without SSR DOM.
+            Config file renamed to <code>nix-js.config.*</code>. Happy-dom fully removed — SSR uses the core's
+            DOM-free <code>renderToString</code> directly.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
