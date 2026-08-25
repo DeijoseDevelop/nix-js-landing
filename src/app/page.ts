@@ -12,7 +12,6 @@ import { HowItWorks } from "./_components/HowItWorks";
 import { CodeShowcase } from "./_components/CodeShowcase";
 import { Ecosystem } from "./_components/Ecosystem";
 import { DxEcosystem } from "./_components/DxEcosystem";
-import { Tooling } from "./_components/Tooling";
 import { NixKit } from "./_components/NixKit";
 import { NixQuery } from "./_components/NixQuery";
 import { NixI18n } from "./_components/NixI18n";
@@ -69,7 +68,6 @@ export default function HomePage() {
     ${CodeShowcase()}
     ${Ecosystem()}
     ${DxEcosystem()}
-    ${Tooling()}
     ${NixKit()}
     ${NixQuery()}
     ${NixI18n()}
