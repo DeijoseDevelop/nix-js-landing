@@ -42,7 +42,7 @@ export function Comparison(): NixTemplate {
             <tr>
               <th class="th-op" rowspan="2">Operation (1k rows)</th>
               <th class="th-nix-old fw-group" colspan="2" title="Versión estable anterior">Nix.js 1.3.0</th>
-              <th class="th-nix fw-group" colspan="2">Nix.js 3.4.0 🚀</th>
+              <th class="th-nix fw-group" colspan="2">Nix.js 3.5.0 🚀</th>
               <th class="th-van fw-group" colspan="2">Vanilla JS</th>
               <th class="th-solid fw-group" colspan="2">Solid.js</th>
               <th class="th-svelte fw-group" colspan="2">Svelte 5</th>

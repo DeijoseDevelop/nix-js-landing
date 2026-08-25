@@ -11,9 +11,9 @@ import ScrollReveal from "../islands/ScrollReveal.ts";
 
 const announcement = `<div class="announcement-bar">
     <span>New:</span>
-    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit 2.3.0</a>
+    <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit 2.4.4</a>
     <span class="ab-sep">—</span>
-    <span>Full-stack meta-framework with file-based routing, SSG/SSR/ISR, and islands.</span>
+    <span>Client-only islands, optional build-time compiler, and zero client JS by default.</span>
     <a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Explore →</a>
   </div>`;
 
@@ -56,8 +56,6 @@ const navbar = `<nav class="navbar" id="navbar">
           <ul class="dropdown-menu">
             <li><a href="https://kit.nix-js.dev/" target="_blank" rel="noopener">Nix.js Kit
                 <span class="badge-new">New</span></a></li>
-            <li><a href="https://js-benchmark.nix-js.dev/" target="_blank" rel="noopener">Performance
-                Benchmarks</a></li>
             <li><a href="https://www.npmjs.com/package/@deijose/nix-query" target="_blank" rel="noopener">Nix Query
                 <span class="badge-new">New</span></a></li>
             <li><a href="https://www.npmjs.com/package/@deijose/nix-i18n" target="_blank" rel="noopener">Nix i18n
@@ -66,7 +64,7 @@ const navbar = `<nav class="navbar" id="navbar">
                 <span class="badge-new">New</span></a></li>
             <li><a href="https://ui.nix-js.dev/" target="_blank" rel="noopener">Nix-UI</a></li>
             <li><a href="#nix-ionic" rel="noopener">Nix-Ionic</a></li>
-            <li><a href="#showcases">Built with Nix</a></li>
+            <li><a href="#showcases">Built with Nix.js</a></li>
           </ul>
         </li>
         <li>

@@ -29,8 +29,8 @@ export function NixKit(): NixTemplate {
             <li><span class="nix-kit-check">✓</span> <span><strong>File-based routing</strong> with dynamic routes,
                 catch-all, and route groups.</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Islands architecture</strong> — hydrate only
-                interactive components with <code>load</code>, <code>idle</code>, <code>visible</code>
-                directives.</span></li>
+                interactive components with <code>load</code>, <code>idle</code>, <code>visible</code>,
+                and <code>only</code> (client-only) directives. Optional <code>fallback</code> and <code>ssr: false</code>.</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Zero client JS by default</strong> — pages ship as
                 static HTML unless you opt into hydration.</span></li>
             <li><span class="nix-kit-check">✓</span> <span><strong>Content collections</strong> with typed Markdown,
@@ -57,8 +57,9 @@ export function NixKit(): NixTemplate {
           </div>
 
           <div class="nix-kit-callout">
-            v2.3.0 adds interpolation delegation to the Vite plugin, route-level code-splitting,
-            layout slots, Redis/KV cache adapters, and real Suspense streaming.
+            v2.4.4 adds client-only islands (<code>directive: "only"</code>, <code>ssr: false</code>),
+            <code>fallback</code> content for loading states, <code>isSSR()</code> for environment reads,
+            and fixes hydration for islands without SSR DOM.
           </div>
 
           <a href="https://kit.nix-js.dev/" class="btn-primary" target="_blank" rel="noopener">
